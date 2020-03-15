@@ -1,29 +1,38 @@
 #ifndef USUARIO_H
 #define USUARIO_H
-#include "DtFecha.h"
 #include <string>
-#include "viaje.h"
 #define MAX_VIAJES 100
 
-usig namespace std;
+#include "DtFecha.h"
+#include "viaje.h"
+
+using namespace std;
 
 class usuario{
   private:
-    strig cedula;
-    strig nombre;
+    string cedula;
+    string nombre;
     DtFecha fechaIngreso;
-    Viaje* viajes[MAX_VIAJES];
+    viaje* viajes[MAX_VIAJES];
     int topeV;
 
   public:
     usuario();
     usuario(string,string,DtFecha);
+    ~usuario();//destrctor
+    void setUsuNombre(string);
+    void setUsuCedula(string);
+    void setUsuFechaIngreso(DtFecha);
+    void getUsuNombre();
+    void getUsuCedula();
+    void getUsuFechaIngreso();
+    void agregarViaje(viaje*);
 
 
 
 
 
-}
+};
 
 
 
