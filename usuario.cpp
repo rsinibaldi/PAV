@@ -8,7 +8,7 @@
 using namespace std;
 
 usuario::usuario(){}
-~usuario::~usuario(){}//destrctor
+usuario::~usuario(){}//destrctor
 usuario::usuario(string ci,string nom,DtFecha fchIngreso){
 
     this->cedula = ci;

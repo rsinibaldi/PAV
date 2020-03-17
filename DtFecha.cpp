@@ -25,4 +25,4 @@ int DtFecha::getAnio(){
   return this->anio;
 }
 
-DtFecha::~DtFecha();
+DtFecha::~DtFecha(){};
