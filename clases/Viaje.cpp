@@ -7,10 +7,8 @@
 using namespace std;
 
 Viaje::Viaje() {}
-Viaje::Viaje(DtFecha fecha, int duracion, int distancia, Usuario* usuario){
+Viaje::Viaje(DtFecha fecha, int duracion, int distancia){
     this-> fechaIngreso=fecha;
     this -> duracion=duracion;
     this -> distancia=distancia;
-    this ->
-
 }
