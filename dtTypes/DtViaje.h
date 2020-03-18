@@ -1,6 +1,7 @@
 #ifndef PAV_DTVIAJE_H
 #define PAV_DTVIAJE_H
 #include "DtViaje.h"
+#include "../dtTypes/DtFecha.h"
 
 class DtViaje: public DtViajeBase{
 private:

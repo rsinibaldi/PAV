@@ -7,16 +7,16 @@ Monopatin::Monopatin(int nroSerie, float porcentajeBateria, float precioBase, bo
     this ->tieneLuces =tieneLuces;
 
 }
-int Monopatin::getTieneLuces() {
+bool Monopatin::getTieneLuces() {
     return this ->tieneLuces;
 }
-void Monopatin:setTieneLuces(bool tineLuces){
+void Monopatin::setTieneLuces(bool tineLuces){
     this -> tieneLuces=tineLuces;
-};
+}
 
 Monopatin::~Monopatin() {}
 
 float Monopatin::darPrecioViaje() {
-    if (getTieneLuces())
-        return this -> (0.5 * getDuraci
+    if (getTieneLuces()){}
+      //  return this -> (0.5 * getDuracion())
 }

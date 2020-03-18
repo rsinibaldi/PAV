@@ -2,6 +2,7 @@
 #define PAV_DTVIAJEBASE_H
 
 #include <iostream>
+#include "../dtTypes/DtFecha.h"
 
 using namespace std;
 class DtViajeBase{
@@ -11,7 +12,7 @@ protected:
   DtFecha fechaIngreso;
 public:
     DtViajeBase();
-    DtViajeBase(DtFecha,int,int);
+    DtViajeBase(int,int,DtFecha);
     int getDtViajeBaseDuracion();
     int getDtViajeBaseDistancia();
     DtFecha getDtViajeBaseFechaIngreso();

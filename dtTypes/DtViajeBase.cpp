@@ -19,8 +19,8 @@ DtFecha DtViajeBase::getDtViajeBaseFechaIngreso(){
 DtViajeBase::~DtViajeBase(){}
 
 ostream& operator <<(ostream& salida, const DtViajeBase& dtV){
-    cout << "Duración: "<< dtV.duracion <<
-    "\n" "Distancia: " << dtV.distancia <<
-    "\n" "Fecha de Ingreso: " << dtV.fechaIngreso << endl;
-    return salida;
+    // cout << "Duración: "<< dtV.duracion <<
+    // "\n" "Distancia: " << dtV.distancia <<
+    // "\n" "Fecha de Ingreso: " << dtV.fechaIngreso << endl;
+    // return salida;
 }
