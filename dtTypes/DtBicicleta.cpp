@@ -1,8 +1,10 @@
+#include <iostream>
+#include <stdlib.h>
 #include "DtBicicleta.h"
 #include "../enum/TipoBici.h"
 DtBicicleta::DtBicicleta(){}
-DtBicicleta::DtBicicleta(int nroSerie, float porcentaje, float precioBase, tipoBici tipo, int cantCambios ):DtVehiculo(nroSerie, porcentaje, precioBase){
-    this -> tipoBici = tipo;
+DtBicicleta::DtBicicleta(int nroSerie, float porcentaje, float precioBase, tipoBici tipoo, int cantCambios ):DtVehiculo(nroSerie, porcentaje, precioBase){
+    this -> tipo = tipo;
     this -> cantCambios= cantCambios;
 }
 
@@ -11,7 +13,7 @@ tipoBici DtBicicleta::getTipoBici() {
 }
 
 int DtBicicleta::getCantCambios(){
-    return this -> cantCAmbios;
+    return this -> cantCambios;
 }
 DtBicicleta::~DtBicicleta() {}
 
