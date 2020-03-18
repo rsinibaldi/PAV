@@ -1,6 +1,7 @@
 #ifndef Usuario_H
 #define Usuario_H
-#include <string>
+#include <string.h>
+#include <iostream>
 #define MAX_VIAJES 100
 
 #include "../dtTypes/DtFecha.h"
@@ -27,10 +28,6 @@ class Usuario{
     string getUsuCedula();
     string getUsuFechaIngreso();
     void agregarViaje(Viaje*);
-
-
-
-
 
 };
 
