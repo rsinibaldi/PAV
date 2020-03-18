@@ -6,8 +6,8 @@ Vehiculo::Vehiculo(int nroSerie, float porcentajeBateria, float precioBase) {
     this -> precioBase=precioBase;
 }
 
-int Vehiculo::getPrecioBase() {
-    return  this->nroSerie;
+int Vehiculo::getNroSerie() {
+    return this->nroSerie;
 }
 void Vehiculo::setNroSerie(int) {
     this->nroSerie=nroSerie;

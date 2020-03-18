@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <iostream>
 #include "Usuario.h"
 
 using namespace std;
@@ -15,14 +16,14 @@ Usuario::Usuario(string ci,string nom,DtFecha fchIngreso){
 
 }
 
-string Usuario::setUsuNombre(string nom){
+void Usuario::setUsuNombre(string nom){
     this ->nombre=nom;
 }
-string Usuario::setUsuCedula(string ci) {
+void Usuario::setUsuCedula(string ci) {
     this -> cedula=ci;
 }
 
-DtFecha Usuario::setUsuFechaIngreso(DtFecha fecha){
+void Usuario::setUsuFechaIngreso(DtFecha fecha){
     this ->fechaIngreso=fecha;
 }
 
@@ -30,7 +31,7 @@ DtFecha Usuario::setUsuFechaIngreso(DtFecha fecha){
 // void getUsuCedula();
 // void getUsuFechaIngreso();
 
-void Usuario::agregarViaje(viaje* v){
+void Usuario::agregarViaje(Viaje* v){
   this->viajes[this->topeV] = v;
   this->topeV++;
 }
