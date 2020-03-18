@@ -11,6 +11,5 @@ Viaje::Viaje(DtFecha fecha, int duracion, int distancia, Usuario* usuario){
     this-> fechaIngreso=fecha;
     this -> duracion=duracion;
     this -> distancia=distancia;
-    this ->
 
 }
