@@ -1,0 +1,52 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/yokad/Google Drive/PAV2020/MIKE/clases/Monopatin.h
+../clases/Vehiculo.h
+C:/Users/yokad/Google Drive/PAV2020/MIKE/clases/Vehiculo.h
+
+C:/Users/yokad/Google Drive/PAV2020/MIKE/clases/Usuario.h
+string
+-
+../dtTypes/DtFecha.h
+C:/Users/yokad/Google Drive/PAV2020/MIKE/dtTypes/DtFecha.h
+Viaje.h
+C:/Users/yokad/Google Drive/PAV2020/MIKE/clases/Viaje.h
+
+C:/Users/yokad/Google Drive/PAV2020/MIKE/clases/Vehiculo.h
+../enum/TipoBici.h
+C:/Users/yokad/Google Drive/PAV2020/MIKE/enum/TipoBici.h
+../clases/Vehiculo.h
+C:/Users/yokad/Google Drive/PAV2020/MIKE/clases/Vehiculo.h
+iostream
+C:/Users/yokad/Google Drive/PAV2020/MIKE/clases/iostream
+
+C:/Users/yokad/Google Drive/PAV2020/MIKE/clases/Viaje.h
+../dtTypes/DtFecha.h
+C:/Users/yokad/Google Drive/PAV2020/MIKE/dtTypes/DtFecha.h
+
+C:/Users/yokad/Google Drive/PAV2020/MIKE/dtTypes/DtFecha.h
+
+C:/Users/yokad/Google Drive/PAV2020/MIKE/enum/TipoBici.h
+
+C:/Users/yokad/Google Drive/PAV2020/MIKE/main.cpp
+iostream
+-
+stdio.h
+-
+string.h
+-
+clases/Monopatin.h
+C:/Users/yokad/Google Drive/PAV2020/MIKE/clases/Monopatin.h
+clases/Usuario.h
+C:/Users/yokad/Google Drive/PAV2020/MIKE/clases/Usuario.h
+clases/Vehiculo.h
+C:/Users/yokad/Google Drive/PAV2020/MIKE/clases/Vehiculo.h
+clases/Viaje.h
+C:/Users/yokad/Google Drive/PAV2020/MIKE/clases/Viaje.h
+

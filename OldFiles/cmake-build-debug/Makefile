@@ -47,10 +47,10 @@ RM = "C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\yokad\Google Drive\PAV2020\MIKE"
+CMAKE_SOURCE_DIR = "C:\Users\yokad\Google Drive\PAV2020\LAB1\PAV"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\yokad\Google Drive\PAV2020\MIKE\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\yokad\Google Drive\PAV2020\LAB1\PAV\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\yokad\Google Drive\PAV2020\MIKE\cmake-build-debug\CMakeFiles" "C:\Users\yokad\Google Drive\PAV2020\MIKE\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\yokad\Google Drive\PAV2020\LAB1\PAV\cmake-build-debug\CMakeFiles" "C:\Users\yokad\Google Drive\PAV2020\LAB1\PAV\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\yokad\Google Drive\PAV2020\MIKE\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\yokad\Google Drive\PAV2020\LAB1\PAV\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -110,44 +110,125 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named MIKE
+# Target rules for targets named PAV
 
 # Build rule for target.
-MIKE: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 MIKE
-.PHONY : MIKE
+PAV: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 PAV
+.PHONY : PAV
 
 # fast build rule for target.
-MIKE/fast:
-	$(MAKE) -f CMakeFiles\MIKE.dir\build.make CMakeFiles/MIKE.dir/build
-.PHONY : MIKE/fast
+PAV/fast:
+	$(MAKE) -f CMakeFiles\PAV.dir\build.make CMakeFiles/PAV.dir/build
+.PHONY : PAV/fast
 
-main.obj: main.cpp.obj
+DtFecha.obj: DtFecha.cpp.obj
 
-.PHONY : main.obj
+.PHONY : DtFecha.obj
 
 # target to build an object file
-main.cpp.obj:
-	$(MAKE) -f CMakeFiles\MIKE.dir\build.make CMakeFiles/MIKE.dir/main.cpp.obj
-.PHONY : main.cpp.obj
+DtFecha.cpp.obj:
+	$(MAKE) -f CMakeFiles\PAV.dir\build.make CMakeFiles/PAV.dir/DtFecha.cpp.obj
+.PHONY : DtFecha.cpp.obj
 
-main.i: main.cpp.i
+DtFecha.i: DtFecha.cpp.i
 
-.PHONY : main.i
+.PHONY : DtFecha.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles\MIKE.dir\build.make CMakeFiles/MIKE.dir/main.cpp.i
-.PHONY : main.cpp.i
+DtFecha.cpp.i:
+	$(MAKE) -f CMakeFiles\PAV.dir\build.make CMakeFiles/PAV.dir/DtFecha.cpp.i
+.PHONY : DtFecha.cpp.i
 
-main.s: main.cpp.s
+DtFecha.s: DtFecha.cpp.s
 
-.PHONY : main.s
+.PHONY : DtFecha.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles\MIKE.dir\build.make CMakeFiles/MIKE.dir/main.cpp.s
-.PHONY : main.cpp.s
+DtFecha.cpp.s:
+	$(MAKE) -f CMakeFiles\PAV.dir\build.make CMakeFiles/PAV.dir/DtFecha.cpp.s
+.PHONY : DtFecha.cpp.s
+
+DtVehiculo.obj: DtVehiculo.cpp.obj
+
+.PHONY : DtVehiculo.obj
+
+# target to build an object file
+DtVehiculo.cpp.obj:
+	$(MAKE) -f CMakeFiles\PAV.dir\build.make CMakeFiles/PAV.dir/DtVehiculo.cpp.obj
+.PHONY : DtVehiculo.cpp.obj
+
+DtVehiculo.i: DtVehiculo.cpp.i
+
+.PHONY : DtVehiculo.i
+
+# target to preprocess a source file
+DtVehiculo.cpp.i:
+	$(MAKE) -f CMakeFiles\PAV.dir\build.make CMakeFiles/PAV.dir/DtVehiculo.cpp.i
+.PHONY : DtVehiculo.cpp.i
+
+DtVehiculo.s: DtVehiculo.cpp.s
+
+.PHONY : DtVehiculo.s
+
+# target to generate assembly for a file
+DtVehiculo.cpp.s:
+	$(MAKE) -f CMakeFiles\PAV.dir\build.make CMakeFiles/PAV.dir/DtVehiculo.cpp.s
+.PHONY : DtVehiculo.cpp.s
+
+usuario.obj: usuario.cpp.obj
+
+.PHONY : usuario.obj
+
+# target to build an object file
+usuario.cpp.obj:
+	$(MAKE) -f CMakeFiles\PAV.dir\build.make CMakeFiles/PAV.dir/usuario.cpp.obj
+.PHONY : usuario.cpp.obj
+
+usuario.i: usuario.cpp.i
+
+.PHONY : usuario.i
+
+# target to preprocess a source file
+usuario.cpp.i:
+	$(MAKE) -f CMakeFiles\PAV.dir\build.make CMakeFiles/PAV.dir/usuario.cpp.i
+.PHONY : usuario.cpp.i
+
+usuario.s: usuario.cpp.s
+
+.PHONY : usuario.s
+
+# target to generate assembly for a file
+usuario.cpp.s:
+	$(MAKE) -f CMakeFiles\PAV.dir\build.make CMakeFiles/PAV.dir/usuario.cpp.s
+.PHONY : usuario.cpp.s
+
+viaje.obj: viaje.cpp.obj
+
+.PHONY : viaje.obj
+
+# target to build an object file
+viaje.cpp.obj:
+	$(MAKE) -f CMakeFiles\PAV.dir\build.make CMakeFiles/PAV.dir/viaje.cpp.obj
+.PHONY : viaje.cpp.obj
+
+viaje.i: viaje.cpp.i
+
+.PHONY : viaje.i
+
+# target to preprocess a source file
+viaje.cpp.i:
+	$(MAKE) -f CMakeFiles\PAV.dir\build.make CMakeFiles/PAV.dir/viaje.cpp.i
+.PHONY : viaje.cpp.i
+
+viaje.s: viaje.cpp.s
+
+.PHONY : viaje.s
+
+# target to generate assembly for a file
+viaje.cpp.s:
+	$(MAKE) -f CMakeFiles\PAV.dir\build.make CMakeFiles/PAV.dir/viaje.cpp.s
+.PHONY : viaje.cpp.s
 
 # Help Target
 help:
@@ -155,12 +236,21 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... MIKE
+	@echo ... PAV
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
+	@echo ... DtFecha.obj
+	@echo ... DtFecha.i
+	@echo ... DtFecha.s
+	@echo ... DtVehiculo.obj
+	@echo ... DtVehiculo.i
+	@echo ... DtVehiculo.s
+	@echo ... usuario.obj
+	@echo ... usuario.i
+	@echo ... usuario.s
+	@echo ... viaje.obj
+	@echo ... viaje.i
+	@echo ... viaje.s
 .PHONY : help
 
 
