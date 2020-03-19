@@ -3,6 +3,7 @@
 #include <string.h>
 #include "DtViaje.h"
 #include "DtViajeBase.h"
+#include "DtVehiculo.h"
 
 using namespace std;
 
@@ -15,7 +16,7 @@ DtViaje::DtViaje(float precioTotal, DtVehiculo vehiculo){
 float DtViaje::getDtViajePrecioTotal(){
   return this-> precioTotal;
 }
-float DtViaje::getDtViajeVehiculo(){
+DtVehiculo DtViaje::getDtViajeVehiculo(){
   return this-> vehiculo;
 }
 

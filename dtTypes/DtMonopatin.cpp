@@ -9,8 +9,8 @@ bool DtMonopatin::getTieneLuces() {
 }
 DtMonopatin::~DtMonopatin() {}
 
-ostream& operator << (ostream& salida, const DtMonopatin& dtM){
+/*ostream& operator << (ostream& salida, const DtMonopatin& dtM){
     string luces = (dtM.tieneLuces)? "True":"False";
     cout<< (DtVehiculo) dtM << "Tiene Luces?: " << luces[dtM.tieneLuces] << luces << endl;
     return salida;
-}
+}*/

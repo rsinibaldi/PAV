@@ -19,9 +19,9 @@ float DtVehiculo::getPrecioBase(){
 
 DtVehiculo::~DtVehiculo(){}
 
-ostream& operator <<(ostream& salida, const DtVehiculo& dtV){
+/*ostream& operator <<(ostream& salida, const DtVehiculo& dtV){
     cout << "numero de serie: "<< dtV.nroSerie <<
     "\n" "Porcentaje: " << dtV.porcentaje <<
     "\n" "Precio Base: " << dtV.precioBase << endl;
     return salida;
-}
+}*/
