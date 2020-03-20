@@ -8,11 +8,11 @@ using namespace std;
 
 Usuario::Usuario(){}
 Usuario::~Usuario(){}//destrctor
-Usuario::Usuario(string ci,string nom,DtFecha fchIngreso){
+Usuario::Usuario(string ci,string nom/*DtFecha fchIngreso*/){
 
     this->cedula = ci;
     this->nombre = nom;
-    this->fechaIngreso = fchIngreso;
+   // this->fechaIngreso = fchIngreso;
 
 }
 
@@ -23,12 +23,16 @@ void Usuario::setUsuCedula(string ci) {
     this -> cedula=ci;
 }
 
-void Usuario::setUsuFechaIngreso(DtFecha fecha){
+/*void Usuario::setUsuFechaIngreso(DtFecha fecha){
     this ->fechaIngreso=fecha;
-}
+}*/
 
-// void getUsuNombre();
-// void getUsuCedula();
+string Usuario::getUsuNombre(){
+    return this->nombre;
+}
+string  Usuario::getUsuCedula(){
+    return this -> cedula;
+}
 // void getUsuFechaIngreso();
 
 void Usuario::agregarViaje(Viaje* v){
