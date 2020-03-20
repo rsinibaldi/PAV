@@ -7,6 +7,7 @@
 #include "clases/Viaje.h"
 
 
+
 //MENU
 void menu(){
     cout <<"_____________________________________________" <<endl;
@@ -33,17 +34,18 @@ int main() {
         switch(opcion){
             case 1: cout<< "op1"; //registrarUsuario();
                 break;
-            case 2: cout<< "op1";//agregarVehiculo();
+            case 2: cout<< "op2";
+                agregarVehiculo();
                 break;
-            case 3: cout<< "op1";//ingresarViaje();
+            case 3: cout<< "op3";//ingresarViaje();
                 break;
-            case 4: cout<< "op1";//verViajesAntesDeFecha();
+            case 4: cout<< "op4";//verViajesAntesDeFecha();
                 break;
-            case 5: cout<< "op1";//eliminarViajes();
+            case 5: cout<< "op5";//eliminarViajes();
                 break;
-            case 6: cout<< "op1";//cambiarBateria();
+            case 6: cout<< "op6";//cambiarBateria();
                 break;
-            case 7: cout<< "op1";//obtenerVehiculos();
+            case 7: cout<< "op7";//obtenerVehiculos();
                 break;
             case 99: system("exit");
                 cout << "SALIENDO..." << endl;
@@ -54,4 +56,17 @@ int main() {
         cin >> opcion;
     }
     return 0;
+}
+
+
+
+void agregarVehiculo(){
+
+	system("clear");
+	cout <<"___________________________________________________" <<endl;
+	cout <<"______R E G I S T R O__D E__ V E H I C U L O_______"<< endl;
+
+
+
+
 }
