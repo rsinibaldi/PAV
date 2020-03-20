@@ -9,7 +9,7 @@ class DtFecha{
 
   public:
     DtFecha();
-    DtFecha(int,int,int);
+    DtFecha(int dia,int mes, int anio);
     int getDia();
     int getMes();
     int getAnio();

@@ -13,20 +13,20 @@ class Usuario{
   private:
     string cedula;
     string nombre;
-    DtFecha fechaIngreso;
+    //DtFecha fechaIngreso;
     Viaje* viajes[MAX_VIAJES];
     int topeV;
 
   public:
     Usuario();
-    Usuario(string,string,DtFecha);
+    Usuario(string,string/*DtFecha*/);
     ~Usuario();//destrctor
-    void setUsuNombre(string);
-    void setUsuCedula(string);
-    void setUsuFechaIngreso(DtFecha);
+    void setUsuNombre(string nombre);
+    void setUsuCedula(string cedula);
+   // void setUsuFechaIngreso(DtFecha);
     string getUsuNombre();
     string getUsuCedula();
-    string getUsuFechaIngreso();
+   // string getUsuFechaIngreso();
     void agregarViaje(Viaje*);
 
 };
