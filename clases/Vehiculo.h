@@ -21,6 +21,8 @@ public:
     float getPrecioBase();
     void setPrecioBase(float);
     ~Vehiculo();
-    virtual float darPrecioviaje()=0;
+
+    //RS: esto rompe..tengo que investigar como funciona esto.
+    // virtual float darPrecioviaje()=0;
 };
 #endif //MIKE_VEHICULO_H
