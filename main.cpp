@@ -80,9 +80,14 @@ void agregarVehiculo(){
   cout << endl << "Precio base: ";
   cin >> precioBase;
 
-  if (!existeVehiculo(nroSerie)){
-    agregarVehiculo(nroSerie, porcentajeBateria, precioBase);
-  }
+  // if (!existeVehiculo(nroSerie)){
+    try{
+      existeVehiculo(nroSerie);
+      agregarVehiculo(nroSerie, porcentajeBateria, precioBase);
+    }catch(invalid_argument& e){
+      cout << e.what() << endl;
+    }
+  // }
 }
 
 void agregarVehiculo(int nroSerie, float porcentajeBateria, float precioBase){
@@ -121,7 +126,7 @@ bool existeVehiculo(int nSerie){
     }
 
     if (existe){
-      throw invalid_argument("ERROR! Ya existe un vehiculo con ese numero de serie.");
+      throw invalid_argument("ERROR! Ya existe un vehiculo con ese numero de serie.\n");
     }
 
     return existe;
