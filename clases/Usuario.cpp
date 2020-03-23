@@ -1,41 +1,58 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <iostream>
 #include "Usuario.h"
 
-using namespace std;
-
-Usuario::Usuario(){}
-Usuario::~Usuario(){}//destrctor
-Usuario::Usuario(string ci,string nom/*DtFecha fchIngreso*/){
-
-    this->cedula = ci;
-    this->nombre = nom;
-   // this->fechaIngreso = fchIngreso;
-
+//Constructores
+Usuario::Usuario() {}
+Usuario::Usuario(string cedula, string nombre/*, DtFecha fechaIngreso*/) {
+    this->cedula = cedula;
+    this->nombre = nombre;
+    //this->fechaIngreso = fechaIngreso;
+    this->topeV = 0;
 }
 
-void Usuario::setUsuNombre(string nom){
-    this ->nombre=nom;
+//Getters & Setters
+string Usuario::getUsuCedula() {
+    return this->cedula;
 }
-void Usuario::setUsuCedula(string ci) {
-    this -> cedula=ci;
+void Usuario::setUsuCedula(string cedula) {
+    this->cedula = cedula;
 }
-
-/*void Usuario::setUsuFechaIngreso(DtFecha fecha){
-    this ->fechaIngreso=fecha;
-}*/
-
-string Usuario::getUsuNombre(){
+string Usuario::getUsuNombre() {
     return this->nombre;
 }
-string  Usuario::getUsuCedula(){
-    return this -> cedula;
+void Usuario::setUsuNombre(string nombre) {
+    this->nombre = nombre;
 }
-// void getUsuFechaIngreso();
+DtFecha Usuario::getUsuFechaIngreso() {
+    return this->fechaIngreso;
+}
+void Usuario::setUsuFechaIngreso(DtFecha fechaIngreso) {
+    this->fechaIngreso = fechaIngreso;
+}
 
-void Usuario::agregarViaje(Viaje* v){
-  this->viajes[this->topeV] = v;
-  this->topeV++;
+//Destructores
+Usuario::~Usuario() {
+    eliminarViajes();
+}
+
+//Métodos
+int Usuario::getUsuTopeViajes() {
+    return this->topeV;
+}
+bool Usuario::agregarViaje(Viaje* viaje) {
+    if (getUsuTopeViajes() < MAX_VIAJES) {
+        this->viajes[getUsuTopeViajes()] = viaje;
+        this->topeV++;
+    }
+}
+Viaje** Usuario::obtenerViajes() {
+	Viaje** viajes = new Viaje*[getUsuTopeViajes()];
+	for(int i=0; i<getUsuTopeViajes(); i++)
+		viajes[i] = this->viajes[i];
+	return viajes;
+}
+void Usuario::eliminarViajes() {
+	for(int i=0; i<getUsuTopeViajes(); i++)
+		delete this->viajes[i];
 }

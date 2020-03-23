@@ -1,22 +1,29 @@
-#include "../clases/Monopatin.h"
-#include "../clases/Vehiculo.h"
-#include "../clases/Viaje.h"
+#include "Monopatin.h"
+#include "Vehiculo.h"
+#include "Viaje.h"
 
-Monopatin::Monopatin(){}
-Monopatin::Monopatin(int nroSerie, float porcentajeBateria, float precioBase, bool tieneLuces):Vehiculo(nroSerie,porcentajeBateria,precioBase){
-    this ->tieneLuces =tieneLuces;
-
+//Constructores
+Monopatin::Monopatin() {}
+Monopatin::Monopatin(int nroSerie, float porcentajeBateria, float precioBase, bool tieneLuces):Vehiculo(nroSerie,porcentajeBateria,precioBase) {
+    this->tieneLuces = tieneLuces;
 }
+
+//Getters & Setters
 bool Monopatin::getTieneLuces() {
-    return this ->tieneLuces;
+    return this->tieneLuces;
 }
-void Monopatin::setTieneLuces(bool tineLuces){
-    this -> tieneLuces=tineLuces;
+void Monopatin::setTieneLuces(bool tineLuces) {
+    this->tieneLuces = tineLuces;
 }
 
+//Destructores
 Monopatin::~Monopatin() {}
 
-float Monopatin::darPrecioViaje() {
-    if (getTieneLuces()){}
-      //  return this -> (0.5 * getDuracion())
+//Métodos
+float Monopatin::darPrecioViaje(int duracion, int distancia) {
+    float precio = distancia * getPrecioBase();
+    if (getTieneLuces()){
+        precio += (0.5 * duracion);
+    }
+    return precio;
 }

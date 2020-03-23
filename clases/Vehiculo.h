@@ -1,28 +1,29 @@
-#ifndef MIKE_VEHICULO_H
-#define MIKE_VEHICULO_H
+#ifndef Vehiculo_H
+#define Vehiculo_H
 
-#include "../enum/TipoBici.h"
-#include "../clases/Vehiculo.h"
-#include "iostream"
-
-using namespace std;
-class Vehiculo{
+class Vehiculo {
 private:
     int nroSerie;
     float porcentajeBateria;
     float precioBase;
 public:
+    //Constructores
     Vehiculo();
     Vehiculo(int, float, float);
+    
+    //Getters & Setters
     int getNroSerie();
     void setNroSerie(int);
     float getPorcentajeBateria();
     void setPorcentajeBateria(float);
     float getPrecioBase();
     void setPrecioBase(float);
+
+    //Destructores
     ~Vehiculo();
 
-    //RS: esto rompe..tengo que investigar como funciona esto.
-    // virtual float darPrecioviaje()=0;
+    //Métodos
+	virtual float darPrecioviaje(int, int);
 };
-#endif //MIKE_VEHICULO_H
+
+#endif //Vehiculo_H

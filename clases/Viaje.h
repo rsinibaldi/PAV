@@ -2,29 +2,35 @@
 #define Viaje_H
 
 #include "../dtTypes/DtFecha.h"
+#include "Vehiculo.h"
 
 using namespace std;
 
-class Viaje{
-  private:
-    int duracion;
-    int distancia;
-    DtFecha fechaIngreso;
+class Viaje {
+private:
+  DtFecha fecha;
+  int duracion;
+  int distancia;
+  int vehiculo;
+public:
+  //Constructores
+  Viaje();
+  Viaje(DtFecha, int, int, int);
 
-  public:
-    Viaje();
-    Viaje(DtFecha,int,int);
-    void setViajeDuracion(int duracion);
-    void setViajeDistancia(int distancia);
-    void setViajeFechaIngreso(DtFecha fecha);
-    int getViajeDuracion();
-    int getViajeDistancia();
-    DtFecha getViajeFechaIngreso();
-    ~Viaje();//destrctor
+  //Getters & Setters
+  DtFecha getViajeFecha();
+  void setViajeFecha(DtFecha fecha);
+  int getViajeDuracion();
+  void setViajeDuracion(int duracion);
+  int getViajeDistancia();
+  void setViajeDistancia(int distancia);
+  int getViajeVehiculo();
+  void setViajeVehiculo(int vehiculo);
 
-//aca hay que agregar las funciones que vinculen a viaje
+  //Destructores
+  ~Viaje();
+
+  //Métodos
 };
 
-
-
-#endif
+#endif //Viaje_H

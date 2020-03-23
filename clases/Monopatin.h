@@ -1,9 +1,5 @@
-//
-// Created by yokad on 3/17/2020.
-//
-
-#ifndef MIKE_MONOPATIN_H
-#define MIKE_MONOPATIN_H
+#ifndef Monopatin_H
+#define Monopatin_H
 
 #include "../clases/Vehiculo.h"
 
@@ -11,15 +7,19 @@ class Monopatin: public Vehiculo {
 private:
     bool tieneLuces;
 public:
+    //Constructores
     Monopatin();
-    Monopatin(int,float,float,bool);
+    Monopatin(int, float, float, bool);
+
+    //Getters & Setters
     bool getTieneLuces();
     void setTieneLuces(bool);
+
+    //Destructores
     ~Monopatin();
 
-    virtual float darPrecioViaje();
-
+    //Métodos
+    float darPrecioViaje(int, int);
 };
 
-
-#endif //MIKE_MONOPATIN_H
+#endif //Monopatin_H
