@@ -24,7 +24,9 @@ void menu();
 void existeUsuario(string);
 Usuario* obtenerUsuario(string);
 bool existeVehiculo(int);
+bool validarRegistroVehiulo(int, float, float);
 Vehiculo* obtenerVehiculo(int);
+void listarVehiculos();
 
 //OPERACION1 REGISTRAR USUARIO
 void agregarVehiculo();
@@ -72,6 +74,7 @@ void agregarVehiculo(){
 
   int nroSerie;
   float porcentajeBateria, precioBase;
+  bool okRegistro = false;
 
   cout << "Nº de serie: ";
   cin >> nroSerie;
@@ -82,8 +85,10 @@ void agregarVehiculo(){
 
   // if (!existeVehiculo(nroSerie)){
     try{
-      existeVehiculo(nroSerie);
-      agregarVehiculo(nroSerie, porcentajeBateria, precioBase);
+      okRegistro = validarRegistroVehiulo(nroSerie, porcentajeBateria, precioBase);
+      if(okRegistro){
+        agregarVehiculo(nroSerie, porcentajeBateria, precioBase);
+      }
     }catch(invalid_argument& e){
       cout << e.what() << endl;
     }
@@ -93,6 +98,7 @@ void agregarVehiculo(){
 void agregarVehiculo(int nroSerie, float porcentajeBateria, float precioBase){
   Vehiculo* vehiculo;
   //construyo vehiculo
+
   vehiculo= new Vehiculo(nroSerie, porcentajeBateria, precioBase);
   coleccionVehiculos.vehiculos[coleccionVehiculos.tope]=vehiculo;
   coleccionVehiculos.tope++;
@@ -125,11 +131,42 @@ bool existeVehiculo(int nSerie){
         i++;
     }
 
-    if (existe){
-      throw invalid_argument("ERROR! Ya existe un vehiculo con ese numero de serie.\n");
+    if (!existe){
+      throw invalid_argument("ERROR! No exite vehiculo con el Nº de serie ingresado.\n");
     }
 
     return existe;
+}
+
+bool validarRegistroVehiulo(int nSerie, float porcentaje, float precio){
+    int i=0;
+    bool  existeVehiculo  =false;
+    bool  resp = true;
+
+    while ((i<coleccionVehiculos.tope) && (!existeVehiculo)){
+      if(nSerie==coleccionVehiculos.vehiculos[i]->getNroSerie()){
+        existeVehiculo =true;
+        resp = false;
+      }
+      i++;
+    }
+
+    if(porcentaje<0 || porcentaje>100){
+      resp = false;
+      throw invalid_argument("ERROR! El porcentaje debe estar entre 0 y 100.\n");
+    }
+    if(precio<0){
+      resp = false;
+      throw invalid_argument("ERROR! El precio debe ser mayor a 0.\n");
+    }
+
+    if (existeVehiculo){
+      resp = false;
+      throw invalid_argument("ERROR! Ya existe un vehiculo con ese numero de serie.\n");
+    }
+
+    return resp;
+
 }
 
 Usuario* obtenerUsuario(string ci){
@@ -144,6 +181,16 @@ Usuario* obtenerUsuario(string ci){
         i++;
     }
     return usuarioEncontrado;
+}
+
+void listarVehiculos(){
+
+  for(int i=0;i<coleccionVehiculos.tope;i++){
+    cout<< i << " - Serie: "<< coleccionVehiculos.vehiculos[i]->getNroSerie() << std::endl;
+    cout<< i << " - Bateria: "<< coleccionVehiculos.vehiculos[i]->getPorcentajeBateria() << std::endl;
+    cout<< i << " - precio: "<< coleccionVehiculos.vehiculos[i]->getPrecioBase() << std::endl;
+  }
+
 }
 
 Vehiculo* obtenerVehiculo(int nSerie){
@@ -164,19 +211,20 @@ Vehiculo* obtenerVehiculo(int nSerie){
 
 //MENU
 void menu(){
-    //system("clear");
+    // system("clear");
     cout <<"_____________________________________________" <<endl;
     std::cout << "==              M  E  N  U                 ==" << std::endl;
     cout <<"=============================================" <<endl;
     std::cout << "1. REGISTRAR USUARIO"<< std::endl;
     std::cout << "11. BUSCAR USUARIO"<< std::endl;
     std::cout << "2. AGREGAR VEHICULO"<< std::endl;
-    std::cout << "22. BUSCAR VEHICULO"<< std::endl;
     std::cout << "3. INGRESAR VIAJE"<< std::endl;
     std::cout << "4. VER VIAJES ANTES DE FECHA"<< std::endl;
     std::cout << "5. ELIMINAR VIAJES"<< std::endl;
     std::cout << "6. CAMBIAR BATERIA DE VEHICULO"<< std::endl;
     std::cout << "7. OBTENER VEHICULOS"<< std::endl;
+    std::cout << "97. [RS] - BUSCAR VEHICULO"<< std::endl;
+    std::cout << "98. [RS] - LISTAR VEHICULOS"<< std::endl;
     std::cout << "99. SALIR"<< std::endl;
     cout <<"_____________________________________________" <<endl;
     cout<<"OPCION>> ";
@@ -210,7 +258,7 @@ int main() {
                      cin>> ci;
                      obtenerUsuario(ci);
                 break;
-            case 22:  int serie;
+            case 97:  int serie;
                       cout<< "Nro de serie auto: ";//obtenerVehiculos();
                       cin>> serie;
                       Vehiculo* vehiculoEncontrado;
@@ -219,6 +267,10 @@ int main() {
                        cout<< "Encontre - Bateria: "<< vehiculoEncontrado->getPorcentajeBateria() << std::endl;
                        cout<< "Encontre - precio: "<< vehiculoEncontrado->getPrecioBase() << std::endl;
                 break;
+            case 98:
+                cout << "LISTAR VEHICULOS..." << endl;
+                listarVehiculos();
+                    break;
             case 99: system("exit");
                 cout << "SALIENDO..." << endl;
             default:
