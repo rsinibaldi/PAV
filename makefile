@@ -1,8 +1,10 @@
-main: Monopatin.o Usuario.o Vehiculo.o Viaje.o DtBicicleta.o DtFecha.o DtMonopatin.o DtVehiculo.o DtViajeBase.o DtViaje.o
-	g++ main.cpp -o obligatorio Monopatin.o Usuario.o Vehiculo.o Viaje.o DtBicicleta.o DtFecha.o DtMonopatin.o DtVehiculo.o DtViajeBase.o DtViaje.o
+main: Monopatin.o Bicicleta.o Usuario.o Vehiculo.o Viaje.o DtFecha.o DtMonopatin.o DtBicicleta.o DtVehiculo.o DtViajeBase.o DtViaje.o
+	g++ main.cpp -o obligatorio Monopatin.o Bicicleta.o Usuario.o Vehiculo.o Viaje.o DtFecha.o DtMonopatin.o DtBicicleta.o DtVehiculo.o DtViajeBase.o DtViaje.o
 #clases
 Monopatin.o: clases/Monopatin.cpp clases/Monopatin.h clases/Vehiculo.cpp clases/Vehiculo.h clases/Viaje.cpp clases/Viaje.h
 	g++ -c clases/Monopatin.cpp -o Monopatin.o
+Bicicleta.o: clases/Bicicleta.cpp clases/Bicicleta.h clases/Vehiculo.cpp clases/Vehiculo.h clases/Viaje.cpp clases/Viaje.h
+	g++ -c clases/Bicicleta.cpp -o Bicicleta.o
 Usuario.o: clases/Usuario.cpp clases/Usuario.h
 	g++ -c clases/Usuario.cpp -o Usuario.o
 Vehiculo.o: clases/Vehiculo.cpp clases/Vehiculo.h
