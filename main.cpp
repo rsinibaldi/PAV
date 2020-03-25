@@ -24,9 +24,12 @@ void menu();
 void existeUsuario(string);
 Usuario* obtenerUsuario(string);
 bool existeVehiculo(int);
-bool validarRegistroVehiulo(int, float, float);
 Vehiculo* obtenerVehiculo(int);
 void listarVehiculos();
+
+//Validaciones
+bool validarRegistroVehiulo(int, float, float);
+bool validarRecargaBateria(int, float);
 
 //OPERACION1 REGISTRAR USUARIO
 void agregarVehiculo();
@@ -36,6 +39,9 @@ void registrarUsuario(string ci, string nombre /*Dtfecha fecha*/);
 void agregarVehiculo();
 void agregarVehiculo(int nroSerie, float porcentajeBateria, float precioBase);
 
+//OPERACION6 CAMBIAR BATERIA
+void cambiarBateria();
+void cambiarBateriaVehiculo(int nroSerieVehiculo, float cargaVehiculo);
 
 /*----------------------------OPERACION1 REGISTRAR USUARIO--------------------------------------------*/
 void registrarUsuario(){
@@ -68,9 +74,9 @@ void registrarUsuario(string ci, string nombre){
 void agregarVehiculo(){
 
 	system("clear");
-  cout <<"____________________________________________" <<endl;
+  cout <<"________________________________________________" <<endl;
   cout <<"====R E G I S T R O  D E   V E H I C U L O S===="<< endl;
-  cout <<"____________________________________________\n" <<endl;
+  cout <<"________________________________________________\n" <<endl;
 
   int nroSerie;
   float porcentajeBateria, precioBase;
@@ -106,6 +112,60 @@ void agregarVehiculo(int nroSerie, float porcentajeBateria, float precioBase){
 }
 /*----------------------------FIN OPERACION2 REGISTRAR VEHICULOS--------------------------------------------*/
 
+
+/*----------------------------OPERACION6 CARGA BATERIA--------------------------------------------*/
+void cambiarBateria(){
+
+	system("clear");
+  cout <<"___________________________________" <<endl;
+  cout <<"====C A R G A R   B A T E R Í A===="<< endl;
+  cout <<"___________________________________\n" <<endl;
+
+  int nroSerie;
+  float porcentajeBateria;
+  bool  okRegistro  = false;
+
+  cout << "Nº de serie a buscar: ";
+  cin >> nroSerie;
+
+  try{
+    okRegistro = existeVehiculo(nroSerie);
+    //Exite vehiculo, vamos a cargar la bateria
+    if(okRegistro){
+      cout << "Porcentaje de batería cargado: ";
+      cin >> porcentajeBateria;
+
+      try{
+        cambiarBateriaVehiculo(nroSerie, porcentajeBateria);
+      }catch(invalid_argument& e){
+        cout << e.what() << endl;
+      }
+    }
+
+  }catch(invalid_argument& e){
+    cout << e.what() << endl;
+  }
+
+}
+
+void cambiarBateriaVehiculo(int nSerie, float porcentaje){
+  int i=0;
+  bool existe=false;
+
+  if(porcentaje<0 || porcentaje>100){
+    throw invalid_argument("ERROR! El porcentaje debe estar entre 0 y 100.\n");
+  }else{
+    while ((i<coleccionVehiculos.tope) && (!existe)){
+        if(nSerie==coleccionVehiculos.vehiculos[i]->getNroSerie())
+          coleccionVehiculos.vehiculos[i]->setPorcentajeBateria(porcentaje);
+          existe =true;
+        i++;
+    }
+  }
+
+}
+
+/*----------------------------FIN OPERACION6 CARGA BATERIA--------------------------------------------*/
 
 /*----------------------------FUNCIONES AUXILIARES--------------------------------------------*/
 
@@ -250,7 +310,7 @@ int main() {
                 break;
             case 5: cout<< "op5";//eliminarViajes();
                 break;
-            case 6: cout<< "op6";//cambiarBateria();
+            case 6: cambiarBateria();
                 break;
             case 7: cout<< "op7";//obtenerVehiculos();
                 break;
@@ -258,7 +318,9 @@ int main() {
                      cin>> ci;
                      obtenerUsuario(ci);
                 break;
-            case 97:  int serie;
+            case 97:
+                      system("clear");
+                      int serie;
                       cout<< "Nro de serie auto: ";//obtenerVehiculos();
                       cin>> serie;
                       Vehiculo* vehiculoEncontrado;
@@ -268,9 +330,10 @@ int main() {
                        cout<< "Encontre - precio: "<< vehiculoEncontrado->getPrecioBase() << std::endl;
                 break;
             case 98:
-                cout << "LISTAR VEHICULOS..." << endl;
-                listarVehiculos();
-                    break;
+                    system("clear");
+                    cout << "LISTAR VEHICULOS..." << endl;
+                    listarVehiculos();
+                break;
             case 99: system("exit");
                 cout << "SALIENDO..." << endl;
             default:
