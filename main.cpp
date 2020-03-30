@@ -1,14 +1,24 @@
+#include "clases/Usuario.h"
+#include "clases/Viaje.h"
+#include "clases/Vehiculo.h"
+#include "clases/Monopatin.h"
+#include "clases/Bicicleta.h"
+
+#include "dtTypes/DtViajeBase.h"
+#include "dtTypes/DtViaje.h"
+#include "dtTypes/DtVehiculo.h"
+#include "dtTypes/DtMonopatin.h"
+#include "dtTypes/DtBicicleta.h"
+#include "dtTypes/DtFecha.h"
+
 #include <iostream>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
-#include "clases/Monopatin.h"
-#include "clases/Usuario.h"
-#include "clases/Vehiculo.h"
-#include "dtTypes/DtReloj.h"
-#include "dtTypes/DtFecha.h"
-#include "clases/Viaje.h"
+#include <time.h>
+
 #define  MAX_USUARIOS 10
+
 struct {
     Usuario* usuarios[MAX_USUARIOS];
     int tope;
@@ -27,93 +37,176 @@ bool existeVehiculo(int);
 Vehiculo* obtenerVehiculo(int);
 void listarVehiculos();
 
-//Validaciones
-bool validarRegistroVehiulo(int, float, float);
+//VALIDACIONES
+void validarRegistroUsuario(string ci);
+bool validarRegistroVehiculo(int, float, float);
 bool validarRecargaBateria(int, float);
 
 //OPERACION1 REGISTRAR USUARIO
-void agregarVehiculo();
-void registrarUsuario(string ci, string nombre /*Dtfecha fecha*/);
+void registrarUsuario();
+void registrarUsuario(string ci, string nombre, DtFecha dtFecha);
 
 //OPERACION2 REGISTRAR VEHICULOS
 void agregarVehiculo();
 void agregarVehiculo(int nroSerie, float porcentajeBateria, float precioBase);
 
+//OPERACION3 INGRESAR VIAJES
+
+//OPERACION4 VER VIAJES ANTES DE FECHA
+void verViajesAntesDeFecha();
+DtViaje** verViajesAntesDeFecha(DtFecha&, string, int&);
+
+//OPERACION5 INGRESAR VIAJES
+
 //OPERACION6 CAMBIAR BATERIA
 void cambiarBateria();
 void cambiarBateriaVehiculo(int nroSerieVehiculo, float cargaVehiculo);
 
-/*----------------------------OPERACION1 REGISTRAR USUARIO--------------------------------------------*/
+//OPERACION7 OBTENER VEHICULOS
+
+#pragma region Op1 - REGISTRAR USUARIO
 void registrarUsuario(){
-    system ("clear");
-    cout <<"____________________________________________" <<endl;
-    cout <<"====R E G I S T R O  D E   U S U A R I O===="<< endl;
-    cout <<"____________________________________________\n" <<endl;
-    string ci, nombre;
-//    DtFecha fechaIngreso;
-//    DtReloj dtReloj;
-    cout << "NOMBRE: ";
-    cin >> nombre;
-    cout << endl << "CI: ";
-    cin >> ci;
-//    dtReloj=DtReloj();
-    registrarUsuario(ci, nombre);
+  system ("clear");
+  cout <<"_____________________________________________________"<< endl;
+  cout <<"========R E G I S T R O   D E   U S U A R I O========"<< endl;
+  cout <<"_____________________________________________________"<< endl;
+  
+  string ci, nombre;
+  DtFecha fechaIngreso;
+
+  time_t fechaActual = time(0);
+  tm* fecha = localtime(&fechaActual);
+  int dia = fecha->tm_mday;
+  int mes = 1 + fecha->tm_mon;
+  int anio = 1900 + fecha->tm_year; 
+  DtFecha dtFecha = DtFecha(dia, mes, anio);
+
+  cout << endl << "NOMBRE: ";
+  cin >> nombre;
+  cout << endl << "CI: ";
+  cin >> ci;
+  
+  try{    
+    validarRegistroUsuario(ci);
+    registrarUsuario(ci, nombre, dtFecha);
+    cout << endl << "Usuario dado de alta." << endl;
+  }catch(invalid_argument& e){
+    cout << endl << e.what() << endl;
+  }
 }
-void registrarUsuario(string ci, string nombre){
-    Usuario* usuario;
-    //construyo usuario sin fecha, falta definir como se hace
-    usuario= new Usuario(ci, nombre);
-    coleccionUsuarios.usuarios[coleccionUsuarios.tope]=usuario;
+void registrarUsuario(string ci, string nombre, DtFecha dtFecha){
+    Usuario* usuario = new Usuario(ci, nombre, dtFecha);
+    coleccionUsuarios.usuarios[coleccionUsuarios.tope] = usuario;
     coleccionUsuarios.tope++;
-
 }
-/*----------------------------FIN OPERACION1--------------------------------------------*/
+#pragma endregion Op1 - REGISTRAR USUARIO
 
-
-/*----------------------------OPERACION2 REGISTRAR VEHICULOS--------------------------------------------*/
+#pragma region Op2 - REGISTRAR VEHICULOS
 void agregarVehiculo(){
-
 	system("clear");
-  cout <<"________________________________________________" <<endl;
-  cout <<"====R E G I S T R O  D E   V E H I C U L O S===="<< endl;
-  cout <<"________________________________________________\n" <<endl;
+  cout <<"_____________________________________________________" <<endl;
+  cout <<"======R E G I S T R O   D E   V E H I C U L O S======"<< endl;
+  cout <<"_____________________________________________________" <<endl;
 
   int nroSerie;
   float porcentajeBateria, precioBase;
   bool okRegistro = false;
 
-  cout << "Nº de serie: ";
+  cout << endl << "Nº de serie: ";
   cin >> nroSerie;
   cout << endl << "Porcentaje de batería: ";
   cin >> porcentajeBateria;
   cout << endl << "Precio base: ";
   cin >> precioBase;
 
-  // if (!existeVehiculo(nroSerie)){
-    try{
-      okRegistro = validarRegistroVehiulo(nroSerie, porcentajeBateria, precioBase);
-      if(okRegistro){
-        agregarVehiculo(nroSerie, porcentajeBateria, precioBase);
-      }
-    }catch(invalid_argument& e){
-      cout << e.what() << endl;
+  try{
+    okRegistro = validarRegistroVehiculo(nroSerie, porcentajeBateria, precioBase);
+    if(okRegistro){
+      agregarVehiculo(nroSerie, porcentajeBateria, precioBase);
     }
-  // }
+  }catch(invalid_argument& e){
+    cout << e.what() << endl;
+  }
 }
-
 void agregarVehiculo(int nroSerie, float porcentajeBateria, float precioBase){
-  Vehiculo* vehiculo;
-  //construyo vehiculo
-
-  vehiculo= new Vehiculo(nroSerie, porcentajeBateria, precioBase);
+  Vehiculo* vehiculo = new Vehiculo(nroSerie, porcentajeBateria, precioBase);
   coleccionVehiculos.vehiculos[coleccionVehiculos.tope]=vehiculo;
   coleccionVehiculos.tope++;
-
 }
-/*----------------------------FIN OPERACION2 REGISTRAR VEHICULOS--------------------------------------------*/
+#pragma endregion Op2 - REGISTRAR VEHICULOS
 
+#pragma region Op3 - INGRESAR VIAJES
+#pragma endregion Op3 - INGRESAR VIAJES
 
-/*----------------------------OPERACION6 CARGA BATERIA--------------------------------------------*/
+#pragma region Op4 - VER VIAJES ANTES DE FECHA
+void verViajesAntesDeFecha(){
+	system("clear");
+	cout <<"_____________________________________________________"<< endl;
+	cout <<"==V E R   V I A J E S   A N T E S   D E   F E C H A=="<< endl;
+	cout <<"_____________________________________________________"<< endl;
+
+	string ci;
+	int dia, mes, anio, cantViajes;
+	DtFecha dtFecha;
+  
+	cout << endl << "CI: ";
+	cin >> ci;
+	try{
+		existeUsuario(ci);
+
+    cout << endl << "DIA: ";
+    cin >> dia;
+    if (dia < 1 || dia > 31)
+        throw invalid_argument("ERROR! dia invalido.");
+    cout << endl << "MES: ";
+    cin >> mes;
+    if (mes < 1 || mes > 12)
+        throw invalid_argument("ERROR! mes invalido.");
+    cout << endl << "ANIO: ";
+    cin >> anio;
+    cout << endl << "VIAJES ANTES DE " << dia << "/" << mes << "/" << anio << ":";
+
+    dtFecha = DtFecha(dia, mes, anio);
+    DtViaje** viajes = verViajesAntesDeFecha(dtFecha, ci, cantViajes);
+    if (cantViajes > 0){
+      for(int i = 0; i < cantViajes; i++)
+        cout << "\n\n" << *(viajes[i]);
+    }else
+      cout << endl << endl << "No se encontraron registros." << endl;
+	}catch(invalid_argument& e){
+		cout << endl << e.what() << endl;
+	}  
+}
+DtViaje** verViajesAntesDeFecha(DtFecha& fecha, string ci, int& cantViajes){
+	Usuario* usuario = obtenerUsuario(ci);
+  int cantViajesUsuario = usuario->getUsuTopeViajes();
+	Viaje** viajes = usuario->obtenerViajes();
+  cantViajes = 0;
+	DtViaje** dtViajes = new DtViaje*[cantViajes];
+	int i = 0;
+	while(i < cantViajesUsuario){
+    DtFecha dtFechaActual = viajes[i]->getViajeFecha();
+    Vehiculo vehiculo = viajes[i]->getViajeVehiculo();
+    int duracion = viajes[i]->getViajeDuracion();
+    int distancia = viajes[i]->getViajeDistancia();
+    float precioViaje = vehiculo.darPrecioviaje(duracion, distancia);
+    DtVehiculo dtVehiculo = DtVehiculo(vehiculo.getNroSerie(), vehiculo.getPorcentajeBateria(), vehiculo.getPrecioBase());
+
+		if (dtFechaActual < fecha){
+			DtViaje* dtViaje = new DtViaje(duracion, distancia, dtFechaActual, precioViaje, dtVehiculo);
+			dtViajes[cantViajes] = dtViaje;
+			cantViajes++;
+		}
+		i++;
+	}
+	return dtViajes;
+}
+#pragma endregion Op4 - VER VIAJES ANTES DE FECHA
+
+#pragma region Op5 - ELIMINAR VIAJES
+#pragma endregion Op5 - ELIMINAR VIAJES
+
+#pragma region Op6 - CARGA BATERIA
 void cambiarBateria(){
 
 	system("clear");
@@ -147,7 +240,6 @@ void cambiarBateria(){
   }
 
 }
-
 void cambiarBateriaVehiculo(int nSerie, float porcentaje){
   int i=0;
   bool existe=false;
@@ -164,22 +256,22 @@ void cambiarBateriaVehiculo(int nSerie, float porcentaje){
   }
 
 }
+#pragma endregion Op6 - CARGA BATERIA
 
-/*----------------------------FIN OPERACION6 CARGA BATERIA--------------------------------------------*/
+#pragma region Op7 - OBTENER VEHICULOS
+#pragma endregion Op7 - OBTENER VEHICULOS
 
-/*----------------------------FUNCIONES AUXILIARES--------------------------------------------*/
-
-
+#pragma region FUNCIONES AUXILIARES
 void existeUsuario(string ci){
-    int i=0;
-    bool existe=false;
-    while ((i<coleccionUsuarios.tope) && (!existe)){
-        if(ci==coleccionUsuarios.usuarios[i]->getUsuCedula())
-                existe =true;
-        i++;
+    int i = 0;
+    bool existe = false;
+    while ((i < coleccionUsuarios.tope) && (!existe)){
+      if(ci == coleccionUsuarios.usuarios[i]->getUsuCedula())
+        existe = true;
+      i++;
     }
     if (!existe)
-        throw invalid_argument("ERROR! NO HAY USUARIO CON ESA CI");
+      throw invalid_argument("ERROR! No existe usuario.\n");
 }
 
 bool existeVehiculo(int nSerie){
@@ -198,7 +290,7 @@ bool existeVehiculo(int nSerie){
     return existe;
 }
 
-bool validarRegistroVehiulo(int nSerie, float porcentaje, float precio){
+bool validarRegistroVehiculo(int nSerie, float porcentaje, float precio){
     int i=0;
     bool  existeVehiculo  =false;
     bool  resp = true;
@@ -226,7 +318,18 @@ bool validarRegistroVehiulo(int nSerie, float porcentaje, float precio){
     }
 
     return resp;
+}
 
+void validarRegistroUsuario(string ci){
+  int i = 0;
+  bool existe = false;
+  while((i<coleccionUsuarios.tope) && (!existe)){
+      if(ci == coleccionUsuarios.usuarios[i]->getUsuCedula())
+        existe =true;
+      i++;
+  }
+  if (existe)
+      throw invalid_argument("ERROR! El usuario ya existe en el sistema.\n");
 }
 
 Usuario* obtenerUsuario(string ci){
@@ -246,9 +349,9 @@ Usuario* obtenerUsuario(string ci){
 void listarVehiculos(){
 
   for(int i=0;i<coleccionVehiculos.tope;i++){
-    cout<< i << " - Serie: "<< coleccionVehiculos.vehiculos[i]->getNroSerie() << std::endl;
-    cout<< i << " - Bateria: "<< coleccionVehiculos.vehiculos[i]->getPorcentajeBateria() << std::endl;
-    cout<< i << " - precio: "<< coleccionVehiculos.vehiculos[i]->getPrecioBase() << std::endl;
+    cout<< i << " - Serie: "<< coleccionVehiculos.vehiculos[i]->getNroSerie() << endl;
+    cout<< i << " - Bateria: "<< coleccionVehiculos.vehiculos[i]->getPorcentajeBateria() << endl;
+    cout<< i << " - precio: "<< coleccionVehiculos.vehiculos[i]->getPrecioBase() << endl;
   }
 
 }
@@ -266,30 +369,27 @@ Vehiculo* obtenerVehiculo(int nSerie){
     }
     return vehiculoEncontrado;
 }
-
-/*----------------------------FIN FUNCIONES AUXILIARES--------------------------------------------*/
+#pragma endregion FUNCIONES AUXILIARES
 
 //MENU
 void menu(){
-    // system("clear");
-    cout <<"_____________________________________________" <<endl;
-    std::cout << "==              M  E  N  U                 ==" << std::endl;
-    cout <<"=============================================" <<endl;
-    std::cout << "1. REGISTRAR USUARIO"<< std::endl;
-    std::cout << "11. BUSCAR USUARIO"<< std::endl;
-    std::cout << "2. AGREGAR VEHICULO"<< std::endl;
-    std::cout << "3. INGRESAR VIAJE"<< std::endl;
-    std::cout << "4. VER VIAJES ANTES DE FECHA"<< std::endl;
-    std::cout << "5. ELIMINAR VIAJES"<< std::endl;
-    std::cout << "6. CAMBIAR BATERIA DE VEHICULO"<< std::endl;
-    std::cout << "7. OBTENER VEHICULOS"<< std::endl;
-    std::cout << "97. [RS] - BUSCAR VEHICULO"<< std::endl;
-    std::cout << "98. [RS] - LISTAR VEHICULOS"<< std::endl;
-    std::cout << "99. SALIR"<< std::endl;
-    cout <<"_____________________________________________" <<endl;
-    cout<<"OPCION>> ";
+  cout <<"_____________________________________________________"<< endl;
+  cout << "==                    M  E  N  U                   =="<< endl;
+  cout <<"====================================================="<< endl;
+  cout << "1. REGISTRAR USUARIO"<< endl;
+  cout << "11. BUSCAR USUARIO"<< endl;
+  cout << "2. AGREGAR VEHICULO"<< endl;
+  cout << "3. INGRESAR VIAJE"<< endl;
+  cout << "4. VER VIAJES ANTES DE FECHA"<< endl;
+  cout << "5. ELIMINAR VIAJES"<< endl;
+  cout << "6. CAMBIAR BATERIA DE VEHICULO"<< endl;
+  cout << "7. OBTENER VEHICULOS"<< endl;
+  cout << "97. [RS] - BUSCAR VEHICULO"<< endl;
+  cout << "98. [RS] - LISTAR VEHICULOS"<< endl;
+  cout << "99. SALIR"<< endl;
+  cout <<"_____________________________________________________"<< endl;
+  cout <<"OPCION>> ";
 }
-/*----------------------------FIN FUNCIONES AUX--------------------------------------------*/
 
 //MAIN
 int main() {
@@ -300,44 +400,51 @@ int main() {
     cin>> opcion;
     while(opcion != 99){
         switch(opcion){
-            case 1: registrarUsuario(); //registrarUsuario();
-                break;
-            case 2: agregarVehiculo();
-                break;
-            case 3: cout<< "op3";//ingresarViaje();
-                break;
-            case 4: cout<< "op4";//verViajesAntesDeFecha();
-                break;
-            case 5: cout<< "op5";//eliminarViajes();
-                break;
-            case 6: cambiarBateria();
-                break;
-            case 7: cout<< "op7";//obtenerVehiculos();
-                break;
-            case 11: cout<< "ingrese ci: ";
-                     cin>> ci;
-                     obtenerUsuario(ci);
-                break;
-            case 97:
-                      system("clear");
-                      int serie;
-                      cout<< "Nro de serie auto: ";//obtenerVehiculos();
-                      cin>> serie;
-                      Vehiculo* vehiculoEncontrado;
-                      vehiculoEncontrado = obtenerVehiculo(serie);
-                       cout<< "Encontre - Serie: "<< vehiculoEncontrado->getNroSerie() << std::endl;
-                       cout<< "Encontre - Bateria: "<< vehiculoEncontrado->getPorcentajeBateria() << std::endl;
-                       cout<< "Encontre - precio: "<< vehiculoEncontrado->getPrecioBase() << std::endl;
-                break;
-            case 98:
-                    system("clear");
-                    cout << "LISTAR VEHICULOS..." << endl;
-                    listarVehiculos();
-                break;
-            case 99: system("exit");
-                cout << "SALIENDO..." << endl;
-            default:
-                cout << "OPCIÓN INCORRECTA" << endl;
+          case 1: registrarUsuario();
+              break;
+          case 2: agregarVehiculo();
+              break;
+          case 3: system ("clear"); //ingresarViaje();
+              break;
+          case 4: verViajesAntesDeFecha();
+              break;
+          case 5: system ("clear"); //eliminarViajes();
+              break;
+          case 6: cambiarBateria();
+              break;
+          case 7: system ("clear"); //obtenerVehiculos();
+              break;
+          case 11: 
+                cout << endl << "CI: ";
+                cin >> ci;
+                try{    
+                  existeUsuario(ci);
+	                Usuario* usuario = obtenerUsuario(ci);
+                  cout << endl << *(usuario) << endl;
+                }catch(invalid_argument& e){
+                  cout << endl << e.what() << endl;
+                }
+              break;
+          case 97:
+              system("clear");
+              int serie;
+              cout<< "Nro de serie auto: ";//obtenerVehiculos();
+              cin>> serie;
+              Vehiculo* vehiculoEncontrado;
+              vehiculoEncontrado = obtenerVehiculo(serie);
+              cout<< "Encontre - Serie: "<< vehiculoEncontrado->getNroSerie() << endl;
+              cout<< "Encontre - Bateria: "<< vehiculoEncontrado->getPorcentajeBateria() << endl;
+              cout<< "Encontre - precio: "<< vehiculoEncontrado->getPrecioBase() << endl;
+            break;
+          case 98:
+              system("clear");
+              cout << "LISTAR VEHICULOS..." << endl;
+              listarVehiculos();
+            break;
+          case 99: system("exit");
+              cout << "SALIENDO..." << endl;
+          default:
+              cout << "OPCIÓN INCORRECTA" << endl;
         }
         menu();
         cin >> opcion;

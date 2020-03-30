@@ -27,3 +27,4 @@ DtViaje.o: dtTypes/DtViaje.cpp dtTypes/DtViaje.h
 
 clear:
 	rm *.o
+	clear
