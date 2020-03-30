@@ -1,12 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "Viaje.h"
-#include "Usuario.h"
 
 //Constructores
 Viaje::Viaje() {}
-Viaje::Viaje(DtFecha fecha, int duracion, int distancia, int vehiculo) {
+Viaje::Viaje(DtFecha fecha, int duracion, int distancia, Vehiculo vehiculo) {
     this->fecha = fecha;
     this->duracion = duracion;
     this->distancia = distancia;
@@ -32,10 +28,10 @@ int Viaje::getViajeDistancia() {
 void Viaje::setViajeDistancia(int distancia) {
     this->distancia = distancia;
 }
-int Viaje::getViajeVehiculo() {
+Vehiculo Viaje::getViajeVehiculo() {
     return this->vehiculo;
 }
-void Viaje::setViajeVehiculo(int vehiculo) {
+void Viaje::setViajeVehiculo(Vehiculo vehiculo) {
     this->vehiculo = vehiculo;
 }
 

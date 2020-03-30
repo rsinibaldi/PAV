@@ -1,7 +1,4 @@
 #include "Bicicleta.h"
-#include "Vehiculo.h"
-#include "Viaje.h"
-#include "../enum/TipoBici.h"
 
 //Constructores
 Bicicleta::Bicicleta() {}

@@ -2,6 +2,7 @@
 #define Viaje_H
 
 #include "../dtTypes/DtFecha.h"
+#include "../dtTypes/DtVehiculo.h"
 #include "Vehiculo.h"
 
 using namespace std;
@@ -11,11 +12,11 @@ private:
   DtFecha fecha;
   int duracion;
   int distancia;
-  int vehiculo;
+  Vehiculo vehiculo;
 public:
   //Constructores
   Viaje();
-  Viaje(DtFecha, int, int, int);
+  Viaje(DtFecha, int, int, Vehiculo);
 
   //Getters & Setters
   DtFecha getViajeFecha();
@@ -24,8 +25,8 @@ public:
   void setViajeDuracion(int duracion);
   int getViajeDistancia();
   void setViajeDistancia(int distancia);
-  int getViajeVehiculo();
-  void setViajeVehiculo(int vehiculo);
+  Vehiculo getViajeVehiculo();
+  void setViajeVehiculo(Vehiculo vehiculo);
 
   //Destructores
   ~Viaje();

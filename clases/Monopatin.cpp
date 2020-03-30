@@ -1,10 +1,8 @@
 #include "Monopatin.h"
-#include "Vehiculo.h"
-#include "Viaje.h"
 
 //Constructores
 Monopatin::Monopatin() {}
-Monopatin::Monopatin(int nroSerie, float porcentajeBateria, float precioBase, bool tieneLuces):Vehiculo(nroSerie,porcentajeBateria,precioBase) {
+Monopatin::Monopatin(int nroSerie, float porcentajeBateria, float precioBase, bool tieneLuces):Vehiculo(nroSerie, porcentajeBateria, precioBase) {
     this->tieneLuces = tieneLuces;
 }
 

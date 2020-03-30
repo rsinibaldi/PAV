@@ -2,8 +2,10 @@
 #define Usuario_H
 
 #define MAX_VIAJES 100
-#include "../dtTypes/DtFecha.h"
+
 #include "Viaje.h"
+#include "../dtTypes/DtFecha.h"
+
 #include <string.h>
 #include <iostream>
 
@@ -19,7 +21,7 @@ private:
 public:
   //Constructores
   Usuario();
-  Usuario(string, string/*, DtFecha*/);
+  Usuario(string, string, DtFecha);
 
   //Getters & Setters
   string getUsuCedula();
@@ -37,6 +39,7 @@ public:
   bool agregarViaje(Viaje*);
   Viaje** obtenerViajes();
   void eliminarViajes();
+  friend ostream& operator <<(ostream&, const Usuario&);
 };
 
 #endif //Usuario_H
