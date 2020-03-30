@@ -17,10 +17,9 @@ int DtBicicleta::getCantCambios(){
 }
 DtBicicleta::~DtBicicleta() {}
 
-// ostream& operator << (ostream& salida, const DtBicicleta& dtB){
-//     string tipoBici[2]= {"Paseo", "Montana"};
-//     int cantCambios;
-//
-//     cout<< (DtVehiculo) dtB << "Tipo de bici?: " << tipoBici[dtB.tipoBici]<< "\nCantidad de cambios: "<< cantCambios << endl;
-//         return salida;
-// }
+ostream& operator <<(ostream& salida, const DtBicicleta& dtB) {
+    cout << (DtVehiculo) dtB <<
+    "\nTipo de bicicleta: " << dtB.tipo <<
+    "\nTiene "<< dtB.cantCambios<< " cambios"<< endl;
+    return salida;
+}

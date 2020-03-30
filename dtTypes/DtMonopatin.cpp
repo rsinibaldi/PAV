@@ -1,4 +1,5 @@
 #include "DtMonopatin.h"
+#include <iostream>
 DtMonopatin::DtMonopatin(){}
 DtMonopatin::DtMonopatin(int nroSerie, float porcentaje, float precioBase, bool tieneLuces):DtVehiculo(nroSerie, porcentaje, precioBase){
     this -> tieneLuces = tieneLuces;
@@ -9,8 +10,10 @@ bool DtMonopatin::getTieneLuces() {
 }
 DtMonopatin::~DtMonopatin() {}
 
-/*ostream& operator << (ostream& salida, const DtMonopatin& dtM){
-    string luces = (dtM.tieneLuces)? "True":"False";
-    cout<< (DtVehiculo) dtM << "Tiene Luces?: " << luces[dtM.tieneLuces] << luces << endl;
+ostream& operator <<(ostream& salida, const DtMonopatin& dtM) {
+    cout << "Número de serie: " << dtM.nroSerie <<
+    "\nPorcentaje de batería: " << dtM.porcentaje <<
+    "\nPrecio base: " << dtM.precioBase <<
+    "\nTiene Luces es: " << dtM.tieneLuces << endl;
     return salida;
-}*/
+}

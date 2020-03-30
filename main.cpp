@@ -56,13 +56,15 @@ void agregarVehiculo(int nroSerie, float porcentajeBateria, float precioBase);
 void verViajesAntesDeFecha();
 DtViaje** verViajesAntesDeFecha(DtFecha&, string, int&);
 
-//OPERACION5 INGRESAR VIAJES
+//OPERACION5 ELIMINAR VIAJES
 
 //OPERACION6 CAMBIAR BATERIA
 void cambiarBateria();
 void cambiarBateriaVehiculo(int nroSerieVehiculo, float cargaVehiculo);
 
 //OPERACION7 OBTENER VEHICULOS
+void obtenerVehiculos();
+DtVehiculo** obtenerVehiculos(int& cantVehiculos);
 
 #pragma region Op1 - REGISTRAR USUARIO
 void registrarUsuario(){
@@ -70,7 +72,7 @@ void registrarUsuario(){
   cout <<"_____________________________________________________"<< endl;
   cout <<"========R E G I S T R O   D E   U S U A R I O========"<< endl;
   cout <<"_____________________________________________________"<< endl;
-  
+
   string ci, nombre;
   DtFecha fechaIngreso;
 
@@ -78,15 +80,15 @@ void registrarUsuario(){
   tm* fecha = localtime(&fechaActual);
   int dia = fecha->tm_mday;
   int mes = 1 + fecha->tm_mon;
-  int anio = 1900 + fecha->tm_year; 
+  int anio = 1900 + fecha->tm_year;
   DtFecha dtFecha = DtFecha(dia, mes, anio);
 
   cout << endl << "NOMBRE: ";
   cin >> nombre;
   cout << endl << "CI: ";
   cin >> ci;
-  
-  try{    
+
+  try{
     validarRegistroUsuario(ci);
     registrarUsuario(ci, nombre, dtFecha);
     cout << endl << "Usuario dado de alta." << endl;
@@ -148,7 +150,7 @@ void verViajesAntesDeFecha(){
 	string ci;
 	int dia, mes, anio, cantViajes;
 	DtFecha dtFecha;
-  
+
 	cout << endl << "CI: ";
 	cin >> ci;
 	try{
@@ -175,7 +177,7 @@ void verViajesAntesDeFecha(){
       cout << endl << endl << "No se encontraron registros." << endl;
 	}catch(invalid_argument& e){
 		cout << endl << e.what() << endl;
-	}  
+	}
 }
 DtViaje** verViajesAntesDeFecha(DtFecha& fecha, string ci, int& cantViajes){
 	Usuario* usuario = obtenerUsuario(ci);
@@ -259,6 +261,71 @@ void cambiarBateriaVehiculo(int nSerie, float porcentaje){
 #pragma endregion Op6 - CARGA BATERIA
 
 #pragma region Op7 - OBTENER VEHICULOS
+
+void obtenerVehiculos(){
+
+        system ("clear");
+        cout <<"____________________________________________" <<endl;
+        cout <<"====L I S T A____D E____V E H I C U L O S===="<< endl;
+        cout <<"____________________________________________\n" <<endl;
+
+        DtVehiculo**  lista = obtenerVehiculos(coleccionVehiculos.tope);
+        if(lista == NULL){
+          cout<< "vacio" <<endl;
+        }
+        for(int i=0;i<coleccionVehiculos.tope;i++){
+            cout<< "entro al for1" << endl;
+
+                    DtMonopatin* m = dynamic_cast<DtMonopatin*>(lista[i]);  // aca me explota por algun motivo
+                    cout << "rrrrrr" << endl;
+                    if(m != NULL){
+                      cout<< "Antes del cout1" << endl;
+                          cout << *m << endl;
+                            cout<< "dsp del cout1" << endl;
+                    }else{
+                          DtBicicleta* b = dynamic_cast<DtBicicleta*>(lista[i]);
+                          if(b!=NULL){
+                              cout<< "Antes del cout2" << endl;
+                                  cout << *b << endl;
+                                    cout<< "dsp del cout2" << endl;
+                        }
+
+                    }
+
+        }
+
+}
+
+
+DtVehiculo** obtenerVehiculos(int& cantVehiculos){
+
+        //Vehiculo* = obtenerVehiculo(vehiculos->getNroSerie());
+        DtVehiculo** lista = new DtVehiculo*[coleccionVehiculos.tope];
+
+        for(int i=0; i<coleccionVehiculos.tope; i++){
+            cout<< "ENTRO AL FOR" << endl;
+              if(Monopatin* m = dynamic_cast<Monopatin*>(coleccionVehiculos.vehiculos[i])){
+                  cout<< "MONOPATIN" << endl;
+                      DtMonopatin* monos = new DtMonopatin(m->getNroSerie(), m->getPorcentajeBateria(), m->getPrecioBase(), m->getTieneLuces());
+                      lista[i] = monos;
+                      cout << lista[i] << endl;
+
+              }else{
+
+                      if(Bicicleta* b = dynamic_cast<Bicicleta*>(coleccionVehiculos.vehiculos[i])){
+                            cout << "BICICLETA" << endl;
+                            DtBicicleta* bici = new DtBicicleta(b->getNroSerie(), b->getPorcentajeBateria(), b->getPrecioBase(), b->getTipoBici(), b->getCambios());
+                            lista[i] = bici;
+                            cout << lista[i] << endl;
+
+                      }
+
+
+             }
+       }
+       return lista;
+}
+
 #pragma endregion Op7 - OBTENER VEHICULOS
 
 #pragma region FUNCIONES AUXILIARES
@@ -412,12 +479,12 @@ int main() {
               break;
           case 6: cambiarBateria();
               break;
-          case 7: system ("clear"); //obtenerVehiculos();
+          case 7: obtenerVehiculos();
               break;
-          case 11: 
+          case 11:
                 cout << endl << "CI: ";
                 cin >> ci;
-                try{    
+                try{
                   existeUsuario(ci);
 	                Usuario* usuario = obtenerUsuario(ci);
                   cout << endl << *(usuario) << endl;
