@@ -1,26 +1,35 @@
 #include "DtViajeBase.h"
-DtViajeBase::DtViajeBase (){}
-DtViajeBase::DtViajeBase(int duracion, int distancia, DtFecha fechaIngreso){
-    this -> duracion = duracion;
-    this -> distancia = distancia;
-    this -> fechaIngreso = fechaIngreso;
+
+#include <iostream>
+
+using namespace std;
+
+//Constructores
+DtViajeBase::DtViajeBase() {}
+DtViajeBase::DtViajeBase(int duracion, int distancia, DtFecha fechaIngreso) {
+    this->duracion = duracion;
+    this->distancia = distancia;
+    this->fechaIngreso = fechaIngreso;
 }
 
-int DtViajeBase::getDtViajeBaseDuracion(){
-    return this -> duracion;
+//Getters & Setters
+int DtViajeBase::getDtViajeBaseDuracion() {
+    return this->duracion;
 }
-int DtViajeBase::getDtViajeBaseDistancia(){
-    return this -> distancia;
+int DtViajeBase::getDtViajeBaseDistancia() {
+    return this->distancia;
 }
-DtFecha DtViajeBase::getDtViajeBaseFechaIngreso(){
-    return this -> fechaIngreso;
+DtFecha DtViajeBase::getDtViajeBaseFechaIngreso() {
+    return this->fechaIngreso;
 }
 
-DtViajeBase::~DtViajeBase(){}
+//Destructores
+DtViajeBase::~DtViajeBase() {}
 
-ostream& operator <<(ostream& salida, const DtViajeBase& dtV){
-    // cout << "Duración: "<< dtV.duracion <<
-    // "\n" "Distancia: " << dtV.distancia <<
-    // "\n" "Fecha de Ingreso: " << dtV.fechaIngreso << endl;
-    // return salida;
+//Métodos
+ostream& operator <<(ostream& salida, const DtViajeBase& dtV) {
+    cout << "Fecha: " << dtV.fechaIngreso <<
+    "\nDuración: "<< dtV.duracion << " min." <<
+    "\nDistancia: " << dtV.distancia << " kms." << endl;
+    return salida;
 }
