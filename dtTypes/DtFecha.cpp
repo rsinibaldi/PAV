@@ -26,7 +26,6 @@ int DtFecha::getMes() {
 int DtFecha::getAnio() {
   return this->anio;
 }
-
 //Destructores
 DtFecha::~DtFecha() {}
 

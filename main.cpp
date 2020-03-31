@@ -31,7 +31,7 @@ struct {
 
 //FUNCIONES AUXILIARES
 void menu();
-void existeUsuario(string);
+bool existeUsuario(string);
 Usuario* obtenerUsuario(string);
 bool existeVehiculo(int);
 Vehiculo* obtenerVehiculo(int);
@@ -329,7 +329,7 @@ DtVehiculo** obtenerVehiculos(int& cantVehiculos){
 #pragma endregion Op7 - OBTENER VEHICULOS
 
 #pragma region FUNCIONES AUXILIARES
-void existeUsuario(string ci){
+bool existeUsuario(string ci){
     int i = 0;
     bool existe = false;
     while ((i < coleccionUsuarios.tope) && (!existe)){

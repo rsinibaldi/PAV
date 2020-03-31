@@ -16,3 +16,15 @@ DtReloj::DtReloj(){
     this->hora= relojParsed->tm_hour;
     this->min= relojParsed->tm_min;
 }
+
+int DtReloj::getDia(){
+    return this->dia;
+};
+
+int getMes(){
+    return this->mes;
+};
+
+int getAnio(){
+    return this->anio;
+};
