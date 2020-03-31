@@ -57,6 +57,8 @@ void verViajesAntesDeFecha();
 DtViaje** verViajesAntesDeFecha(DtFecha&, string, int&);
 
 //OPERACION5 ELIMINAR VIAJES
+void eliminarViajes();
+void eliminarViajes(string ci, DtFecha& fecha);
 
 //OPERACION6 CAMBIAR BATERIA
 void cambiarBateria();
@@ -206,6 +208,78 @@ DtViaje** verViajesAntesDeFecha(DtFecha& fecha, string ci, int& cantViajes){
 #pragma endregion Op4 - VER VIAJES ANTES DE FECHA
 
 #pragma region Op5 - ELIMINAR VIAJES
+
+void eliminarViajes(){
+
+        system("clear");
+        cout <<"___________________________________" <<endl;
+        cout <<"====E L I M I N A R   V I A J E S===="<< endl;
+        cout <<"___________________________________\n" <<endl;
+
+        string ci;
+        int dia, mes, anio;
+        DtFecha fecha;
+
+        try{
+
+
+              cout << "CI del usuario: " << endl;
+              cin >> ci;
+              existeUsuario(ci);
+              cout << "Dia :" << endl;
+              cin >>dia;
+              if (dia < 1 || dia > 31)
+                  throw invalid_argument("ERROR! dia invalido.");
+              cout << "Mes :" << endl;
+              cin >> mes;
+              if (mes < 1 || mes > 12)
+                  throw invalid_argument("ERROR! mes invalido.");
+              cout << "Anio :"<< endl;
+              cin >> anio;
+
+              fecha = DtFecha(dia, mes, anio);
+
+              //como quedan registrados los viajes?? en un struct?
+
+              eliminarViajes(ci, fecha);
+
+        }catch(invalid_argument& e){
+      	      cout << endl << e.what() << endl;
+
+        }
+}
+void eliminarViajes(string ci, DtFecha& fecha){
+              // el usurio existe y se ingreso una fecha valida
+              Usuario* usuario = obtenerUsuario(ci);
+
+              Viaje** viajes = usuario->obtenerViajes();
+
+              int topeViajesUsuario = usuario->getUsuTopeViajes();
+
+              bool coincideFecha=false;
+
+              for(int i=0; i<topeViajesUsuario;i++){
+
+                    DtFecha fechaViaje = viajes[i]->getViajeFecha();
+
+                    int diaA = fechaViaje.getDia();
+                    int mesA = fechaViaje.getMes();
+                    int anioA = fechaViaje.getAnio();
+                  //-------------------------------------
+                    int diaB = fecha.getDia();
+                    int mesB = fecha.getMes();
+                    int anioB = fecha.getAnio();
+
+                    if((diaA == diaB)&&(mesA == mesB)&&(anioA == anioB)){
+
+                            cout << " Aca eliminamos el Viaje del Sistema "<< endl;
+                            delete(viajes[i]); //??
+
+                    }
+            }
+
+}
+
 #pragma endregion Op5 - ELIMINAR VIAJES
 
 #pragma region Op6 - CARGA BATERIA
@@ -289,14 +363,9 @@ void obtenerVehiculos(){
                                   cout << *b << endl;
                                     cout<< "dsp del cout2" << endl;
                         }
-
                     }
-
         }
-
 }
-
-
 DtVehiculo** obtenerVehiculos(int& cantVehiculos){
 
         //Vehiculo* = obtenerVehiculo(vehiculos->getNroSerie());
@@ -317,10 +386,7 @@ DtVehiculo** obtenerVehiculos(int& cantVehiculos){
                             DtBicicleta* bici = new DtBicicleta(b->getNroSerie(), b->getPorcentajeBateria(), b->getPrecioBase(), b->getTipoBici(), b->getCambios());
                             lista[i] = bici;
                             cout << lista[i] << endl;
-
                       }
-
-
              }
        }
        return lista;
@@ -475,7 +541,7 @@ int main() {
               break;
           case 4: verViajesAntesDeFecha();
               break;
-          case 5: system ("clear"); //eliminarViajes();
+          case 5: eliminarViajes();
               break;
           case 6: cambiarBateria();
               break;
