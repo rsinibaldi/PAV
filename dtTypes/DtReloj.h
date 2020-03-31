@@ -14,11 +14,11 @@ public:
 
     DtReloj(int dia, int mes, int anio);
 
-    int getDia() const;
+    int getDia();
 
-    int getMes() const;
+    int getMes();
 
-    int getAnio() const;
+    int getAnio();
 
     virtual ~DtReloj();
 
