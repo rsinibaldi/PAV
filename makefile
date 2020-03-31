@@ -25,6 +25,6 @@ DtViajeBase.o: dtTypes/DtViajeBase.cpp dtTypes/DtViajeBase.h
 DtViaje.o: dtTypes/DtViaje.cpp dtTypes/DtViaje.h
 	g++ -c dtTypes/DtViaje.cpp -o DtViaje.o
 
-clear:
+clean:
 	rm *.o
 	clear
