@@ -116,6 +116,7 @@ void agregarVehiculo(){
   float porcentajeBateria, precioBase;
   bool okRegistro = false;
 
+
   cout << endl << "Nº de serie: ";
   cin >> nroSerie;
   cout << endl << "Porcentaje de batería: ";
@@ -133,9 +134,46 @@ void agregarVehiculo(){
   }
 }
 void agregarVehiculo(int nroSerie, float porcentajeBateria, float precioBase){
-  Vehiculo* vehiculo = new Vehiculo(nroSerie, porcentajeBateria, precioBase);
-  coleccionVehiculos.vehiculos[coleccionVehiculos.tope]=vehiculo;
-  coleccionVehiculos.tope++;
+  //Vehiculo* vehiculo = new Vehiculo(nroSerie, porcentajeBateria, precioBase);
+	//elegimos el tipo de vehiculo ingresado:
+	int tipoVehiculo,cantCambios, opTipoBici, opTieneLuces;
+	tipoBici tipo;
+	bool tieneLuces;
+
+	cout << "TIPO DE VEHICULO \n\t1.Monopatin\n\t2.Bicicleta\n\tOpcion: ";
+	cin >> tipoVehiculo;
+	switch(tipoVehiculo){
+				case 1: {
+								cout << "Tiene Luces?\n\t1.Si \n\t2.No";
+								cin >> opTieneLuces;
+								tieneLuces=(opTieneLuces==1)?true:false;
+								Monopatin* mono = new Monopatin(nroSerie, porcentajeBateria, precioBase, tieneLuces);
+
+								coleccionVehiculos.vehiculos[coleccionVehiculos.tope]=mono;
+								coleccionVehiculos.tope++;
+								break;
+				}
+
+				case 2: {
+								cout << "Tipo de Bicicleta: \n\t1.Paseo\n\t2.Montania" ;
+								cin >> opTipoBici;
+								switch(opTipoBici){
+											case 1: tipo = Paseo;
+											break; // ENUM
+											case 2: tipo = Montania;
+											break;
+								}
+								cout<< "Cantiadad de Cambios: " ;
+								cin >> cantCambios;
+
+								Bicicleta* bici = new Bicicleta(nroSerie, porcentajeBateria, precioBase, tipo, cantCambios);
+								coleccionVehiculos.vehiculos[coleccionVehiculos.tope]=bici;
+								coleccionVehiculos.tope++;
+								break;
+				}
+
+	}
+
 }
 #pragma endregion Op2 - REGISTRAR VEHICULOS
 
@@ -249,7 +287,7 @@ void eliminarViajes(){
         }
 }
 void eliminarViajes(string ci, DtFecha& fecha){
-              // el usurio existe y se ingreso una fecha valida
+              // el usurio existe y se ingreso una fecha valida hasta este punto
               Usuario* usuario = obtenerUsuario(ci);
 
               Viaje** viajes = usuario->obtenerViajes();
@@ -260,22 +298,22 @@ void eliminarViajes(string ci, DtFecha& fecha){
 
               for(int i=0; i<topeViajesUsuario;i++){
 
-                    DtFecha fechaViaje = viajes[i]->getViajeFecha();
+                      DtFecha fechaViaje = viajes[i]->getViajeFecha();
 
-                    int diaA = fechaViaje.getDia();
-                    int mesA = fechaViaje.getMes();
-                    int anioA = fechaViaje.getAnio();
-                  //-------------------------------------
-                    int diaB = fecha.getDia();
-                    int mesB = fecha.getMes();
-                    int anioB = fecha.getAnio();
+                      int diaA = fechaViaje.getDia();
+                      int mesA = fechaViaje.getMes();
+                      int anioA = fechaViaje.getAnio();
+                    //-------------------------------------
+                      int diaB = fecha.getDia();
+                      int mesB = fecha.getMes();
+                      int anioB = fecha.getAnio();
 
-                    if((diaA == diaB)&&(mesA == mesB)&&(anioA == anioB)){
+                      if((diaA == diaB)&&(mesA == mesB)&&(anioA == anioB)){
 
-                            cout << " Aca eliminamos el Viaje del Sistema "<< endl;
-                            delete(viajes[i]); //??
+                              cout << " Aca eliminamos el Viaje del Sistema "<< endl;
+                              delete(viajes[i]); //??
 
-                    }
+                      }
             }
 
 }
@@ -339,31 +377,35 @@ void cambiarBateriaVehiculo(int nSerie, float porcentaje){
 void obtenerVehiculos(){
 
         system ("clear");
-        cout <<"____________________________________________" <<endl;
-        cout <<"====L I S T A____D E____V E H I C U L O S===="<< endl;
-        cout <<"____________________________________________\n" <<endl;
+        cout <<"____________________________________________________" <<endl;
+        cout <<"====  L I S T A     D E     V E H I C U L O S  ===="<< endl;
+        cout <<"____________________________________________________\n" <<endl;
 
         DtVehiculo**  lista = obtenerVehiculos(coleccionVehiculos.tope);
         if(lista == NULL){
-          cout<< "vacio" <<endl;
-        }
-        for(int i=0;i<coleccionVehiculos.tope;i++){
-            cout<< "entro al for1" << endl;
+         cout<< "EL SISTEMA NO TIENE VEHICULOS INGRESADOS POR EL MOMENTO" <<endl; // no funciona
+        }else{
+                  for(int i=0;i<coleccionVehiculos.tope;i++){
 
-                    DtMonopatin* m = dynamic_cast<DtMonopatin*>(lista[i]);  // aca me explota por algun motivo
-                    cout << "rrrrrr" << endl;
-                    if(m != NULL){
-                      cout<< "Antes del cout1" << endl;
-                          cout << *m << endl;
-                            cout<< "dsp del cout1" << endl;
-                    }else{
-                          DtBicicleta* b = dynamic_cast<DtBicicleta*>(lista[i]);
-                          if(b!=NULL){
-                              cout<< "Antes del cout2" << endl;
-                                  cout << *b << endl;
-                                    cout<< "dsp del cout2" << endl;
-                        }
-                    }
+
+
+															DtMonopatin* m = dynamic_cast<DtMonopatin*>(lista[i]);
+														  if(m != NULL){
+
+																		cout << "VEHICULO NUMERO "<< i +1 << ":\n\t" << endl;
+		                                cout << *m << endl;
+
+		                          }else{
+		                                DtBicicleta* b = dynamic_cast<DtBicicleta*>(lista[i]);
+		                                if(b!=NULL){
+
+																						cout << "VEHICULO NUMERO "<< i +1 << ":\n\t" << endl;
+		                                        cout << *b << endl;
+
+		                              }
+		                          }
+
+                  }
         }
 }
 DtVehiculo** obtenerVehiculos(int& cantVehiculos){
@@ -372,20 +414,22 @@ DtVehiculo** obtenerVehiculos(int& cantVehiculos){
         DtVehiculo** lista = new DtVehiculo*[coleccionVehiculos.tope];
 
         for(int i=0; i<coleccionVehiculos.tope; i++){
-            cout<< "ENTRO AL FOR" << endl;
+          //  cout<< "ENTRO AL FOR" << endl;
               if(Monopatin* m = dynamic_cast<Monopatin*>(coleccionVehiculos.vehiculos[i])){
-                  cout<< "MONOPATIN" << endl;
+                //  cout<< "MONOPATIN" << endl;
                       DtMonopatin* monos = new DtMonopatin(m->getNroSerie(), m->getPorcentajeBateria(), m->getPrecioBase(), m->getTieneLuces());
                       lista[i] = monos;
-                      cout << lista[i] << endl;
+
+                      //cout << lista[i] << endl;
 
               }else{
 
                       if(Bicicleta* b = dynamic_cast<Bicicleta*>(coleccionVehiculos.vehiculos[i])){
-                            cout << "BICICLETA" << endl;
+                          //  cout << "BICICLETA" << endl;
                             DtBicicleta* bici = new DtBicicleta(b->getNroSerie(), b->getPorcentajeBateria(), b->getPrecioBase(), b->getTipoBici(), b->getCambios());
                             lista[i] = bici;
-                            cout << lista[i] << endl;
+
+                          //  cout << lista[i] << endl;
                       }
              }
        }
@@ -402,6 +446,7 @@ bool existeUsuario(string ci){
       if(ci == coleccionUsuarios.usuarios[i]->getUsuCedula())
         existe = true;
       i++;
+
     }
     if (!existe)
       throw invalid_argument("ERROR! No existe usuario.\n");
@@ -545,8 +590,11 @@ int main() {
               break;
           case 6: cambiarBateria();
               break;
-          case 7: obtenerVehiculos();
-              break;
+          case 7: {
+							obtenerVehiculos();
+							sleep(4);
+							break;
+						}
           case 11:
                 cout << endl << "CI: ";
                 cin >> ci;
