@@ -180,7 +180,7 @@ void agregarVehiculo(DtVehiculo& vehiculo){
             cout << "OPCION: ";
 
 			string tipo;
-      int opTipoBici;
+            int opTipoBici;
 			cin >> opTipoBici;
 			if (opTipoBici < 1 || opTipoBici > 2)
 				throw invalid_argument("\nERROR! opción inválida.");
@@ -561,11 +561,16 @@ void cargaDatos(){
     DtBicicleta dtBici2= DtBicicleta(8788,75,150,"Paseo", 3);
     registrarUsuario("42721741","Michael Rodriguez");
     registrarUsuario("45758559", "Bruno Garcia");
+    agregarVehiculo(dtBici);
+    agregarVehiculo(dtBici2);
+    agregarVehiculo(dtMono);
+    agregarVehiculo(dtMono2);
     system("clear");
     cout << "\n\nTENEMOS CARGADOS "<< coleccionUsuarios.tope<< " usuarios"<< endl;
     cout << "----------------------------------------------------------------------" << endl;
     cout << coleccionUsuarios.usuarios[0]->getUsuNombre() << " " << coleccionUsuarios.usuarios[0]->getUsuCedula() << endl;
     cout << coleccionUsuarios.usuarios[1]->getUsuNombre() << " " << coleccionUsuarios.usuarios[1]->getUsuCedula() << endl;
+
 
 }
 
