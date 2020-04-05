@@ -12,7 +12,7 @@ Vehiculo.o: clases/Vehiculo.cpp clases/Vehiculo.h
 Viaje.o: clases/Viaje.cpp clases/Viaje.h clases/Usuario.cpp clases/Usuario.h
 #dtTypes
 	g++ -c clases/Viaje.cpp -o Viaje.o
-DtBicicleta.o: dtTypes/DtBicicleta.cpp dtTypes/DtBicicleta.h enum/TipoBici.h
+DtBicicleta.o: dtTypes/DtBicicleta.cpp dtTypes/DtBicicleta.h 
 	g++ -c dtTypes/DtBicicleta.cpp -o DtBicicleta.o
 DtFecha.o: dtTypes/DtFecha.cpp dtTypes/DtFecha.h
 	g++ -c dtTypes/DtFecha.cpp -o DtFecha.o

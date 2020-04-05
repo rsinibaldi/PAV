@@ -2,20 +2,24 @@
 #define Bicicleta_H
 
 #include "Vehiculo.h"
-#include "../enum/TipoBici.h"
+#include <string.h>
+#include <iostream>
 
-class Bicicleta: public Vehiculo {    
+using namespace std;
+
+
+class Bicicleta: public Vehiculo {
 private:
-    tipoBici tipo;
+    string tipo;
     int cantCambios;
 public:
     //Constructores
     Bicicleta();
-    Bicicleta(int, float, float, tipoBici, int);
+    Bicicleta(int, float, float, string, int);
 
     //Getters & Setters
-    tipoBici getTipoBici();
-    void setTipoBici(tipoBici);
+    string getTipoBici();
+    void setTipoBici(string);
     int getCambios();
     void setCambios(int);
 
