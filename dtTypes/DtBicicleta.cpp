@@ -24,7 +24,7 @@ DtBicicleta::~DtBicicleta() {}
 //M�todos
 ostream& operator <<(ostream& salida, const DtBicicleta& dtB) {
     cout << (DtVehiculo)dtB << "\t-  Tipo de bicicleta: ";
-    (dtB.tipo == 1) ? cout << "Paseo" : cout << "Montania";
+    (dtB.tipo == 0) ? cout << "Paseo" : cout << "Montania";
     cout << endl << "\t-  Cantidad de cambios: ";
     cout << dtB.cantCambios << endl;
     return salida;
