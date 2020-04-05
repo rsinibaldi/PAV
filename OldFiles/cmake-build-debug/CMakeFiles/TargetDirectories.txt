@@ -1,3 +1,0 @@
-C:/Users/yokad/Google Drive/PAV2020/LAB1/PAV/cmake-build-debug/CMakeFiles/PAV.dir
-C:/Users/yokad/Google Drive/PAV2020/LAB1/PAV/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/yokad/Google Drive/PAV2020/LAB1/PAV/cmake-build-debug/CMakeFiles/rebuild_cache.dir

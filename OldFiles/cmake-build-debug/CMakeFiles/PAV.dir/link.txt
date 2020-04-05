@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\PAV.dir/objects.a
-C:\MinGW64\bin\ar.exe cr CMakeFiles\PAV.dir/objects.a @CMakeFiles\PAV.dir\objects1.rsp
-C:\MinGW64\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\PAV.dir/objects.a -Wl,--no-whole-archive  -o PAV.exe -Wl,--out-implib,libPAV.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\PAV.dir\linklibs.rsp

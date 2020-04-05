@@ -1,13 +1,4 @@
-void agregarViaje(){
-//  struct {
-//      Viajes* viajes[MAX_VIAJES];
-  //    int tope;
-//  }coleccionViajes;
-
-//Habia agregado esto porque no tenia idea de como agregar viajes, pero cuando vi
-//que no era necesario para mostrarlos todos me preocupe
-
-
+void IngresarViaje(){
 
   system("clear");
   cout <<"_____________________________________________________" <<endl;
@@ -55,18 +46,16 @@ void agregarViaje(){
     if (fechaviaje < usuarioviaje->getUsuFechaIngreso())
       throw invalid_argument("ERROR! la fecha del viaje es anterior a la fecha del registro del usuario.");
 
+      DtViajeBase viaje = new DtViajeBase(duracionViaje, distanciaViaje, fechaViaje)
 
-
-      agregarViaje(ci, nroSerie, duracionViaje, distanciaViaje, fechaViaje);
+      ingresarViaje(ci, nroSerie, viaje);
     }
   }catch(invalid_argument& e){
     cout << e.what() << endl;
-    agregarViaje(); //repite la solicitud de datos
+    ingresarViaje(); //repite la solicitud de datos
   }
 }
-void agregarVehiculo(int ci, int nrSerie, int distancia, int duracion, DtFecha fecha){
-  //DtViaje* viaje = new DTVIAJEViaje(ci, nrSerie, duracion, fecha);
-  //aca deberia generar priemero un dtviaje? o un viaje directamente? no estoy
-  //entendiendo como guardarlo digamos
+void ingresarViaje(int ci, int nrSerie, DtViajeBase& viaje){
+  //ahora solo me falta convertir eso en un Viaje* para llamar a la funcion del usuario
 
 }
