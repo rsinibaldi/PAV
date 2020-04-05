@@ -10,6 +10,7 @@
 #include "dtTypes/DtMonopatin.h"
 #include "dtTypes/DtBicicleta.h"
 #include "dtTypes/DtFecha.h"
+#include "dtTypes/DtBicicleta.h"
 
 #include <iostream>
 #include <stdio.h>
@@ -551,6 +552,23 @@ Vehiculo* obtenerVehiculo(int nSerie){
 }
 #pragma endregion
 
+
+//HARDCODEO DE DATOS
+void cargaDatos(){
+    DtMonopatin dtMono= DtMonopatin(12322,99,120,true);
+    DtMonopatin dtMono2= DtMonopatin(32552,50, 100,false);
+    DtBicicleta dtBici= DtBicicleta(55485,100,180,"Montana",5);
+    DtBicicleta dtBici2= DtBicicleta(8788,75,150,"Paseo", 3);
+    registrarUsuario("42721741","Michael Rodriguez");
+    registrarUsuario("45758559", "Bruno Garcia");
+    system("clear");
+    cout << "\n\nTENEMOS CARGADOS "<< coleccionUsuarios.tope<< " usuarios"<< endl;
+    cout << "----------------------------------------------------------------------" << endl;
+    cout << coleccionUsuarios.usuarios[0]->getUsuNombre() << " " << coleccionUsuarios.usuarios[0]->getUsuCedula() << endl;
+    cout << coleccionUsuarios.usuarios[1]->getUsuNombre() << " " << coleccionUsuarios.usuarios[1]->getUsuCedula() << endl;
+
+}
+
 //MENU
 void menu(){
 	cout << "_____________________________________________________" << endl;
@@ -573,6 +591,7 @@ void menu(){
 
 //MAIN
 int main() {
+    cargaDatos();
 	menu();
 
 	int opcion;
