@@ -1,18 +1,17 @@
 #include "DtBicicleta.h"
-#include "../enum/TipoBici.h"
 
 #include <iostream>
 #include <stdlib.h>
 
 //Constructores
 DtBicicleta::DtBicicleta() {}
-DtBicicleta::DtBicicleta(int nroSerie, float porcentaje, float precioBase, tipoBici tipoo, int cantCambios ):DtVehiculo(nroSerie, porcentaje, precioBase) {
-    this->tipo = tipo;
+DtBicicleta::DtBicicleta(int nroSerie, float porcentaje, float precioBase, string tipoo, int cantCambios ):DtVehiculo(nroSerie, porcentaje, precioBase) {
+    this->tipo = tipoo;
     this->cantCambios = cantCambios;
 }
 
 //Getters & Setters
-tipoBici DtBicicleta::getTipoBici() {
+string DtBicicleta::getTipoBici() {
     return this->tipo;
 }
 int DtBicicleta::getCantCambios() {
@@ -22,13 +21,11 @@ int DtBicicleta::getCantCambios() {
 //Destructores
 DtBicicleta::~DtBicicleta() {}
 
-//Métodos
+//Mï¿½todos
 ostream& operator <<(ostream& salida, const DtBicicleta& dtB) {
     cout << (DtVehiculo)dtB << "\t-  Tipo de bicicleta: ";
-    if (dtB.tipo == 0)
-        cout << "Paseo";
-	else
-		cout << "Montania";
+
+		cout << dtB.tipo << endl;
     cout << endl << "\t-  Cantidad de cambios: ";
     cout << dtB.cantCambios << endl;
     return salida;

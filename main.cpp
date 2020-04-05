@@ -11,8 +11,6 @@
 #include "dtTypes/DtBicicleta.h"
 #include "dtTypes/DtFecha.h"
 
-#include "enum/TipoBici.h"
-
 #include <iostream>
 #include <stdio.h>
 #include <string.h>
@@ -180,15 +178,15 @@ void agregarVehiculo(DtVehiculo& vehiculo){
             cout << "\t2.MONTANIA" << endl;
             cout << "OPCION: ";
 
-			tipoBici tipo;
-            int opTipoBici;
+			string tipo;
+      int opTipoBici;
 			cin >> opTipoBici;
 			if (opTipoBici < 1 || opTipoBici > 2)
 				throw invalid_argument("\nERROR! opción inválida.");
 			switch (opTipoBici){
-				case 1: tipo = Paseo;
+				case 1: tipo = "Paseo";
 				    break;
-				case 2: tipo = Montania;
+				case 2: tipo = "Montania";
 				    break;
 			}
 
@@ -289,7 +287,7 @@ DtViaje** verViajesAntesDeFecha(DtFecha& fecha, string ci, int& cantViajes){
 	}
 	return dtViajes;
 }
-#pragma endregion 
+#pragma endregion
 
 #pragma region Op5 - ELIMINAR VIAJES
 
@@ -332,7 +330,7 @@ void eliminarViajes(string ci, DtFecha& fecha){
 	cout << endl << "Viajes eliminados: " << cantViajesEliminados << endl;
 }
 
-#pragma endregion 
+#pragma endregion
 
 #pragma region Op6 - CARGA BATERIA
 void cambiarBateria(){
@@ -597,7 +595,7 @@ int main() {
                 break;
 			case 11: buscarUsuario();
                 break;
-			case 97: { 
+			case 97: {
                 system("clear"); /*
 
                 int serie;
@@ -611,8 +609,8 @@ int main() {
                 cout << "Precio: " << vehiculoEncontrado->getPrecioBase() << endl;
 				*/
                 break;
-            } 
-            case 98: { 
+            }
+            case 98: {
                 system("clear"); /*
 
                 cout << "LISTAR VEHICULOS..." << endl;

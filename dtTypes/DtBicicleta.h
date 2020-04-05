@@ -2,15 +2,18 @@
 #define MIKE_DTBICICLETA_H
 
 #include "../dtTypes/DtVehiculo.h"
-#include "../enum/TipoBici.h"
+#include <string.h>
+#include <iostream>
+using namespace std;
+
 class DtBicicleta: public DtVehiculo{
 private:
-    tipoBici tipo;
+    string tipo;
     int cantCambios;
 public:
     DtBicicleta();
-    DtBicicleta(int, float, float, tipoBici, int);
-    tipoBici getTipoBici();
+    DtBicicleta(int, float, float, string, int);
+    string getTipoBici();
     int getCantCambios();
     ~DtBicicleta();
 
