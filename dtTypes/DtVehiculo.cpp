@@ -24,8 +24,8 @@ DtVehiculo::~DtVehiculo() {}
 
 //Métodos
 ostream& operator <<(ostream& salida, const DtVehiculo& dtV) {
-    cout << "Número de serie: " << dtV.nroSerie <<
-    "\nPorcentaje de batería: " << dtV.porcentaje <<
-    "\nPrecio base: " << dtV.precioBase << endl;
+    cout << "-  Número serie: " << dtV.nroSerie << endl <<
+    "-  Porcentaje batería: " << dtV.porcentaje << endl <<
+    "-  Precio base: $ " << dtV.precioBase << endl;
     return salida;
 }

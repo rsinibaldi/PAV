@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include <iostream>
 
 using namespace std;
@@ -26,6 +25,7 @@ int DtFecha::getMes() {
 int DtFecha::getAnio() {
   return this->anio;
 }
+
 //Destructores
 DtFecha::~DtFecha() {}
 

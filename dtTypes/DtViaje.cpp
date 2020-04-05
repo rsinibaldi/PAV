@@ -27,8 +27,8 @@ DtViaje::~DtViaje() {}
 
 //Métodos
 ostream& operator <<(ostream& salida, const DtViaje& dtv) {
-  cout << (DtViajeBase) dtv <<
-  "\nPrecio total: $ " << dtv.precioTotal <<
-  "\nVehículo: " << dtv.vehiculo << endl;
+	cout << (DtViajeBase)dtv <<
+		"\nPrecio total: $ " << dtv.precioTotal <<
+		"\nVehículo: " << dtv.vehiculo << endl;
 	return salida;
 }

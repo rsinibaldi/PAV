@@ -55,32 +55,35 @@ Viaje** Usuario::obtenerViajes() {
 void Usuario::eliminarViajes() {
 	for(int i=0; i<getUsuTopeViajes(); i++)
 		delete this->viajes[i];
+	this->topeV = 0;
 }
-void Usuario::eliminarViajeFecha(DtFecha& fecha){
+int Usuario::eliminarViajesFecha(DtFecha& fecha) {
+	int cantViajes = 0;
 
-	//Viaje** viajes = new Viaje*[viaje->getUsuTopeViajes()];
-	for(int i=0;i<getUsuTopeViajes();i++){
+	for(int i=0; i<getUsuTopeViajes(); i++){
+		DtFecha fechaViaje = this->viajes[i]->getViajeFecha();
 
-					DtFecha fechaViaje = this->viajes[i]->getViajeFecha();
+		int diaA = fechaViaje.getDia();
+		int mesA = fechaViaje.getMes();
+		int anioA = fechaViaje.getAnio();
 
-					int diaA = fechaViaje.getDia();
-					int mesA = fechaViaje.getMes();
-					int anioA = fechaViaje.getAnio();
-				//-------------------------------------
-					int diaB = fecha.getDia();
-					int mesB = fecha.getMes();
-					int anioB = fecha.getAnio();
+		int diaB = fecha.getDia();
+		int mesB = fecha.getMes();
+		int anioB = fecha.getAnio();
 
-					if((diaA == diaB)&&(mesA == mesB)&&(anioA == anioB)){
-									// Esto se deberia de sustituir por una funciopn llamada en Usuario: usuario->eliminarViaje2(Viaje* v); que implemente esto de abajo
-									this->viajes[i] = this->viajes[this->topeV];
-									delete this->viajes[this->topeV];
-									this->topeV--;
+		if ((diaA == diaB) && (mesA == mesB) && (anioA == anioB)){
+			Viaje* viaje = this->viajes[i];
+			this->viajes[i] = this->viajes[this->topeV];
+			this->viajes[this->topeV] = viaje;
 
-					}
+			delete this->viajes[this->topeV];
+			this->topeV--;
 
+			cantViajes++;
+		}
 	}
 
+	return cantViajes;
 }
 ostream& operator <<(ostream& salida, const Usuario& usu) {
     cout << "Nombre: " << usu.nombre << endl <<
