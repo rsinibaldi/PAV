@@ -83,7 +83,7 @@ void registrarUsuario(){
 
 	string ci, nombre;
 	cout << endl << "NOMBRE: ";
-	cin >> nombre;
+	getline(cin >> ws, nombre);
 	cout << endl << "CI: ";
 	cin >> ci;
 
@@ -133,7 +133,7 @@ void agregarVehiculo(){
 		cin >> precioBase;
 	}
 	catch (exception& e){
-		cout << endl << "ERROR!! Tipo de dato inválido." << endl;
+		cout << endl << "ERROR! Tipo de dato inválido." << endl;
 	}
 
 	try{
@@ -168,7 +168,7 @@ void agregarVehiculo(DtVehiculo& vehiculo){
 			if (opTieneLuces < 1 || opTieneLuces > 2)
 				throw invalid_argument("\nERROR! opción inválida.");
 			bool tieneLuces = (opTieneLuces == 1) ? true : false;
-
+			
 			Monopatin* mono = new Monopatin(vehiculo.getNroSerie(), vehiculo.getPorcentaje(), vehiculo.getPrecioBase(), tieneLuces);
 			coleccionVehiculos.vehiculos[coleccionVehiculos.tope] = mono;
 
@@ -217,9 +217,67 @@ void ingresarViaje() {
 	cout << "_____________________________________________________" << endl;
 	cout << "============I N G R E S A R   V I A J E S============" << endl;
 	cout << "_____________________________________________________" << endl;
-}
-void ingresarViaje(string ci, int nroSerieVehiculo, DtViajeBase& viaje){
 
+	try {
+		string ci;
+		cout << endl << "CI: ";
+		cin >> ci;
+		existeUsuario(ci);
+
+		int nroSerie;
+		cout << endl << "Nº DE SERIE: ";
+		cin >> nroSerie;
+		existeVehiculo(nroSerie);
+
+		int duracionViaje;
+		cout << endl << "DURACIÓN: ";
+		cin >> duracionViaje;
+		if (duracionViaje < 1)
+			throw invalid_argument("ERROR! La duración del viaje debe ser postiiva.");
+
+		int distanciaViaje;
+		cout << endl << "DISTANCIA: ";
+		cin >> distanciaViaje;
+		if (distanciaViaje < 1)
+			throw invalid_argument("ERROR! La distancia del viaje debe ser positiva.");
+
+		int dia, mes, anio;
+		cout << endl << "INGRESE LA FECHA A CONTINUACIÓN" << endl;
+		cout << endl << "DIA: ";
+		cin >> dia;
+		if (dia < 1 || dia > 31)
+			throw invalid_argument("ERROR! Día inválido.");
+		cout << "MES: ";
+		cin >> mes;
+		if (mes < 1 || mes > 12)
+			throw invalid_argument("ERROR! Mes inválido.");
+		cout << "ANIO: ";
+		cin >> anio;
+
+		DtFecha fechaViaje = DtFecha(dia, mes, anio);
+		Usuario* usuarioViaje = obtenerUsuario(ci);
+		if (fechaViaje < usuarioViaje->getUsuFechaIngreso())
+			throw invalid_argument("ERROR! La fecha del viaje es anterior a la fecha de registro del usuario.");
+
+		DtViajeBase viaje = DtViajeBase(duracionViaje, distanciaViaje, fechaViaje);
+
+		ingresarViaje(ci, nroSerie, viaje);
+	} catch (invalid_argument& e){
+		cout << endl << e.what() << endl;
+	}
+}
+void ingresarViaje(string ci, int nroSerieVehiculo, DtViajeBase& viaje) {
+	Usuario* usuario = obtenerUsuario(ci);
+
+	DtFecha fecha = viaje.getDtViajeBaseFechaIngreso();
+	int duracion = viaje.getDtViajeBaseDuracion();
+	int distancia = viaje.getDtViajeBaseDistancia();
+	Vehiculo* vehiculo = obtenerVehiculo(nroSerieVehiculo);
+
+	Viaje* viajeUsuario = new Viaje(fecha, duracion, distancia, vehiculo);
+	usuario->agregarViaje(viajeUsuario);
+
+	cout << endl << "Viaje agregado." << endl;
 }
 #pragma endregion
 
@@ -274,12 +332,23 @@ DtViaje** verViajesAntesDeFecha(DtFecha& fecha, string ci, int& cantViajes){
 	int i = 0;
 	while (i < cantViajesUsuario){
         DtFecha dtFechaActual = viajes[i]->getViajeFecha();
-        Vehiculo vehiculo = viajes[i]->getViajeVehiculo();
         int duracion = viajes[i]->getViajeDuracion();
-        int distancia = viajes[i]->getViajeDistancia();
-        float precioViaje = vehiculo.darPrecioviaje(duracion, distancia);
-        DtVehiculo dtVehiculo = DtVehiculo(vehiculo.getNroSerie(), vehiculo.getPorcentajeBateria(), vehiculo.getPrecioBase());
+		int distancia = viajes[i]->getViajeDistancia();
+		Vehiculo* vehiculo = viajes[i]->getViajeVehiculo();
 
+		DtVehiculo dtVehiculo;
+		float precioViaje;
+		if (Monopatin* m = dynamic_cast<Monopatin*>(vehiculo)){
+			precioViaje = m->darPrecioviaje(duracion, distancia);
+			dtVehiculo = DtVehiculo(m->getNroSerie(), m->getPorcentajeBateria(), m->getPrecioBase());
+		}
+		else {
+			if (Bicicleta* b = dynamic_cast<Bicicleta*>(vehiculo)) {
+				precioViaje = b->darPrecioviaje(duracion, distancia);
+				dtVehiculo = DtVehiculo(b->getNroSerie(), b->getPorcentajeBateria(), b->getPrecioBase());
+			}
+		}
+        
 		if (dtFechaActual < fecha){
 			DtViaje* dtViaje = new DtViaje(duracion, distancia, dtFechaActual, precioViaje, dtVehiculo);
 			dtViajes[cantViajes] = dtViaje;
@@ -292,7 +361,6 @@ DtViaje** verViajesAntesDeFecha(DtFecha& fecha, string ci, int& cantViajes){
 #pragma endregion 
 
 #pragma region Op5 - ELIMINAR VIAJES
-
 void eliminarViajes(){
 	system("clear");
 
@@ -331,7 +399,6 @@ void eliminarViajes(string ci, DtFecha& fecha){
 	int cantViajesEliminados = usuario->eliminarViajesFecha(fecha);
 	cout << endl << "Viajes eliminados: " << cantViajesEliminados << endl;
 }
-
 #pragma endregion 
 
 #pragma region Op6 - CARGA BATERIA
@@ -359,7 +426,7 @@ void cambiarBateria(){
 			cout << endl << "Porcentaje de batería actualizado." << endl;
 		}
 	}catch (invalid_argument& e){
-		cout << e.what() << endl;
+		cout << endl << e.what() << endl;
 	}
 }
 void cambiarBateriaVehiculo(int nSerie, float porcentaje){
@@ -470,7 +537,7 @@ bool existeVehiculo(int nSerie){
         i++;
     }
     if (!existe){
-		throw invalid_argument("\nERROR! No existe el vehículo.\n");
+		throw invalid_argument("ERROR! No existe el vehículo.\n");
     }
 
     return existe;
@@ -549,7 +616,7 @@ Vehiculo* obtenerVehiculo(int nSerie){
         }
         i++;
     }
-    return vehiculoEncontrado;
+	return vehiculoEncontrado;
 }
 #pragma endregion
 

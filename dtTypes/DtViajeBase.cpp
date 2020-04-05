@@ -28,8 +28,8 @@ DtViajeBase::~DtViajeBase() {}
 
 //Métodos
 ostream& operator <<(ostream& salida, const DtViajeBase& dtV) {
-    cout << "Fecha: " << dtV.fechaIngreso <<
-    "\nDuración: "<< dtV.duracion << " min." <<
-    "\nDistancia: " << dtV.distancia << " kms." << endl;
+    cout << "-  Fecha: " << dtV.fechaIngreso <<
+    "-  Duración: "<< dtV.duracion << " min." <<
+    "\n-  Distancia: " << dtV.distancia << " kms." << endl;
     return salida;
 }

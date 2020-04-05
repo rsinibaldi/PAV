@@ -2,7 +2,7 @@
 
 //Constructores
 Viaje::Viaje() {}
-Viaje::Viaje(DtFecha fecha, int duracion, int distancia, Vehiculo vehiculo) {
+Viaje::Viaje(DtFecha fecha, int duracion, int distancia, Vehiculo* vehiculo) {
     this->fecha = fecha;
     this->duracion = duracion;
     this->distancia = distancia;
@@ -28,10 +28,10 @@ int Viaje::getViajeDistancia() {
 void Viaje::setViajeDistancia(int distancia) {
     this->distancia = distancia;
 }
-Vehiculo Viaje::getViajeVehiculo() {
+Vehiculo* Viaje::getViajeVehiculo() {
     return this->vehiculo;
 }
-void Viaje::setViajeVehiculo(Vehiculo vehiculo) {
+void Viaje::setViajeVehiculo(Vehiculo* vehiculo) {
     this->vehiculo = vehiculo;
 }
 

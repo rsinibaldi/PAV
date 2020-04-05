@@ -12,11 +12,11 @@ private:
   DtFecha fecha;
   int duracion;
   int distancia;
-  Vehiculo vehiculo;
+  Vehiculo* vehiculo;
 public:
   //Constructores
   Viaje();
-  Viaje(DtFecha, int, int, Vehiculo);
+  Viaje(DtFecha, int, int, Vehiculo*);
 
   //Getters & Setters
   DtFecha getViajeFecha();
@@ -25,8 +25,8 @@ public:
   void setViajeDuracion(int duracion);
   int getViajeDistancia();
   void setViajeDistancia(int distancia);
-  Vehiculo getViajeVehiculo();
-  void setViajeVehiculo(Vehiculo vehiculo);
+  Vehiculo* getViajeVehiculo();
+  void setViajeVehiculo(Vehiculo* vehiculo);
 
   //Destructores
   ~Viaje();

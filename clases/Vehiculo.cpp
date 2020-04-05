@@ -32,4 +32,3 @@ void Vehiculo::setPrecioBase(float precioBase) {
 Vehiculo::~Vehiculo() {}
 
 //Métodos
-float Vehiculo::darPrecioviaje(int duracion, int distancia) {};
