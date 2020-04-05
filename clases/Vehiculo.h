@@ -23,7 +23,7 @@ public:
     ~Vehiculo();
 
     //Métodos
-	virtual float darPrecioviaje(int, int)=0;
+	virtual float darPrecioViaje(int, int) = 0;
 };
 
 #endif //Vehiculo_H

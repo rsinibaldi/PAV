@@ -60,16 +60,12 @@ void cambiarBateriaVehiculo(int, float);
 void obtenerVehiculos();
 DtVehiculo** obtenerVehiculos(int&);
 
-//OPERACIONES AUXILIARES
-void buscarUsuario();
-
 //FUNCIONES AUXILIARES
 void menu();
 bool existeUsuario(string);
 Usuario* obtenerUsuario(string);
 bool existeVehiculo(int);
 Vehiculo* obtenerVehiculo(int);
-void listarVehiculos();
 void validarRegistroUsuario(string ci);
 bool validarRegistroVehiculo(int, float, float);
 
@@ -168,7 +164,7 @@ void agregarVehiculo(DtVehiculo& vehiculo){
 			if (opTieneLuces < 1 || opTieneLuces > 2)
 				throw invalid_argument("\nERROR! opción inválida.");
 			bool tieneLuces = (opTieneLuces == 1) ? true : false;
-			
+
 			Monopatin* mono = new Monopatin(vehiculo.getNroSerie(), vehiculo.getPorcentaje(), vehiculo.getPrecioBase(), tieneLuces);
 			coleccionVehiculos.vehiculos[coleccionVehiculos.tope] = mono;
 
@@ -339,12 +335,12 @@ DtViaje** verViajesAntesDeFecha(DtFecha& fecha, string ci, int& cantViajes){
 		DtVehiculo dtVehiculo;
 		float precioViaje;
 		if (Monopatin* m = dynamic_cast<Monopatin*>(vehiculo)){
-			precioViaje = m->darPrecioviaje(duracion, distancia);
+			precioViaje = m->darPrecioViaje(duracion, distancia);
 			dtVehiculo = DtVehiculo(m->getNroSerie(), m->getPorcentajeBateria(), m->getPrecioBase());
 		}
 		else {
 			if (Bicicleta* b = dynamic_cast<Bicicleta*>(vehiculo)) {
-				precioViaje = b->darPrecioviaje(duracion, distancia);
+				precioViaje = b->darPrecioViaje(duracion, distancia);
 				dtVehiculo = DtVehiculo(b->getNroSerie(), b->getPorcentajeBateria(), b->getPrecioBase());
 			}
 		}
@@ -476,12 +472,12 @@ DtVehiculo** obtenerVehiculos(int& cantVehiculos){
 	cantVehiculos = 0;
     DtVehiculo** lista = new DtVehiculo*[coleccionVehiculos.tope];
     for (int i = 0; i < coleccionVehiculos.tope; i++){
-		if (Monopatin* m = dynamic_cast<Monopatin*>(coleccionVehiculos.vehiculos[i])) {
+		if (Monopatin* m = dynamic_cast<Monopatin*>(coleccionVehiculos.vehiculos[i])){
 			DtMonopatin* monos = new DtMonopatin(m->getNroSerie(), m->getPorcentajeBateria(), m->getPrecioBase(), m->getTieneLuces());
 			lista[i] = monos;
 		}
 		else {
-			if (Bicicleta* b = dynamic_cast<Bicicleta*>(coleccionVehiculos.vehiculos[i])) {
+			if (Bicicleta* b = dynamic_cast<Bicicleta*>(coleccionVehiculos.vehiculos[i])){
 				DtBicicleta* bici = new DtBicicleta(b->getNroSerie(), b->getPorcentajeBateria(), b->getPrecioBase(), b->getTipoBici(), b->getCambios());
 				lista[i] = bici;
 			}
@@ -489,29 +485,6 @@ DtVehiculo** obtenerVehiculos(int& cantVehiculos){
 		cantVehiculos++;
     }
     return lista;
-}
-#pragma endregion
-
-#pragma region OPERACIONES AUXILIARES
-void buscarUsuario() {
-	system("clear");
-
-	cout << "_____________________________________________________" << endl;
-	cout << "============B U S C A R   U S U A R I O==============" << endl;
-	cout << "_____________________________________________________" << endl;
-
-	try {
-		string ci;
-		cout << endl << "CI: ";
-		cin >> ci;
-
-		existeUsuario(ci);
-		Usuario* usuario = obtenerUsuario(ci);
-		cout << endl << *(usuario) << endl;
-	}
-	catch (invalid_argument& e) {
-		cout << endl << e.what() << endl;
-	}
 }
 #pragma endregion
 
@@ -597,14 +570,6 @@ Usuario* obtenerUsuario(string ci){
     return usuarioEncontrado;
 }
 
-void listarVehiculos(){
-	for (int i = 0; i < coleccionVehiculos.tope; i++){
-		cout << i << " - Serie: " << coleccionVehiculos.vehiculos[i]->getNroSerie() << endl;
-		cout << i << " - Bateria: " << coleccionVehiculos.vehiculos[i]->getPorcentajeBateria() << endl;
-		cout << i << " - precio: " << coleccionVehiculos.vehiculos[i]->getPrecioBase() << endl;
-	}
-}
-
 Vehiculo* obtenerVehiculo(int nSerie){
     Vehiculo* vehiculoEncontrado;
     int i = 0;
@@ -626,16 +591,13 @@ void menu(){
 	cout << "==                    M  E  N  U                   ==" << endl;
 	cout << "=====================================================" << endl;
 	cout << "1. REGISTRAR USUARIO" << endl;
-	cout << "11. BUSCAR USUARIO" << endl;
 	cout << "2. AGREGAR VEHICULO" << endl;
 	cout << "3. INGRESAR VIAJE" << endl;
 	cout << "4. VER VIAJES ANTES DE FECHA" << endl;
 	cout << "5. ELIMINAR VIAJES" << endl;
 	cout << "6. CAMBIAR BATERIA DE VEHICULO" << endl;
 	cout << "7. OBTENER VEHICULOS" << endl;
-	cout << "97. [RS] - BUSCAR VEHICULO" << endl;
-	cout << "98. [RS] - LISTAR VEHICULOS" << endl;
-	cout << "99. SALIR" << endl;
+	cout << "0. SALIR" << endl;
 	cout << "_____________________________________________________" << endl;
 	cout << "OPCION>> ";
 }
@@ -646,7 +608,7 @@ int main() {
 
 	int opcion;
     cin>> opcion;
-    while(opcion != 99){
+    while(opcion != 0){
         switch (opcion){
             case 1: registrarUsuario();
                 break;
@@ -662,31 +624,7 @@ int main() {
                 break;
             case 7: obtenerVehiculos();
                 break;
-			case 11: buscarUsuario();
-                break;
-			case 97: { 
-                system("clear"); /*
-
-                int serie;
-                cout << "Número de serie: ";
-                cin >> serie;
-
-                Vehiculo* vehiculoEncontrado = obtenerVehiculo(serie);
-
-                cout << "Serie: " << vehiculoEncontrado->getNroSerie() << endl;
-                cout << "Bateria: " << vehiculoEncontrado->getPorcentajeBateria() << endl;
-                cout << "Precio: " << vehiculoEncontrado->getPrecioBase() << endl;
-				*/
-                break;
-            } 
-            case 98: { 
-                system("clear"); /*
-
-                cout << "LISTAR VEHICULOS..." << endl;
-                listarVehiculos(); */
-                break;
-            }
-            case 99: {
+            case 0: {
                 system("exit");
 
                 cout << "SALIENDO..." << endl;

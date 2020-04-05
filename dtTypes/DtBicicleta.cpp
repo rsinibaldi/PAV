@@ -5,13 +5,13 @@
 
 //Constructores
 DtBicicleta::DtBicicleta() {}
-DtBicicleta::DtBicicleta(int nroSerie, float porcentaje, float precioBase, string tipoo, int cantCambios ):DtVehiculo(nroSerie, porcentaje, precioBase) {
-    this->tipo = tipoo;
+DtBicicleta::DtBicicleta(int nroSerie, float porcentaje, float precioBase, tipoBici tipo, int cantCambios ):DtVehiculo(nroSerie, porcentaje, precioBase) {
+    this->tipo = tipo;
     this->cantCambios = cantCambios;
 }
 
 //Getters & Setters
-string DtBicicleta::getTipoBici() {
+tipoBici DtBicicleta::getTipoBici() {
     return this->tipo;
 }
 int DtBicicleta::getCantCambios() {
@@ -24,8 +24,7 @@ DtBicicleta::~DtBicicleta() {}
 //M�todos
 ostream& operator <<(ostream& salida, const DtBicicleta& dtB) {
     cout << (DtVehiculo)dtB << "\t-  Tipo de bicicleta: ";
-
-		cout << dtB.tipo << endl;
+    (dtB.tipo == 1) ? cout << "Paseo" : cout << "Montania";
     cout << endl << "\t-  Cantidad de cambios: ";
     cout << dtB.cantCambios << endl;
     return salida;

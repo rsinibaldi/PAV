@@ -1,18 +1,19 @@
 #include "Bicicleta.h"
 
 using namespace std;
+
 //Constructores
 Bicicleta::Bicicleta() {}
-Bicicleta::Bicicleta(int nroSerie, float porcentajeBateria, float precioBase, string tipo, int cantCambios):Vehiculo(nroSerie,porcentajeBateria,precioBase) {
+Bicicleta::Bicicleta(int nroSerie, float porcentajeBateria, float precioBase, tipoBici tipo, int cantCambios):Vehiculo(nroSerie, porcentajeBateria, precioBase) {
     this->tipo = tipo;
     this->cantCambios = cantCambios;
 }
 
 //Getters & Setters
-string Bicicleta::getTipoBici() {
+tipoBici Bicicleta::getTipoBici() {
     return this->tipo;
 }
-void Bicicleta::setTipoBici(string tipo) {
+void Bicicleta::setTipoBici(tipoBici tipo) {
     this->tipo = tipo;
 }
 int Bicicleta::getCambios() {
