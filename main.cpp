@@ -290,31 +290,18 @@ void eliminarViajes(string ci, DtFecha& fecha){
               // el usurio existe y se ingreso una fecha valida hasta este punto
               Usuario* usuario = obtenerUsuario(ci);
 
+							try{
+										existeUsuario(ci);
+
+							 }catch(invalid_argument& e){
+							 		cout << endl << e.what() << endl;
+							 }
               Viaje** viajes = usuario->obtenerViajes();
 
               int topeViajesUsuario = usuario->getUsuTopeViajes();
 
-              bool coincideFecha=false;
+							usuario->eliminarViajeFecha(fecha);
 
-              for(int i=0; i<topeViajesUsuario;i++){
-
-                      DtFecha fechaViaje = viajes[i]->getViajeFecha();
-
-                      int diaA = fechaViaje.getDia();
-                      int mesA = fechaViaje.getMes();
-                      int anioA = fechaViaje.getAnio();
-                    //-------------------------------------
-                      int diaB = fecha.getDia();
-                      int mesB = fecha.getMes();
-                      int anioB = fecha.getAnio();
-
-                      if((diaA == diaB)&&(mesA == mesB)&&(anioA == anioB)){
-
-                              cout << " Aca eliminamos el Viaje del Sistema "<< endl;
-                              delete(viajes[i]); //??
-
-                      }
-            }
 
 }
 

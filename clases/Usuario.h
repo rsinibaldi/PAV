@@ -39,6 +39,7 @@ public:
   bool agregarViaje(Viaje*);
   Viaje** obtenerViajes();
   void eliminarViajes();
+	void eliminarViajeFecha(DtFecha& fecha);
   friend ostream& operator <<(ostream&, const Usuario&);
 };
 
