@@ -6,43 +6,29 @@ using namespace std;
 //constructores
 
 DtProducto::DtProducto(){};
-DtProducto::DtProducto( string codigoProducto, string descripcionProducto, float precioProducto, int cantidad){
-    this -> codigoProducto = codigoProducto;
-    this -> descripcionProducto = descripcionProducto;
+DtProducto::DtProducto(string codigoProducto, string descripcionProducto, float precioProducto, int cantidad):DtProductoBase(codigoProducto, descripcionProducto){
+
     this -> precioProducto = precioProducto;
     this -> cantidad = cantidad;
 }
 
 //getterAndSetters
-    string getCodigoProducto() {
-        return this->codigoProducto;
-    }
-    void setCodigoProducto(string codigoProducto) {
-        this->codigoProducto= codigoProducto;
-    }
-
-    string getDescripcionProducto() {
-            return this->descripcionProducto;
-    }
-    void setDescripcionProducto(string descripcionProducto) {
-            this->descripcionProducto = descripcionProducto;
-    }
-
-    float getPrecioProducto(){
+    float DtProducto::getPrecioProducto(){
         return this->precioProducto;
     }
-    void setPrecioProducto(float precioProducto){
+    void DtProducto::setPrecioProducto(float precioProducto){
         this->precioProducto= precioProducto;
     }
 
-    int getCantidad(){
+    int DtProducto::getCantidad(){
         return this->cantidad;
     }
 
-    void setCantidad(int cantidad){
-        this ->cantidad = cantidad;
+    void DtProducto::setCantidad(int cantidad) {
+        this->cantidad = cantidad;
+    }
 
 //destructores
-DtProducto::~DtProducto() {}
+DtProducto::~DtProducto(){}
 
 //metodos
