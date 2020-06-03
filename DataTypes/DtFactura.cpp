@@ -25,6 +25,9 @@ float DtFactura::getSubtotalVenta(){
     return this-> subtotalVenta;
 }
 
+DtProductoFactura::~DtProductoFactura() {}
+
+
 float DtFactura::getDescuento(){
     return this-> descuento;
 }
