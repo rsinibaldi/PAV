@@ -22,4 +22,4 @@ void Empleado::setNombreEmpleado(string nombre) {
 }
 
 //Destructores
-Empleado::~Empleado() {}
+Empleado::~Empleado() {};
