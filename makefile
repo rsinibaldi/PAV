@@ -1,10 +1,12 @@
-main: Comun.o Producto.o Empleado.o VentaLocal.o DtFactura.o DtFecha.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
-	g++ main.cpp -o obligatorio Comun.o Producto.o Empleado.o VentaLocal.o DtFactura.o DtFecha.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
+main: Comun.o Producto.o ProductoMenu.o Empleado.o VentaLocal.o DtFactura.o DtFecha.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
+	g++ main.cpp -o obligatorio Comun.o Producto.o ProductoMenu.o Empleado.o VentaLocal.o DtFactura.o DtFecha.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
 #CLASES
 Comun.o: clases/Comun.cpp clases/Comun.h clases/Producto.cpp clases/Producto.h
 	g++ -c clases/Comun.cpp -o Comun.o
 Producto.o: clases/Producto.cpp clases/Producto.h
 	g++ -c clases/Producto.cpp -o Producto.o
+ProductoMenu.o: clases/ProductoMenu.cpp clases/ProductoMenu.h
+	g++ -c clases/ProductoMenu.cpp -o ProductoMenu.o
 Empleado.o: clases/Empleado.cpp clases/Empleado.h
 	g++ -c clases/Empleado.cpp -o Empleado.o
 VentaLocal.o: clases/VentaLocal.cpp clases/VentaLocal.h

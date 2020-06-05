@@ -37,4 +37,4 @@ virtual DtProductoBase getDtProductoBase() = 0;
 
 };
 
-#endif
+#endif // PRODUCTO_H

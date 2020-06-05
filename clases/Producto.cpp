@@ -46,9 +46,6 @@ Producto::~Producto(){}
 //Métodos
 
 TipoProducto Producto::getTipoProducto(){
-
-
 }
 DtProductoBase Producto::getDtProductoBase(){
-
 }
