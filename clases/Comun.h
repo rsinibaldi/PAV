@@ -1,20 +1,21 @@
 #ifndef Comun_H
 #define Comun_H
 
-#include "Producto.h"
+#include "../clases/Producto.h"
 
-
-#include <string.h>
-#include <iostream>
-
-using namespace std;
 
 class Comun: public Producto {
+private:
+				TipoProducto tipoProd;
 public:
-			//Constructores
+				//Constructor
+				Comun();
 
-			// --------- Destructores
+				//Metodos
+				TipoProducto getTipoProducto();
 
+				//Destructor
+				~Comun();
 };
 
 #endif //Comun_H

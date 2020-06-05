@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class Producto {
+class Producto	{
 private:
 	string codigo;
 	string descripcion;
@@ -17,7 +17,7 @@ private:
 public:
 	//Constructores
 	Producto();
-	Producto(int, float, float);
+	Producto(string, string, float);
 
 	//Getters & Setters
 	string getCodigo();
