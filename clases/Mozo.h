@@ -16,7 +16,8 @@ public:
     ~Mozo();
 
     //Métodos
-  
+    // mesasAsignadasSinVenta():Set(int);
+    // asignarMesas(set(int),VentaLocal);
 };
 
 #endif //Mozo_H

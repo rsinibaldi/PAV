@@ -13,7 +13,7 @@ private:
 public:
     //Constructores
     Empleado();
-    Empleado(string, string, );
+    Empleado(string, string);
 
     //Getters & Setters
     string getIdEmpleado();
@@ -23,5 +23,7 @@ public:
 
     //Destructores
     ~Empleado();
+
+    //Métodos
 
 #endif //Empleado_H
