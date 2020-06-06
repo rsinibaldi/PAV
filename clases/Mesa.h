@@ -9,7 +9,7 @@ class Mesa{
   public:
       //Constructores
       Mesa();
-      Mesa(string, string);
+      Mesa(int);
 
       //Getters & Setters
 
@@ -17,8 +17,11 @@ class Mesa{
       ~Mesa();
 
       //Métodos
-      // mesasAsignadasSinVenta():Set(int);
-      // asignarMesas(set(int),VentaLocal);
+      bool tieneVenta();
+      agregarProducto(DtProductoCantidad);
+      DtProducot listarProductos();//: Set(DtProducot)
+      quitarProducto(DtProductoCantidad);
+
 };
 
 #endif //Mesa_H
