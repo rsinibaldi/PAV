@@ -1,4 +1,6 @@
-#ifndef TipoProducto_H
-#define TipoProducto_H
+#ifndef TIPOPRODUCTO
+#define TIPOPRODUCTO
+
 enum TipoProducto {Comun, Menu};
-#endif //PAV_TIPOPRODUCTO_H
+
+#endif
