@@ -31,7 +31,7 @@ public:
 
 	//Métodos
 	TipoProducto getTipoProducto();
-	int eliminarComun(Producto, string);
+	int eliminarComun(string); //Producto, string
 	void decrementarCantidadComunes();
     void incrementarCantidadComunes();
     void agregarComunes(list<DtProductoCantidad>);

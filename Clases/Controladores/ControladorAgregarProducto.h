@@ -12,4 +12,4 @@ public:
     void confirmarAgregarProductoVenta();
 };
 
-#endif
+#endif //CONTROLADORAGREGARPRODUCTO
