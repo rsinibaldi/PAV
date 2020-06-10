@@ -1,10 +1,7 @@
 #ifndef CONTROLADORALTAPRODUCTO
 #define CONTROLADORALTAPRODUCTO
 
-#include <list>
-#include <string>
 #include "../Interfaces/IControladorAltaProducto.h"
-#include "../DataTypes/DtProductoCantidad.h"
 
 class ControladorAltaProducto : public IControladorAltaProducto {
 private:

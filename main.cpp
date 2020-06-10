@@ -201,7 +201,7 @@ int main(){
 			cout << "SALIENDO..." << endl;
 		}
 		default:
-			cout << <<endl << "OPCION INCORRECTA" << endl;
+			cout << endl << "OPCION INCORRECTA" << endl;
 		}
 		desplegarMenu();
 

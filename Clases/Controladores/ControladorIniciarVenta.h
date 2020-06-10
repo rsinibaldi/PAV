@@ -1,7 +1,6 @@
 #ifndef CONTROLADORINICIARVENTA
 #define CONTROLADORINICIARVENTA
 
-#include <list>
 #include "../Interfaces/IControladorIniciarVenta.h"
 
 class ControladorIniciarVenta : public IControladorIniciarVenta {
