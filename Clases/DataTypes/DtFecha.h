@@ -1,19 +1,19 @@
-#ifndef DTFECHA_H
-#define DTFECHA_H
+#ifndef DTFECHA
+#define DTFECHA
 
 #include <iostream>
 
 using namespace std;
 
 class DtFecha {
-  private:
+private:
     int dia;
     int mes;
     int anio;
-  public:
+public:
     //Constructores
     DtFecha();
-    DtFecha(int dia, int mes, int anio);
+    DtFecha(int, int, int);
 
     //Getters & Setters
     int getDia();
@@ -28,4 +28,4 @@ class DtFecha {
     friend ostream& operator <<(ostream&, const DtFecha&);
 };
 
-#endif //DTFECHA_H
+#endif //DTFECHA

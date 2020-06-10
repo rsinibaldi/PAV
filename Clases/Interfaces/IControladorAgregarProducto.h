@@ -2,8 +2,8 @@
 #define ICONTROLADORAGREGARPRODUCTO
 
 #include <list>
-#include "DataTypes/DtProductoBase.h"
-#include "DataTypes/DtProductoCantidad.h"
+#include "../DataTypes/DtProductoBase.h"
+#include "../DataTypes/DtProductoCantidad.h"
 
 using namespace std;
 

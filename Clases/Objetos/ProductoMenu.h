@@ -1,36 +1,35 @@
-#ifndef ProductoMenu_H
-#define ProductoMenu_H
+#ifndef PRODUCTOMENU
+#define PRODUCTOMENU
 
-#include "Producto.h" // ?
+#include <list>
+#include <string>
 #include "Comun.h"
-#include <string.h>
-#include <iostream>
+#include "Producto.h"
 
 using namespace std;
 
-
 class ProductoMenu{
 private:
-					int cantidad;
-
+	int cantidad;
+	Comun* comun;
 public:
-					//Constructor
-					ProductoMenu();
-					ProductoMenu(int);
+	//Constructores
+	ProductoMenu();
+	ProductoMenu(int);
 
-					//GyS
-					int getCantidad();
-					void setCantidad(int);
+	//Getters & Setters
+	int getCantidad();
+	void setCantidad(int);
+	Comun* getComun();
+	void setComun(Comun*);
 
-					//Destructores
-					~ProductoMenu();
+	//Destructores
+	~ProductoMenu();
 
-					//Metodos
-
-					string getCodigoComun();
-					void asignarComun(string);
-					float getPrecio();
-
+	//Métodos
+	string getCodigoComun();
+	void asignarComun(string);
+	float getPrecio();
 };
 
-#endif // PRODUCTOMENU_H
+#endif //PRODUCTOMENU

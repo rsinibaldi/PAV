@@ -2,10 +2,8 @@
 #define ICONTROLADORQUITARPRODUCTO
 
 #include <list>
-#include "DataTypes/DtProducto.h"
-#include "DataTypes/DtProductoCantidad.h"
-
-using namespace std;
+#include "../DataTypes/DtProducto.h"
+#include "../DataTypes/DtProductoCantidad.h"
 
 class IControladorQuitarProducto {
 public:

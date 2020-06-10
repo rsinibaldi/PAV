@@ -1,8 +1,7 @@
-#ifndef PAV_DTPRODUCTOCANTIDAD_H
-#define PAV_DTPRODUCTOCANTIDAD_H
-#include <iostream>
-#include "DtProductoFactura.h"
-#include "DtFecha.h"
+#ifndef DTPRODUCTOCANTIDAD
+#define DTPRODUCTOCANTIDAD
+
+#include <string>
 
 using namespace std;
 
@@ -10,19 +9,21 @@ class DtProductoCantidad {
 private:
     string codigo;
     int cantidad;
-
 public:
+    //Constructores
     DtProductoCantidad();
-    DtProductoCantidad(string codigo, int cantidad);
+    DtProductoCantidad(string, int);
+
+    //Getters & Setters
     string getCodigo();
-    int getCantidad();
     void setCodigo(string);
+    int getCantidad();
     void setCantidad(int);
+
+    //Destructores
     ~DtProductoCantidad();
 
+    //Métodos
 };
 
-
-
-
-#endif //PAV_DTPRODUCTOCANTIDAD_H
+#endif //DTPRODUCTOCANTIDAD

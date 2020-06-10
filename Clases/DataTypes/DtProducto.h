@@ -1,36 +1,32 @@
-#ifndef DTPRODUCTO_H
-#define DTPRODUCTO_H
+#ifndef DTPRODUCTO
+#define DTPRODUCTO
 
-#include <stdio.h>
 #include <iostream>
-#include <string.h>
+#include <string>
 #include "DtProductoBase.h"
-
 
 using namespace std;
 
 class DtProducto: public DtProductoBase {
 private:
-    float precioProducto;
+    float precio;
     int cantidad;
-
  public:
-    //constructores
+     //Constructores
     DtProducto();
-    DtProducto(string codigoProducto, string descripcionProducto, float precioProducto, int cantidad);
-    //geterAndSetter
-    float getPrecioProducto();
-    void setPrecioProducto(float precioProducto);
-    int getCantidad();
-    void setCantidad(int cantidad);
+    DtProducto(string, string, float, int);
 
-    //destructores
+    //Getters & Setters
+    float getPrecio();
+    void setPrecio(float);
+    int getCantidad();
+    void setCantidad(int);
+
+    //Destructores
     virtual ~DtProducto();
 
+    //Métodos
     friend ostream& operator <<(ostream&, const DtProducto&);
-    //metodos
-
-    
 };
 
-#endif
+#endif //DTPRODUCTO

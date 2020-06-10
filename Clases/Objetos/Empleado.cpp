@@ -11,11 +11,11 @@ Empleado::Empleado(string idEmpleado, string nombre) {
 string Empleado::getIdEmpleado() {
     return this->idEmpleado;
 }
-void Empleado::setidEmpleado(string idEmpleado) {
+void Empleado::setIdEmpleado(string idEmpleado) {
     this->idEmpleado = idEmpleado;
 }
 string Empleado::getNombreEmpleado() {
-    return  this->nombre;
+    return this->nombre;
 }
 void Empleado::setNombreEmpleado(string nombre) {
     this->nombre = nombre;
@@ -23,3 +23,5 @@ void Empleado::setNombreEmpleado(string nombre) {
 
 //Destructores
 Empleado::~Empleado() {};
+
+//Métodos

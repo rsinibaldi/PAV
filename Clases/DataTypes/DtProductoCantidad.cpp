@@ -1,28 +1,27 @@
 #include "DtProductoCantidad.h"
-#include <iostream>
 
-using namespace std;
-
+//Constructores
 DtProductoCantidad::DtProductoCantidad() {}
 DtProductoCantidad::DtProductoCantidad(string codigo, int cantidad) {
-    this->codigo=codigo;
-    this ->cantidad=cantidad;
+    this->codigo = codigo;
+    this->cantidad = cantidad;
 }
 
-int DtProductoCantidad::getCantidad() {
-    return this -> cantidad;
-}
-
+//Getters & Setters
 string DtProductoCantidad::getCodigo() {
-    return this ->codigo;
+    return this->codigo;
 }
-
-void DtProductoCantidad::setCantidad(int cantidad) {
-    this->cantidad=cantidad;
-}
-
 void DtProductoCantidad::setCodigo(string codigo) {
-    this->codigo=codigo;
+    this->codigo = codigo;
+}
+int DtProductoCantidad::getCantidad() {
+    return this->cantidad;
+}
+void DtProductoCantidad::setCantidad(int cantidad) {
+    this->cantidad = cantidad;
 }
 
+//Destructores
 DtProductoCantidad::~DtProductoCantidad() {}
+
+//Métodos

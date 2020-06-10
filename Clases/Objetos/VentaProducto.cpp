@@ -1,7 +1,4 @@
 #include "VentaProducto.h"
-#include "DataTypes/DtProducto.h"
-#include "DataTypes/DtProductoFactura.h"
-#include "Clases/Producto.h"
 
 //Constructores
 VentaProducto::VentaProducto() {}
@@ -15,6 +12,12 @@ int VentaProducto::getCantidad() {
 }
 void VentaProducto::setCantidad(int cantidad) {
 	this->cantidad = cantidad;
+}
+Producto *VentaProducto::getProducto() {
+	return this->producto;
+}
+void VentaProducto::setProducto(Producto *producto) {
+	this->producto = producto;
 }
 
 //Destructores

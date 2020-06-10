@@ -1,22 +1,30 @@
 #ifndef DTFACTURALOCAL
 #define DTFACTURALOCAL
 
-#include <iostream>
 #include <list>
 #include <string>
 #include "DtFactura.h"
+#include "DtFecha.h"
+#include "DtProductoFactura.h"
+
+using namespace std;
 
 class DtFacturaLocal : public DtFactura {
 private:
     string nombreMozo;
 public:
+    //Constructores
     DtFacturaLocal();
-    DtFacturaLocal(string codVenta, DtFecha fechaEmision, list<DtProductoFactura*>productos, float subTotal, float descuento, float montoTotalVenta, float montoTotalVentaConIva);
-    
-    string getNombreMozo();
-    void setNombreMozo();
+    DtFacturaLocal(string, DtFecha, list<DtProductoFactura*>, float, float, float, float, string);
 
+    //Getters & Setters
+    string getNombreMozo();
+    void setNombreMozo(string);
+
+    //Destructores
     virtual ~DtFacturaLocal();
+
+    //Métodos
 };
 
 #endif //DTFACTURALOCAL

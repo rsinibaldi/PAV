@@ -1,51 +1,67 @@
-#include "ProductoMenu.h"
-
+#include "Menu.h"
 
 //Constructores
-
-Menu::Menu(){}
-Menu::Menu(int cantidadComunes){
-					this->cantidadCantidad = cantidadComunes;
+Menu::Menu() {}
+Menu::Menu(int cantidadComunes) {
+	this->cantidadCantidad = cantidadComunes;
 }
 
-
-//Getters and setters
-
-int Menu::getCantidadComunes(){
-					return this->cantidadComunes;
+//Getters & Setters
+int Menu::getCantidadComunes() {
+	return this->cantidadComunes;
 }
-void Menu::setCantidadComunes(int cantidadComunes){
-					this->cantidadComunes = cantidadComunes;
+void Menu::setCantidadComunes(int cantidadComunes) {
+	this->cantidadComunes = cantidadComunes;
+}
+list<ProductoMenu>* Menu::getProductosMenu() {
+	return this->productosMenu;
+}
+void Menu::setProductosMenu(list<ProductoMenu>* productosMenu) {
+	this->productosMenu = productosMenu;
 }
 
 //Destructores
+Menu::~Menu() {}
 
-Menu::~Menu(){}
-
-
-//Metodos
-
-TipoProducto Menu::getTipoProducto(){
-
+//Métodos
+TipoProducto Menu::getTipoProducto() {
+	return menu;
 }
-void Menu::eliminarComun(Producto pro, string codigo){
-
+int Menu::eliminarComun(Producto pro, string codigo) {
+	for each (ProductoMenu* pm in this->productosMenu) {
+		if (pm->getCodigoComun() == codigo) {
+			this->productosMenu.remove(pm);
+			delete pm;
+			this->decrementarCantidadComunes();
+		}
+	}
+	return getCantidadComunes();
 }
-void Menu::decrementarCantidadComunes(int cantidad){
-
+void Menu::decrementarCantidadComunes() {
+	this->cantComunes--;
 }
-void Menu::incrementarCantidadComunes(int cantidad){
-
+void Menu::incrementarCantidadComunes() {
+	this->cantComunes++;
 }
-void Menu::agregarComunes(DTProductoCantidad[] prouctoAgrega){
+void Menu::agregarComunes(list<DtProductoCantidad> productosComun) {
+	ProductoMenu* pm;
+	for each (DtProductoCantidad* pc in productosComun)
+		pm = new ProductoMenu(pc.cantidad);
+	pm->asignarComun(pc.codigo);
 
+	this->productosMenu.push_back(pm);
+	this->incrementarCantidadComunes();
 }
-void Menu::aplicarDescuento(){
-
+void Menu::aplicarDescuento() {
+	this->precio = this->precio * 0.90;
 }
-void Menu::calcularPrecio(){
-
+void Menu::calcularPrecio() {
+	for each (ProductoMenu* pm in this->productosMenu) {
+		float precioCom = pm->getPrecio();
+		this->incrementarPrecio(precioCom);
+	}
+	this->aplicarDescuento();
 }
-void Menu::incrementarPrecio(float precio){
-
+void Menu::incrementarPrecio(float precio) {
+	this->precio = this->precio + precio;
 }

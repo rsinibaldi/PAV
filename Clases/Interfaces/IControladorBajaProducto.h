@@ -3,9 +3,7 @@
 
 #include <list>
 #include <string>
-#include "DataTypes/DtProductoBase.h"
-
-using namespace std;
+#include "../DataTypes/DtProductoBase.h"
 
 class IControladorBajaProducto {
 public:

@@ -1,34 +1,27 @@
-#include <DtProducto.h>
+#include "DtProducto.h"
 
-
-using namespace std;
-
-//constructores
-
+//Constructores
 DtProducto::DtProducto(){};
-DtProducto::DtProducto(string codigoProducto, string descripcionProducto, float precioProducto, int cantidad):DtProductoBase(codigoProducto, descripcionProducto){
-
-    this -> precioProducto = precioProducto;
-    this -> cantidad = cantidad;
+DtProducto::DtProducto(string codigo, string descripcion, float precio, int cantidad):DtProductoBase(codigo, descripcion) {
+    this->precio = precio;
+    this->cantidad = cantidad;
 }
 
-//getterAndSetters
-    float DtProducto::getPrecioProducto(){
-        return this->precioProducto;
-    }
-    void DtProducto::setPrecioProducto(float precioProducto){
-        this->precioProducto= precioProducto;
-    }
+//Getters & Setters
+float DtProducto::getPrecio() {
+    return this->precio;
+}
+void DtProducto::setPrecio(float precio) {
+    this->precio = precio;
+}
+int DtProducto::getCantidad() {
+    return this->cantidad;
+}
+void DtProducto::setCantidad(int cantidad) {
+    this->cantidad = cantidad;
+}
 
-    int DtProducto::getCantidad(){
-        return this->cantidad;
-    }
+//Destructores
+DtProducto::~DtProducto() {}
 
-    void DtProducto::setCantidad(int cantidad) {
-        this->cantidad = cantidad;
-    }
-
-//destructores
-DtProducto::~DtProducto(){}
-
-//metodos
+//Métodos

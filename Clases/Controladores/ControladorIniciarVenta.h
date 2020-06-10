@@ -1,7 +1,8 @@
 #ifndef CONTROLADORINICIARVENTA
 #define CONTROLADORINICIARVENTA
 
-#include "Interfaces/IControladorIniciarVenta.h"
+#include <list>
+#include "../Interfaces/IControladorIniciarVenta.h"
 
 using namespace std;
 

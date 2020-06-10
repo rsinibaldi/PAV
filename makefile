@@ -1,8 +1,8 @@
 main: Fabrica.o ControladorAgregarProducto.o ControladorAltaProducto.o ControladorBajaProducto.o ControladorFacturacion.o ControladorIniciarVenta.o ControladorQuitarProducto.o ManejadorEmpleado.o ManejadorMesa.o ManejadorProducto.o ManejadorVenta.o Empleado.o Comun.o Producto.o ProductoMenu.o VentaLocal.o DtFactura.o DtFacturaLocal.o DtFecha.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
 	g++ main.cpp -o obligatorio Fabrica.o ControladorAgregarProducto.o ControladorAltaProducto.o ControladorBajaProducto.o ControladorFacturacion.o ControladorIniciarVenta.o ControladorQuitarProducto.o ManejadorEmpleado.o ManejadorMesa.o ManejadorProducto.o ManejadorVenta.o Empleado.o Comun.o Producto.o ProductoMenu.o VentaLocal.o DtFactura.o DtFacturaLocal.o DtFecha.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
 #FABRICA
-Fabrica.o: Fabrica.cpp Fabrica.h
-	g++ -c Fabrica.cpp -o Fabrica.o
+Fabrica.o: Clases/Fabrica.cpp Clases/Fabrica.h
+	g++ -c Clases/Fabrica.cpp -o Fabrica.o
 #CONTROLADORES
 ControladorAgregarProducto.o: Clases/Controladores/ControladorAgregarProducto.cpp Clases/Controladores/ControladorAgregarProducto.h
 	g++ -c Clases/Controladores/ControladorAgregarProducto.cpp -o ControladorAgregarProducto.o

@@ -1,21 +1,18 @@
-#ifndef Comun_H
-#define Comun_H
+#ifndef COMUN
+#define COMUN
 
-#include "../clases/Producto.h"
-
+#include "Producto.h"
 
 class Comun: public Producto {
-private:
-				TipoProducto tipoProd;
 public:
-				//Constructor
-				Comun();
+	//Constructores
+	Comun();
 
-				//Metodos
-				TipoProducto getTipoProducto();
+	//Destructores
+	~Comun();
 
-				//Destructor
-				~Comun();
+	//Metodos
+	TipoProducto getTipoProducto();
 };
 
-#endif //Comun_H
+#endif //COMUN

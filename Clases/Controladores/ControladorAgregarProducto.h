@@ -1,7 +1,7 @@
 #ifndef CONTROLADORAGREGARPRODUCTO
 #define CONTROLADORAGREGARPRODUCTO
 
-#include "Interfaces/IControladorAgregarProducto.h"
+#include "../Interfaces/IControladorAgregarProducto.h"
 
 class ControladorAgregarProducto : public IControladorAgregarProducto {
 public:

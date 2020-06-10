@@ -1,34 +1,34 @@
-#include <DtProductoFactura.h>
-#include <iostream>
+#include "DtProductoFactura.h"
 
-using namespace std;
-
-DtProductoFactura::DtProductoFactura(){}
-DtProductoFactura::DtProductoFactura(string descripcion, float precio, int cantidad ){
-    this -> descripcion= descripcion;
-    this -> precio= precio;
-    this-> cantidad=cantidad;
+//Constructores
+DtProductoFactura::DtProductoFactura() {}
+DtProductoFactura::DtProductoFactura(string descripcion, float precio, int cantidad) {
+    this->descripcion = descripcion;
+    this->precio = precio;
+    this->cantidad = cantidad;
 }
 
-int DtProductoFactura::getCantidad() const {
-    return this ->cantidad;
-}
+//Getters & Setters
 string DtProductoFactura::getDescripcion() {
-    return  this-> descripcion;
+    return this->descripcion;
 }
-
+void DtProductoFactura::setDescripcion(string descripcion) {
+    this->descripcion = descripcion;
+}
 float DtProductoFactura::getPrecio() {
     return this->precio;
 }
-
-void DtProductoFactura::setDescripcion(string) {
-    this->descripcion= descripcion;
+void DtProductoFactura::setPrecio(float precio) {
+    this->precio = precio;
+}
+int DtProductoFactura::getCantidad() const {
+    return this->cantidad;
+}
+void DtProductoFactura::setCantidad(int cantidad) {
+    this->cantidad = cantidad;
 }
 
-void DtProductoFactura::setPrecio(float) {
-    this->precio=precio;
-}
+//Destructores
+DtProductoFactura::~DtProductoFactura() {}
 
-void DtProductoFactura::setCantidad(int){
-    this ->cantidad=cantidad;
-}
+//Métodos

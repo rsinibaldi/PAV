@@ -1,36 +1,43 @@
-#ifndef Menu_H
-#define Menu_H
+#ifndef MENU
+#define MENU
 
-#include "TipoProducto.h"
-#include "Producto.h"
+#include <list>
+#include <string>
 #include "Comun.h"
-#include <string.h>
-#include <iostream>
+#include "Producto.h"
+#include "ProductoMenu.h"
+#include "../DataTypes/DtProductoCantidad.h"
+#include "../../enum/TipoProducto.h"
 
 using namespace std;
 
-
-class ProductoMenu{
+class Menu {
 private:
-					int cantidadComunes;
-
+	int cantidadComunes;
+	list<ProductoMenu>* productosMenu;
 public:
+	//Constructores
+	Menu();
+	Menu(int);
 
-					Menu();
-					Menu(int);
-					int getCantidadComunes();
-					void setCantidadComunes(int);
-					~Menu();
-					TipoProducto getTipoProducto();
-					void eliminarComun(Producto, string);
-					void decrementarCantidadComunes(int);
-          void incrementarCantidadComunes(int);
-          void agregarComunes(DTProductoCantidad[]);
-          void aplicarDescuento();
-          void calcularPrecio();
-          void incrementarPrecio(float);
+	//Getters & Setters
+	int getCantidadComunes();
+	void setCantidadComunes(int);
+	list<ProductoMenu>* getProductosMenu();
+	void setProductosMenu(list<ProductoMenu>*);
 
+	//Destructores
+	~Menu();
 
+	//Métodos
+	TipoProducto getTipoProducto();
+	int eliminarComun(Producto, string);
+	void decrementarCantidadComunes();
+    void incrementarCantidadComunes();
+    void agregarComunes(list<DtProductoCantidad>);
+    void aplicarDescuento();
+    void calcularPrecio();
+    void incrementarPrecio(float);
 };
 
-#endif
+#endif //MENU

@@ -1,6 +1,4 @@
-#include <list>
 #include "ControladorBajaProducto.h"
-#include "DataTypes/DtProductoBase.h"
 
 list<DtProductoBase*> ControladorBajaProducto::listarProductos() {
 }

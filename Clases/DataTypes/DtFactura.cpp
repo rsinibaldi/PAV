@@ -1,45 +1,62 @@
 #include "DtFactura.h"
-#include <iostream>
-using namespace std;
 
+//Constructores
 DtFactura::DtFactura() {}
-DtFactura::DtFactura(string codVenta, DtFecha fechaEmision, list <DtProductoFactura*> productos, float subtotal, float descuento, float montoTotalVenta, float montoTotalVentaConIva) {
-    this-> codVenta=codVenta;
-    this-> fechaEmision = fechaEmision;
-    this-> productos = productos;
-    this-> subtotalVenta = subtotal;
-    this-> descuento= descuento;
-    this-> montoTotalVenta= montoTotalVenta;
-    this -> montoTotalVentaConIva= montoTotalVentaConIva;
+DtFactura::DtFactura(string codVenta, DtFecha fechaEmision, list <DtProductoFactura*> productos, float subTotalVenta, float descuento, float montoTotalVenta, float montoTotalVentaConIva) {
+    this->codVenta = codVenta;
+    this->fechaEmision = fechaEmision;
+    this->productos = productos;
+    this->subtotalVenta = subTotalVenta;
+    this->descuento = descuento;
+    this->montoTotalVenta = montoTotalVenta;
+    this->montoTotalVentaConIva = montoTotalVentaConIva;
 }
 
-string DtFactura::getCodVenta(){
+//Getters & Setters
+string DtFactura::getCodVenta() {
     return this->codVenta;
 }
-
-DtFecha DtFactura::getFechaEmsion(){
-    return this-> fechaEmision;
+void DtFactura::setCodVenta(string codVenta) {
+    this->codVenta = codVenta;
 }
-
-float DtFactura::getSubtotalVenta(){
-    return this-> subtotalVenta;
+DtFecha DtFactura::getFechaEmision() {
+    return this->fechaEmision;
 }
-
-DtProductoFactura::~DtProductoFactura() {}
-
-
-float DtFactura::getDescuento(){
-    return this-> descuento;
+void DtFactura::setFechaEmision(DtFecha fechaEmision) {
+    this->fechaEmision = fechaEmision;
 }
-
-float DtFactura::getMontoTotalVenta(){
+list<DtProductoFactura*> DtFactura::getProductos() {
+    return this->productos;
+}
+void DtFactura::setProductos(list<DtProductoFactura*> productos) {
+    this->productos = productos;
+}
+float DtFactura::getSubtotalVenta() {
+    return this->subtotalVenta;
+}
+void DtFactura::setSubtotalVenta(float subtotalVenta) {
+    this->subtotalVenta = subtotalVenta;
+}
+float DtFactura::getDescuento() {
+    return this->descuento;
+}
+void DtFactura::setDescuento(float descuento) {
+    this->descuento = descuento;
+}
+float DtFactura::getMontoTotalVenta() {
     return this->montoTotalVenta;
 }
-
-float DtFactura::getTotalMontoVentaConIva(){
-    return this -> montoTotalVentaConIva;
+void DtFactura::setMontoTotalVenta(float montoTotalVenta) {
+    this->montoTotalVenta = montoTotalVenta;
+}
+float DtFactura::getTotalMontoVentaConIva() {
+    return this->montoTotalVentaConIva;
+}
+void DtFactura::setTotalMontoVentaConIva(float montoTotalVentaConIva) {
+    this->montoTotalVentaConIva = montoTotalVentaConIva;
 }
 
-list<DtProductoFactura*> DtFactura::getProductos() {
-    return this ->productos;
-}
+//Destructores
+DtProductoFactura::~DtProductoFactura() {}
+
+//Métodos

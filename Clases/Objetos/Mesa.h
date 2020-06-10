@@ -1,27 +1,36 @@
-#ifndef Mesa_H
-#define Mesa_H
+#ifndef MESA
+#define MESA
+
+#include <list>
+#include "../DataTypes/DtProducto.h"
+#include "../DataTypes/DtProductoCantidad.h"
+#include "VentaLocal.h"
+
+using namespace std;
 
 class Mesa{
+private:
+    int numero;
+    VentaLocal *ventaLocal;
+public:
+    //Constructores
+    Mesa();
+    Mesa(int);
 
-  private:
-      int numero;
+    //Getters & Setters
+    int getNumero();
+    void setNumero(int);
+    VentaLocal *getVentaLocal();
+    void setVentaLocal(VentaLocal*);
 
-  public:
-      //Constructores
-      Mesa();
-      Mesa(int);
+    //Destructores
+    ~Mesa();
 
-      //Getters & Setters
-
-      //Destructores
-      ~Mesa();
-
-      //Métodos
-      bool tieneVenta();
-      agregarProducto(DtProductoCantidad);
-      DtProducot listarProductos();//: Set(DtProducot)
-      quitarProducto(DtProductoCantidad);
-
+    //Métodos
+    bool tieneVenta();
+    void agregarProducto(DtProductoCantidad);
+    list<DtProducto> listarProductos();
+    void quitarProducto(DtProductoCantidad);
 };
 
-#endif //Mesa_H
+#endif //MESA

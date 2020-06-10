@@ -1,31 +1,40 @@
 #ifndef CONTROLADORALTAPRODUCTO
 #define CONTROLADORALTAPRODUCTO
 
-#include "Interfaces/IControladorAltaProducto.h"
-#include <string.h>
+#include <list>
+#include <string>
+#include "../Interfaces/IControladorAltaProducto.h"
+#include "../DataTypes/DtProductoCantidad.h"
 
 using namespace std;
 
 class ControladorAltaProducto : public IControladorAltaProducto {
 private:
-    string codMenu, descMenu, codComun, descComun;
-    list<DtProductoCantidad> productoComun;
+    string codMenu;
+    string descMenu;
+    string codComun;
+    string descComun;
+    list<DtProductoCantidad> productosComun;
     float precioComun;
 public:
+    //Getters & Setters
     string getCodMenu();
-    string getDescMenu();
-    string getCodComun();
-    string getDescComun();
-    list<DtProductoCantidad> getProductoComun();
-    float getPrecioComun();
-
     void setCodMenu(string);
+    string getDescMenu();
     void setDescMenu(string);
+    string getCodComun();
     void setCodComun(string);
+    string getDescComun();
     void setDescComun(string);
-    void setProductoComun(list<DtProductoCantidad>);
+    list<DtProductoCantidad> getProductosComun();
+    void setProductosComun(list<DtProductoCantidad>);
+    float getPrecioComun();
     void setPrecioComun(float);
 
+    //Destructor
+    ~ControladorAltaProducto();
+
+    //Métodos
     list<DtProductoBase*> listarProductosComunes();
     void datosProductoComun(string, string, float);
     void cancelarProductoComun();
@@ -34,8 +43,6 @@ public:
     void agregarAlProductoMenu(DtProductoCantidad);
     void cancelarProductoMenu();
     void confirmarProductoMenu();
-
-    ~ControladorAltaProducto();
 };
 
 #endif //CONTROLADORALTAPRODUCTO

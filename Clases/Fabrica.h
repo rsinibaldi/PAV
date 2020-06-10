@@ -1,28 +1,31 @@
 #ifndef FABRICA
 #define FABRICA
 
-#include "Interfases/IControladorAgregarProducto.h"
-#include "Interfases/IControladorAltaProducto.h"
-#include "Interfases/IControladorBajaProducto.h"
-#include "Interfases/IControladorFacturacion.h"
-#include "Interfases/IControladorIniciarVenta.h"
-#include "Interfases/IControladorQuitarProducto.h"
+#include "Interfaces/IControladorAgregarProducto.h"
+#include "Interfaces/IControladorAltaProducto.h"
+#include "Interfaces/IControladorBajaProducto.h"
+#include "Interfaces/IControladorFacturacion.h"
+#include "Interfaces/IControladorIniciarVenta.h"
+#include "Interfaces/IControladorQuitarProducto.h"
 
 class Fabrica {
 private:
     static Fabrica* instancia;
     Fabrica();
 public:
+    //Instancia
     static Fabrica* getInstancia();
 
+    //Destructor
+    ~Fabrica();
+
+    //Métodos
     IControladorAgregarProducto* getIControladorAgregarProducto();
     IControladorAltaProducto* getIControladorAltaProducto();
     IControladorBajaProducto* getIControladorBajaProducto();
     IControladorFacturacion* getIControladorFacturacion();
     IControladorIniciarVenta* getIControladorIniciarVenta();
     IControladorQuitarProducto* getIControladorQuitarProducto();
-
-    ~Fabrica();
 };
 
 #endif //FABRICA

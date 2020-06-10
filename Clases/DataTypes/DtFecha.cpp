@@ -1,29 +1,22 @@
 #include "DtFecha.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <iostream>
-
-using namespace std;
-
 //Constructores
 DtFecha::DtFecha() {}
 DtFecha::DtFecha(int d, int m, int a) {
-  this->dia = d;
-  this->mes = m;
-  this->anio = a;
+	this->dia = d;
+	this->mes = m;
+	this->anio = a;
 }
 
 //Getters & Setters
 int DtFecha::getDia() {
-  return this->dia;
+	return this->dia;
 }
 int DtFecha::getMes() {
-  return this->mes;
+	return this->mes;
 }
 int DtFecha::getAnio() {
-  return this->anio;
+	return this->anio;
 }
 
 //Destructores

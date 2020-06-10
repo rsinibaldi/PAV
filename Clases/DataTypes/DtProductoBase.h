@@ -1,34 +1,29 @@
-#ifndef PAV_DTPRODUCTOBASE_H
-#define PAV_DTPRODUCTOBASE_H
+#ifndef DTPRODUCTOBASE
+#define DTPRODUCTOBASE
 
-#include <stdio.h>
-#include <iostream>
-#include <string.h>
+#include <string>
 
 using namespace std;
 
 class DtProductoBase {
 protected:
-    string codigoProducto;
-    string descripcionProducto;
-
+    string codigo;
+    string descripcion;
 public:
-    //constructores
+    //Constructores
     DtProductoBase();
     DtProductoBase(string, string);
 
-    //geterAndSetter
-    string getCodigoProducto();
-    void setCodigoProducto(string codigoProducto);
-    string  getDescripcionProducto();
-    void setDescripcionProducto(string descripcionProducto);
-    //destructores
+    //Getters & Setters
+    string getCodigo();
+    void setCodigo(string);
+    string getDescripcion();
+    void setDescripcion(string);
+
+    //Destructores
     virtual ~DtProductoBase();
 
-    //metodos
-
-
+    //Métodos
 };
 
-
-#endif //PAV_DTPRODUCTOBASE_H
+#endif //DTPRODUCTOBASE

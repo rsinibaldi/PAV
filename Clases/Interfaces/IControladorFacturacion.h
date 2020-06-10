@@ -1,9 +1,7 @@
 #ifndef ICONTROLADORFACTURACION
 #define ICONTROLADORFACTURACION
 
-#include "DataTypes/DtFacturaLocal.h"
-
-using namespace std;
+#include "../DataTypes/DtFacturaLocal.h"
 
 class IControladorFacturacion {
 public:

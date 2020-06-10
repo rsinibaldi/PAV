@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string.h>
 #include "../DataTypes/DtProductoBase.h"
-#include "../enum/TipoProducto.h"
+#include "../../enum/TipoProducto.h"
 
 using namespace std;
 
@@ -30,8 +30,8 @@ public:
 	~Producto();
 
 	//Métodos
+	DtProductoBase getDtProductoBase();
 	virtual TipoProducto getTipoProducto() = 0;
-	virtual DtProductoBase getDtProductoBase() = 0;
 };
 
 #endif //PRODUCTO

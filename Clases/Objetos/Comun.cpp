@@ -1,9 +1,12 @@
 #include "Comun.h"
 
+//Constructores
+Comun::Comun() {}
 
+//Destructores
+Comun::~Comun() {}
 
-Comun::Comun(){}
-
-TipoProducto Comun::getTipoProducto(){
-			return this->tipoProd;
+//Métodos
+TipoProducto Comun::getTipoProducto() {
+	return comun;
 }

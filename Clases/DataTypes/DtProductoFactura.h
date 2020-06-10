@@ -1,10 +1,9 @@
-#ifndef PAV_DTPRODUCTOFACTURA_H
-#define PAV_DTPRODUCTOFACTURA_H
-#include <stdio.h>
-#include <iostream>
-#include <string.h>
+#ifndef DTPRODUCTOFACTURA
+#define DTPRODUCTOFACTURA
 
-using namespace  std;
+#include <string>
+
+using namespace std;
 
 class DtProductoFactura {
 private:
@@ -12,17 +11,22 @@ private:
     float precio;
     int cantidad;
 public:
+    //Constructores
     DtProductoFactura();
     DtProductoFactura(string, float, int);
+
+    //Getters & Setters
     string getDescripcion();
-    float getPrecio();
-    int getCantidad() const;
     void setDescripcion(string);
+    float getPrecio();
     void setPrecio(float);
+    int getCantidad() const;
     void setCantidad(int);
+
+    //Destructores
     ~DtProductoFactura();
 
+    //Métodos
 };
 
-
-#endif //PAV_DTPRODUCTOFACTURA_H
+#endif //DTPRODUCTOFACTURA

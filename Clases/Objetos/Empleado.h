@@ -1,8 +1,7 @@
-#ifndef Empleado_H
-#define Empleado_H
+#ifndef EMPLEADO
+#define EMPLEADO
 
-#include <string.h>
-#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -25,5 +24,6 @@ public:
     ~Empleado();
 
     //Métodos
+};
 
-#endif //Empleado_H
+#endif //EMPLEADO

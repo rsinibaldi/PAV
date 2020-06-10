@@ -1,27 +1,27 @@
-#include "DtProducto.h"
-#include <iostream>
-using namespace std;
+#include "DtProductoBase.h"
 
+//Constructores
 DtProductoBase::DtProductoBase() {}
-DtProductoBase::DtProductoBase(string codigoProducto, string descripcionProducto) {
-this -> codigoProducto=codigoProducto;
-this -> descripcionProducto= descripcionProducto;
-}
-string DtProductoBase::getCodigoProducto(){
-    return this ->codigoProducto;
+DtProductoBase::DtProductoBase(string codigo, string descripcion) {
+    this->codigo = codigo;
+    this->descripcion = descripcion;
 }
 
-string DtProductoBase::getDescripcionProducto(){
-    return this -> descripcionProducto;
+//Getters & Setters
+string DtProductoBase::getCodigo() {
+    return this->codigo;
+}
+void DtProductoBase::setCodigo(string codigo) {
+    this->codigo = codigo;
+}
+string DtProductoBase::getDescripcion() {
+    return this->descripcion;
+}
+void DtProductoBase::setDescripcion(string descripcion) {
+    this->descripcion = descripcion;
 }
 
-void DtProductoBase::setCodigoProducto(string codigoProducto) {
-    this->codigoProducto=codigoProducto;
-}
-
-void DtProductoBase::setDescripcionProducto(string descripcionProducto) {
-    this ->descripcionProducto=descripcionProducto;
-}
-
+//Destructores
 DtProductoBase::~DtProductoBase() {}
 
+//Métodos

@@ -4,9 +4,7 @@
 #include <list>
 #include <map>
 #include <string>
-#include "Objetos/Empleado.h"
-
-using namespace std;
+#include "../Objetos/Empleado.h"
 
 class ManejadorEmpleado {
 private:
@@ -14,14 +12,17 @@ private:
     map<string, Empleado*> socios;
     ManejadorEmpleado();
 public:
+    //Instancia
     static ManejadorEmpleado* getInstancia();
 
+    //Destructor
+    virtual ~ManejadorEmpleado();
+
+    //Métodos
     list<Empleado*> getEmpleados();
     Empleado* getEmpleado(string);
     void removerEmpleado(Empleado*);
     bool agregarEmpleado(Empleado*);
-
-    virtual ~ManejadorEmpleado();
 };
 
 #endif //MANEJADOREMPLEADO

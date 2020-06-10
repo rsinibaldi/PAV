@@ -3,9 +3,9 @@
 
 #include <iostream>
 #include <string.h>
-#include "DataTypes/DtProducto.h"
-#include "DataTypes/DtProductoFactura.h"
-#include "Objetos/Producto.h"
+#include "../DataTypes/DtProducto.h"
+#include "../DataTypes/DtProductoFactura.h"
+#include "Producto.h"
 
 using namespace std;
 
@@ -21,11 +21,13 @@ public:
 	//Getters & Setters
 	int getCantidad();
 	void setCantidad(int);
+	Producto *getProducto();
+	void setProducto(Producto*);
 
 	//Destructores
 	~VentaProducto();
 
-    //Métodos
+	//Métodos
 	string getCodigoProducto();
 	void incrementarCantidad(int);
 	int decrementarCantidad(int);
