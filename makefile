@@ -1,30 +1,57 @@
-main: Comun.o Producto.o ProductoMenu.o Empleado.o VentaLocal.o DtFactura.o DtFecha.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
-	g++ main.cpp -o obligatorio Comun.o Producto.o ProductoMenu.o Empleado.o VentaLocal.o DtFactura.o DtFecha.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
+main: Fabrica.o ControladorAgregarProducto.o ControladorAltaProducto.o ControladorBajaProducto.o ControladorFacturacion.o ControladorIniciarVenta.o ControladorQuitarProducto.o ManejadorEmpleado.o ManejadorMesa.o ManejadorProducto.o ManejadorVenta.o Empleado.o Comun.o Producto.o ProductoMenu.o VentaLocal.o DtFactura.o DtFacturaLocal.o DtFecha.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
+	g++ main.cpp -o obligatorio Fabrica.o ControladorAgregarProducto.o ControladorAltaProducto.o ControladorBajaProducto.o ControladorFacturacion.o ControladorIniciarVenta.o ControladorQuitarProducto.o ManejadorEmpleado.o ManejadorMesa.o ManejadorProducto.o ManejadorVenta.o Empleado.o Comun.o Producto.o ProductoMenu.o VentaLocal.o DtFactura.o DtFacturaLocal.o DtFecha.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
+#FABRICA
+Fabrica.o: Clases/Fabrica.cpp Clases/Fabrica.h
+	g++ -c Clases/Fabrica.cpp -o Fabrica.o
+#CONTROLADORES
+ControladorAgregarProducto.o: Clases/Controladores/ControladorAgregarProducto.cpp Clases/Controladores/ControladorAgregarProducto.h
+	g++ -c Clases/Controladores/ControladorAgregarProducto.cpp -o ControladorAgregarProducto.o
+ControladorAltaProducto.o: Clases/Controladores/ControladorAltaProducto.cpp Clases/Controladores/ControladorAltaProducto.h
+	g++ -c Clases/Controladores/ControladorAltaProducto.cpp -o ControladorAltaProducto.o
+ControladorBajaProducto.o: Clases/Controladores/ControladorBajaProducto.cpp Clases/Controladores/ControladorBajaProducto.h
+	g++ -c Clases/Controladores/ControladorBajaProducto.cpp -o ControladorBajaProducto.o
+ControladorFacturacion.o: Clases/Controladores/ControladorFacturacion.cpp Clases/Controladores/ControladorFacturacion.h
+	g++ -c Clases/Controladores/ControladorFacturacion.cpp -o ControladorFacturacion.o
+ControladorIniciarVenta.o: Clases/Controladores/ControladorIniciarVenta.cpp Clases/Controladores/ControladorIniciarVenta.h
+	g++ -c Clases/Controladores/ControladorIniciarVenta.cpp -o ControladorIniciarVenta.o
+ControladorQuitarProducto.o: Clases/Controladores/ControladorQuitarProducto.cpp Clases/Controladores/ControladorQuitarProducto.h
+	g++ -c Clases/Controladores/ControladorQuitarProducto.cpp -o ControladorQuitarProducto.o
+#MANEJADORES
+ManejadorEmpleado.o: Clases/Manejadores/ManejadorEmpleado.cpp Clases/Manejadores/ManejadorEmpleado.h
+	g++ -c Clases/Manejadores/ManejadorEmpleado.cpp -o ManejadorEmpleado.o
+ManejadorMesa.o: Clases/Manejadores/ManejadorMesa.cpp Clases/Manejadores/ManejadorMesa.h
+	g++ -c Clases/Manejadores/ManejadorMesa.cpp -o ManejadorMesa.o
+ManejadorProducto.o: Clases/Manejadores/ManejadorProducto.cpp Clases/Manejadores/ManejadorProducto.h
+	g++ -c Clases/Manejadores/ManejadorProducto.cpp -o ManejadorProducto.o
+ManejadorVenta.o: Clases/Manejadores/ManejadorVenta.cpp Clases/Manejadores/ManejadorVenta.h
+	g++ -c Clases/Manejadores/ManejadorVenta.cpp -o ManejadorVenta.o
 #CLASES
-Comun.o: clases/Comun.cpp clases/Comun.h clases/Producto.cpp clases/Producto.h
-	g++ -c clases/Comun.cpp -o Comun.o
-Producto.o: clases/Producto.cpp clases/Producto.h
-	g++ -c clases/Producto.cpp -o Producto.o
-ProductoMenu.o: clases/ProductoMenu.cpp clases/ProductoMenu.h
-	g++ -c clases/ProductoMenu.cpp -o ProductoMenu.o
-Empleado.o: clases/Empleado.cpp clases/Empleado.h
-	g++ -c clases/Empleado.cpp -o Empleado.o
-VentaLocal.o: clases/VentaLocal.cpp clases/VentaLocal.h
-	g++ -c clases/VentaLocal.cpp -o VentaLocal.o
-	#DATATYPES
-DtFactura.o: DataTypes/DtFactura.cpp DataTypes/DtFactura.h
-	g++ -c DataTypes/DtFactura.cpp -o DtFactura.o
-DtFecha.o: DataTypes/DtFecha.cpp DataTypes/DtFecha.h
-	g++ -c DataTypes/DtFecha.cpp -o DtFecha.o
-DtProducto.o: DataTypes/DtProducto.cpp DataTypes/DtProducto.h
-	g++ -c DataTypes/DtProducto.cpp -o DtProducto.o
-DtProductoBase.o: DataTypes/DtProductoBase.cpp DataTypes/DtProductoBase.h
-	g++ -c DataTypes/DtProductoBase.cpp -o DtProductoBase.o
-DtProductoCantidad.o: DataTypes/DtProductoCantidad.cpp DataTypes/DtProductoCantidad.h
-	g++ -c DataTypes/DtProductoCantidad.cpp -o DtProductoCantidad.o
-DtProductoFactura.o:	DataTypes/DtProductoFactura.cpp DataTypes/DtProductoFactura.h
-	g++ -c DataTypes/DtProductoFactura.cpp -o DtProductoFactura.o
-
+Empleado.o: Clases/Objetos/Empleado.cpp Clases/Objetos/Empleado.h
+	g++ -c Clases/Objetos/Empleado.cpp -o Empleado.o
+Comun.o: Clases/Objetos/Comun.cpp Clases/Objetos/Comun.h Clases/Objetos/Producto.cpp Clases/Objetos/Producto.h
+	g++ -c Clases/Objetos/Comun.cpp -o Comun.o
+Producto.o: Clases/Objetos/Producto.cpp Clases/Objetos/Producto.h
+	g++ -c Clases/Objetos/Producto.cpp -o Producto.o
+ProductoMenu.o: Clases/Objetos/ProductoMenu.cpp Clases/Objetos/ProductoMenu.h
+	g++ -c Clases/Objetos/ProductoMenu.cpp -o ProductoMenu.o
+VentaLocal.o: Clases/Objetos/VentaLocal.cpp Clases/Objetos/VentaLocal.h
+	g++ -c Clases/Objetos/VentaLocal.cpp -o VentaLocal.o
+#DATATYPES
+DtFactura.o: Clases/DataTypes/DtFactura.cpp Clases/DataTypes/DtFactura.h
+	g++ -c Clases/DataTypes/DtFactura.cpp -o DtFactura.o
+DtFacturaLocal.o: Clases/DataTypes/DtFacturaLocal.cpp Clases/DataTypes/DtFacturaLocal.h
+	g++ -c Clases/DataTypes/DtFacturaLocal.cpp -o DtFacturaLocal.o
+DtFecha.o: Clases/DataTypes/DtFecha.cpp Clases/DataTypes/DtFecha.h
+	g++ -c Clases/DataTypes/DtFecha.cpp -o DtFecha.o
+DtProducto.o: Clases/DataTypes/DtProducto.cpp Clases/DataTypes/DtProducto.h
+	g++ -c Clases/DataTypes/DtProducto.cpp -o DtProducto.o
+DtProductoBase.o: Clases/DataTypes/DtProductoBase.cpp Clases/DataTypes/DtProductoBase.h
+	g++ -c Clases/DataTypes/DtProductoBase.cpp -o DtProductoBase.o
+DtProductoCantidad.o: Clases/DataTypes/DtProductoCantidad.cpp Clases/DataTypes/DtProductoCantidad.h
+	g++ -c Clases/DataTypes/DtProductoCantidad.cpp -o DtProductoCantidad.o
+DtProductoFactura.o: Clases/DataTypes/DtProductoFactura.cpp Clases/DataTypes/DtProductoFactura.h
+	g++ -c Clases/DataTypes/DtProductoFactura.cpp -o DtProductoFactura.o
 
 clean:
-	rn -rf *o main
+	rm *.o
+	clear
