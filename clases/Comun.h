@@ -6,7 +6,7 @@
 
 class Comun: public Producto {
 private:
-				TipoProducto tipoProd;
+				TipoProducto tipoProd; //MOMENTANEO -DUDA
 public:
 				//Constructor
 				Comun();

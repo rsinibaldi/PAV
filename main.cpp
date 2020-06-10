@@ -2,7 +2,9 @@
 #include "clases/Empleado.h"
 #include "clases/Producto.h"
 #include "clases/VentaLocal.h"
-#include "clases/Mozo.h" //??
+#include "clases/Mozo.h"
+#include "clases/ProductoMenu.h"
+#include "clases/Venta.h" //??
 
 #include "dtTypes/DtFactura.h"
 #include "dtTypes/DtProducto.h"
@@ -14,14 +16,17 @@
 #include "enum/TipoProducto.h"
 
 #include <stdio.h>
-#include <string>
+#include <string.h>
 #include <iostream>
+#include <unistd.h>
+#include <time.h>
 
-
+using namespace  std;
 //MAIN
 
 int main(){
-    using namespace  std;
+
+
 
     cout <<"menu"<< endl;
 }

@@ -3,12 +3,15 @@
 
 #include "../DataTypes/DtProductoBase.h"
 #include "../enum/TipoProducto.h"
+
 #include <string.h>
 #include <iostream>
+#include <stdio.h>
+
 
 using namespace std;
 
-class Producto	{
+class Producto{
 private:
 	string codigo;
 	string descripcion;

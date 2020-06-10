@@ -3,11 +3,11 @@
 
 #include "Producto.h" // ?
 #include "Comun.h"
-#include <string.h>
+#include <stdio.h>
 #include <iostream>
+#include <string.h>
 
-using namespace std;
-
+using	namespace	 std;
 
 class ProductoMenu{
 private:

@@ -1,9 +1,5 @@
 #include "Producto.h"
 
-#include <string.h>
-#include <iostream>
-
-using namespace std;
 
 
 //Constructores
@@ -46,6 +42,10 @@ Producto::~Producto(){}
 //Métodos
 
 TipoProducto Producto::getTipoProducto(){
+				DtProductoBase dtPB;
+				dtPB.setCodigoProducto(this->codigo);
+				dtPB.setDescripcionProducto(this->descripcion);
+
 }
 DtProductoBase Producto::getDtProductoBase(){
 }
