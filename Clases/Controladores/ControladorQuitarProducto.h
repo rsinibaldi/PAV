@@ -1,6 +1,7 @@
 #ifndef CONTROLADORQUITARPRODUCTO
 #define CONTROLADORQUITARPRODUCTO
 
+#include <list>
 #include "../Interfaces/IControladorQuitarProducto.h"
 
 class ControladorQuitarProducto : public IControladorQuitarProducto {

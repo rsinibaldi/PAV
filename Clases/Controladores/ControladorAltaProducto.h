@@ -6,8 +6,6 @@
 #include "../Interfaces/IControladorAltaProducto.h"
 #include "../DataTypes/DtProductoCantidad.h"
 
-using namespace std;
-
 class ControladorAltaProducto : public IControladorAltaProducto {
 private:
     string codMenu;

@@ -1,18 +1,35 @@
 #include "Venta.h"
-#include <string.h>
-#include <iostream>
 
-using namespace std;
-
+//Constructores
 Venta::Venta() {}
 Venta::Venta(string codigo) {
-    this->codigo=codigo;
+    this->codigo = codigo;
 }
 
-string Venta::getCodigoVenta() {
+//Getters & Setters
+string Venta::getCodigo() {
     return this->codigo;
 }
+void Venta::setCodigoVenta(string codigo) {
+    this->codigo = codigo;
+}
+list<VentaProducto>* Venta::getVentaProductos() {
+    return this->ventaProductos;
+}
+void Venta::setVentaProductos(list<VentaProducto>* ventaProductos) {
+    this->ventaProductos = ventaProductos;
+}
 
+//Destructores
+Venta::~Venta() {}
+
+//Métodos
 void Venta::eliminarProducto(string codigo) {
-    //metodo
+    for each (VentaProducto vp in this->ventaProductos) {
+        string cod = vp->getCodigoProducto();
+        if (cod == codigo) {
+            this->ventaProductos.remove(vp);
+            delete vp;
+        }
+    }
 }

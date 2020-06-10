@@ -57,6 +57,6 @@ void DtFactura::setTotalMontoVentaConIva(float montoTotalVentaConIva) {
 }
 
 //Destructores
-DtProductoFactura::~DtProductoFactura() {}
+DtFactura::~DtFactura() {}
 
 //Métodos
