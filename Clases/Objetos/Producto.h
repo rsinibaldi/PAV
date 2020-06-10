@@ -1,10 +1,10 @@
-#ifndef Producto_H
-#define Producto_H
+#ifndef PRODUCTO
+#define PRODUCTO
 
+#include <iostream>
+#include <string.h>
 #include "../DataTypes/DtProductoBase.h"
 #include "../enum/TipoProducto.h"
-#include <string.h>
-#include <iostream>
 
 using namespace std;
 
@@ -13,7 +13,6 @@ private:
 	string codigo;
 	string descripcion;
 	float precio;
-
 public:
 	//Constructores
 	Producto();
@@ -31,10 +30,8 @@ public:
 	~Producto();
 
 	//Métodos
-virtual TipoProducto getTipoProducto() = 0;
-virtual DtProductoBase getDtProductoBase() = 0;
-
-
+	virtual TipoProducto getTipoProducto() = 0;
+	virtual DtProductoBase getDtProductoBase() = 0;
 };
 
-#endif // PRODUCTO_H
+#endif //PRODUCTO

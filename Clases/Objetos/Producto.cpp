@@ -1,51 +1,38 @@
 #include "Producto.h"
 
-#include <string.h>
-#include <iostream>
-
-using namespace std;
-
-
 //Constructores
-Producto::Producto(){}
-Producto::Producto(string codigo, string descripcion, float precio){
-				this->codigo = codigo;
-				this->descripcion = descripcion;
-				this->precio = precio;
+Producto::Producto() {}
+Producto::Producto(string codigo, string descripcion, float precio) {
+	this->codigo = codigo;
+	this->descripcion = descripcion;
+	this->precio = precio;
 }
+
 //Getters & Setters
-
-
-
-
-string Producto::getCodigo(){
-        return this->codigo;
+string Producto::getCodigo() {
+    return this->codigo;
 }
-void Producto::setCodigo(string codigo){
-				this->codigo = codigo;
+void Producto::setCodigo(string codigo) {
+	this->codigo = codigo;
 }
-string Producto::getDescripcion(){
-        return this->descripcion;
+string Producto::getDescripcion() {
+    return this->descripcion;
 }
-void Producto::setDescripcion(string descripcion){
-				this->descripcion = descripcion;
+void Producto::setDescripcion(string descripcion) {
+	this->descripcion = descripcion;
 }
-
-float Producto::getPrecio(){
-				return this->precio;
+float Producto::getPrecio() {
+	return this->precio;
 }
-
-void Producto::setPrecio(float precio){
-				this->precio = precio;
+void Producto::setPrecio(float precio) {
+	this->precio = precio;
 }
 
 //Destructores
-
-Producto::~Producto(){}
+Producto::~Producto() {}
 
 //Métodos
-
-TipoProducto Producto::getTipoProducto(){
+TipoProducto Producto::getTipoProducto() {
 }
-DtProductoBase Producto::getDtProductoBase(){
+DtProductoBase Producto::getDtProductoBase() {
 }
