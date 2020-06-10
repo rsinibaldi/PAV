@@ -1,13 +1,7 @@
 #ifndef DTFACTURALOCAL
 #define DTFACTURALOCAL
 
-#include <list>
-#include <string>
 #include "DtFactura.h"
-#include "DtFecha.h"
-#include "DtProductoFactura.h"
-
-using namespace std;
 
 class DtFacturaLocal : public DtFactura {
 private:

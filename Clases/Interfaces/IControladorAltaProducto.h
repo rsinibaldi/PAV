@@ -6,8 +6,6 @@
 #include "../DataTypes/DtProductoBase.h"
 #include "../DataTypes/DtProductoCantidad.h"
 
-using namespace std;
-
 class IControladorAltaProducto {
 public:
     virtual list<DtProductoBase*> listarProductosComunes() = 0;
