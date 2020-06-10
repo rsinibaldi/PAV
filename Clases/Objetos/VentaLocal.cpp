@@ -18,7 +18,7 @@ bool VentaLocal::tieneProducto(string codigoProducto){
     VentaProducto* ventaProd ;
     Venta* venta;
     string codV= ventaProd->getCodigoProducto();
-    while(!tiene && i< 
+    while(!tiene && i< ventaProd->)
 
 
 }
