@@ -4,6 +4,8 @@
 #include <list>
 #include "../Interfaces/IControladorIniciarVenta.h"
 
+using namespace std;
+
 class ControladorIniciarVenta : public IControladorIniciarVenta {
 public:
     list<int> ingresarIDMozo(int);

@@ -5,6 +5,8 @@
 #include "../DataTypes/DtProductoBase.h"
 #include "../DataTypes/DtProductoCantidad.h"
 
+using namespace std;
+
 class IControladorAgregarProducto {
 public:
     virtual void seleccionarMesa(int) = 0;

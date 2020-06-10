@@ -1,30 +1,22 @@
-#ifndef VENTA
-#define VENTA
-
+#ifndef PAV_VENTA_H
+#define PAV_VENTA_H
 #include <list>
 #include <string.h>
-#include "VentaProducto.h"
+#include <iostream>
+#include <VentaProducto.h>
+
+using namespace std;
 
 class Venta {
 private:
     string codigo;
-    list<VentaProducto>* ventaProductos;
+		<list VentaProducto>* ventasProducto;
 public:
-    //Constructores
     Venta();
-    Venta(string);
-    
-    //Getters & Setters
-    string getCodigo();
-    void setCodigoVenta(string);
-    list<VentaProducto>* getVentaProductos();
-    void setVentaProductos(list<VentaProducto>*);
-
-    //Destructores
-    ~Venta();
-
-    //Métodos
-    void eliminarProducto(string);
+    Venta(string codigo);
+    string getCodigoVenta();
+    void eliminarProducto(string codigo);
 };
 
-#endif //VENTA
+
+#endif //PAV_VENTA_H

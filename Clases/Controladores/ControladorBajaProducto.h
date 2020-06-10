@@ -1,8 +1,6 @@
 #ifndef CONTROLADORBAJAPRODUCTO
 #define CONTROLADORBAJAPRODUCTO
 
-#include <list>
-#include <string>
 #include "../Interfaces/IControladorBajaProducto.h"
 #include "../DataTypes/DtProductoBase.h"
 
