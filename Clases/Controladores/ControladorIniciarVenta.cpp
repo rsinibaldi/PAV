@@ -20,7 +20,7 @@ void ControladorIniciarVenta::setMesas(list<int> mesas) {
 //Destructor
 ControladorIniciarVenta::~ControladorIniciarVenta() {}
 
-//Métodos
+//Metodos
 list<int> ControladorIniciarVenta::ingresarIDMozo(string idMozo) {
 	this->setMozo(idMozo);
 	ManejadorEmpleado* mE = ManejadorEmpleado::getInstancia();

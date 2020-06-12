@@ -5,6 +5,7 @@
 #include "Controladores/ControladorFacturacion.h"
 #include "Controladores/ControladorIniciarVenta.h"
 #include "Controladores/ControladorQuitarProducto.h"
+#include "Controladores/ControladorAgregarDatos.h"
 
 //Constructor
 Fabrica::Fabrica() {}
@@ -20,7 +21,7 @@ Fabrica* Fabrica::getInstancia() {
 //Destructor
 Fabrica::~Fabrica() {}
 
-//Métodos
+//Mï¿½todos
 IControladorAgregarProducto* Fabrica::getIControladorAgregarProducto() {
     return new ControladorAgregarProducto();
 }
@@ -38,4 +39,8 @@ IControladorIniciarVenta* Fabrica::getIControladorIniciarVenta() {
 }
 IControladorQuitarProducto* Fabrica::getIControladorQuitarProducto() {
     return new ControladorQuitarProducto();
+}
+
+IControladorAgregarDatos* Fabrica::getIControladorAgregarDatos() {
+    return new ControladorAgregarDatos();
 }

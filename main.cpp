@@ -20,6 +20,7 @@
 #include "Clases/Interfaces/IControladorFacturacion.h"
 #include "Clases/Interfaces/IControladorIniciarVenta.h"
 #include "Clases/Interfaces/IControladorQuitarProducto.h"
+#include "Clases/Interfaces/IControladorAgregarDatos.h"
 
 #include "Clases/Fabrica.h"
 
@@ -34,6 +35,7 @@ IControladorBajaProducto* iConBjP;
 IControladorFacturacion* iConFac;
 IControladorIniciarVenta* iConInV;
 IControladorQuitarProducto* iConQtP;
+IControladorAgregarDatos* iConAd;
 
 //OPERACION1 ALTA PRODUCTO
 void altaProducto();
@@ -133,9 +135,9 @@ void informacionProducto() {
 }
 
 
-void cargarDatosPrueba() {
-	system("clear");
-}
+//void cargarDatosPrueba() {
+//	system("clear");
+//}
 
 
 
@@ -168,6 +170,7 @@ int main(){
 	iConFac = fabrica->getIControladorFacturacion();
 	iConInV = fabrica->getIControladorIniciarVenta();
 	iConQtP = fabrica->getIControladorQuitarProducto();
+	iConAd  =  fabrica->getIControladorAgregarDatos();
 
 	desplegarMenu();
 
@@ -191,7 +194,7 @@ int main(){
 			break;
 		case 8: informacionProducto();
 			break;
-		case 9: cargarDatosPrueba();
+		case 9: iConAd->cargarDatos();
 			break;
 		case 0: {
 			system("exit");
