@@ -1,5 +1,5 @@
-main: Fabrica.o ControladorAgregarProducto.o ControladorAltaProducto.o ControladorBajaProducto.o ControladorFacturacion.o ControladorIniciarVenta.o ControladorQuitarProducto.o ManejadorEmpleado.o ManejadorMesa.o ManejadorProducto.o ManejadorVenta.o Empleado.o Comun.o Producto.o ProductoMenu.o VentaLocal.o DtFactura.o DtFacturaLocal.o DtFecha.o DtFechaHora.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
-	g++ -Wall -pthread main.cpp -o obligatorio Fabrica.o ControladorAgregarProducto.o ControladorAltaProducto.o ControladorBajaProducto.o ControladorFacturacion.o ControladorIniciarVenta.o ControladorQuitarProducto.o ManejadorEmpleado.o ManejadorMesa.o ManejadorProducto.o ManejadorVenta.o Empleado.o Comun.o Producto.o ProductoMenu.o VentaLocal.o DtFactura.o DtFacturaLocal.o DtFecha.o DtFechaHora.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
+main: Fabrica.o ControladorAgregarProducto.o ControladorAltaProducto.o ControladorBajaProducto.o ControladorFacturacion.o ControladorIniciarVenta.o ControladorQuitarProducto.o ManejadorEmpleado.o ManejadorMesa.o ManejadorProducto.o ManejadorVenta.o Comun.o Empleado.o Menu.o Mesa.o Mozo.o Producto.o ProductoMenu.o Venta.o VentaLocal.o VentaProducto.o DtFactura.o DtFacturaLocal.o DtFecha.o DtFechaHora.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
+	g++ main.cpp -o obligatorio Fabrica.o ControladorAgregarProducto.o ControladorAltaProducto.o ControladorBajaProducto.o ControladorFacturacion.o ControladorIniciarVenta.o ControladorQuitarProducto.o ManejadorEmpleado.o ManejadorMesa.o ManejadorProducto.o ManejadorVenta.o Comun.o Empleado.o Menu.o Mesa.o Mozo.o Producto.o ProductoMenu.o Venta.o VentaLocal.o VentaProducto.o DtFactura.o DtFacturaLocal.o DtFecha.o DtFechaHora.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
 #FABRICA
 Fabrica.o: Clases/Fabrica.cpp Clases/Fabrica.h
 	g++ -c Clases/Fabrica.cpp -o Fabrica.o
@@ -26,16 +26,26 @@ ManejadorProducto.o: Clases/Manejadores/ManejadorProducto.cpp Clases/Manejadores
 ManejadorVenta.o: Clases/Manejadores/ManejadorVenta.cpp Clases/Manejadores/ManejadorVenta.h
 	g++ -c Clases/Manejadores/ManejadorVenta.cpp -o ManejadorVenta.o
 #CLASES
+Comun.o: Clases/Objetos/Comun.cpp Clases/Objetos/Comun.h
+	g++ -c Clases/Objetos/Comun.cpp -o Comun.o
 Empleado.o: Clases/Objetos/Empleado.cpp Clases/Objetos/Empleado.h
 	g++ -c Clases/Objetos/Empleado.cpp -o Empleado.o
-Comun.o: Clases/Objetos/Comun.cpp Clases/Objetos/Comun.h Clases/Objetos/Producto.cpp Clases/Objetos/Producto.h
-	g++ -c Clases/Objetos/Comun.cpp -o Comun.o
+Menu.o: Clases/Objetos/Menu.cpp Clases/Objetos/Menu.h
+	g++ -c Clases/Objetos/Menu.cpp -o Menu.o
+Mesa.o: Clases/Objetos/Mesa.cpp Clases/Objetos/Mesa.h
+	g++ -c Clases/Objetos/Mesa.cpp -o Mesa.o
+Mozo.o: Clases/Objetos/Mozo.cpp Clases/Objetos/Mozo.h
+	g++ -c Clases/Objetos/Mozo.cpp -o Mozo.o
 Producto.o: Clases/Objetos/Producto.cpp Clases/Objetos/Producto.h
 	g++ -c Clases/Objetos/Producto.cpp -o Producto.o
 ProductoMenu.o: Clases/Objetos/ProductoMenu.cpp Clases/Objetos/ProductoMenu.h
 	g++ -c Clases/Objetos/ProductoMenu.cpp -o ProductoMenu.o
+Venta.o: Clases/Objetos/Venta.cpp Clases/Objetos/Venta.h
+	g++ -c Clases/Objetos/Venta.cpp -o Venta.o
 VentaLocal.o: Clases/Objetos/VentaLocal.cpp Clases/Objetos/VentaLocal.h
 	g++ -c Clases/Objetos/VentaLocal.cpp -o VentaLocal.o
+VentaProducto.o: Clases/Objetos/VentaProducto.cpp Clases/Objetos/VentaProducto.h
+	g++ -c Clases/Objetos/VentaProducto.cpp -o VentaProducto.o
 #DATATYPES
 DtFactura.o: Clases/DataTypes/DtFactura.cpp Clases/DataTypes/DtFactura.h
 	g++ -c Clases/DataTypes/DtFactura.cpp -o DtFactura.o
