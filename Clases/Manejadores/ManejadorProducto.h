@@ -3,6 +3,7 @@
 
 #include <list>
 #include <map>
+#include "../Objetos/Producto.h"
 #include "../Objetos/Comun.h"
 #include "../Objetos/Menu.h"
 
@@ -18,7 +19,7 @@ public:
     //Destructor
     virtual ~ManejadorProducto();
 
-    //Métodos
+    //Mï¿½todos
     list<Producto*> getProductos();
     Producto* getProducto(string);
     void removerProducto(Producto*);
