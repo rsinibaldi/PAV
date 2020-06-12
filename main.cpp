@@ -1,33 +1,17 @@
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
-#include <unistd.h>
-
-#include "Clases/DataTypes/DtFactura.h"
-#include "Clases/DataTypes/DtFacturaLocal.h"
-#include "Clases/DataTypes/DtFecha.h"
-#include "Clases/DataTypes/DtFechaHora.h"
-#include "Clases/DataTypes/DtProducto.h"
-#include "Clases/DataTypes/DtProductoBase.h"
-#include "Clases/DataTypes/DtProductoCantidad.h"
-#include "Clases/DataTypes/DtProductoFactura.h"
-
 #include "Clases/Interfaces/IControladorAgregarProducto.h"
 #include "Clases/Interfaces/IControladorAltaProducto.h"
 #include "Clases/Interfaces/IControladorBajaProducto.h"
 #include "Clases/Interfaces/IControladorFacturacion.h"
 #include "Clases/Interfaces/IControladorIniciarVenta.h"
 #include "Clases/Interfaces/IControladorQuitarProducto.h"
+#include "Clases/Interfaces/IControladorAgregarDatos.h"
 
 #include "Clases/Fabrica.h"
-
-#include "enum/TipoProducto.h"
 
 using namespace  std;
 
 Fabrica* fabrica;
+IControladorAgregarDatos* iConAd;
 IControladorAgregarProducto* iConAgP;
 IControladorAltaProducto* iConAlP;
 IControladorBajaProducto* iConBjP;
@@ -43,22 +27,20 @@ void iniciarVenta();
 void agregarProductoAVenta();
 //OPERACION4 QUITAR PRODUCTO A UNA VENTA
 void quitarProductoAVenta();
-//OPERACION5 FACTURACI�N DE UNA VENTA
+//OPERACION5 FACTURACION DE UNA VENTA
 void facturacionDeUnaVenta();
-//OPERACION6 ASIGNAR MOZOS A MESAS AUTOM�TICAMENTE
+//OPERACION6 ASIGNAR MOZOS A MESAS AUTOMATICAMENTE
 void asignarMozosAMesas();
 //OPERACION7 BAJA PRODUCTO
 void bajaProducto();
-//OPERACION8 INFORMACI�N PRODUCTO
+//OPERACION8 INFORMACION PRODUCTO
 void informacionProducto();
 //OPERACION9 CARGAR DATOS DE PRUEBA
 void cargarDatosPrueba();
 
 //FUNCIONES AUXILIARES
 
-//MEN�
 void desplegarMenu();
-
 
 void altaProducto() {
 	system("clear");
@@ -67,7 +49,6 @@ void altaProducto() {
 	cout << "==============A L T A   P R O D U C T O==============" << endl;
 	cout << "_____________________________________________________" << endl;
 }
-
 
 void iniciarVenta() {
 	system("clear");
@@ -85,8 +66,6 @@ void agregarProductoAVenta() {
 	cout << "_____________________________________________________" << endl;
 }
 
-
-
 void quitarProductoAVenta() {
 	system("clear");
 
@@ -96,7 +75,6 @@ void quitarProductoAVenta() {
 
 }
 
-
 void facturacionDeUnaVenta() {
 	system("clear");
 
@@ -104,7 +82,6 @@ void facturacionDeUnaVenta() {
 	cout << "===F A C T U R A C I O N   D E   U N A   V E N T A===" << endl;
 	cout << "_____________________________________________________" << endl;
 }
-
 
 void asignarMozosAMesas() {
 	system("clear");
@@ -114,7 +91,6 @@ void asignarMozosAMesas() {
 	cout << "_____________________________________________________" << endl;
 }
 
-
 void bajaProducto() {
 	system("clear");
 
@@ -122,7 +98,6 @@ void bajaProducto() {
 	cout << "==============B A J A   P R O D U C T O==============" << endl;
 	cout << "_____________________________________________________" << endl;
 }
-
 
 void informacionProducto() {
 	system("clear");
@@ -132,12 +107,10 @@ void informacionProducto() {
 	cout << "_____________________________________________________" << endl;
 }
 
-
 void cargarDatosPrueba() {
 	system("clear");
+	iConAd->cargarDatos();
 }
-
-
 
 //MENU
 void desplegarMenu() {
@@ -162,6 +135,7 @@ void desplegarMenu() {
 int main(){
 	fabrica = Fabrica::getInstancia();
 
+	iConAd = fabrica->getIControladorAgregarDatos();
 	iConAgP = fabrica->getIControladorAgregarProducto();
 	iConAlP = fabrica->getIControladorAltaProducto();
 	iConBjP = fabrica->getIControladorBajaProducto();

@@ -1,4 +1,5 @@
 #include "Fabrica.h"
+#include "Controladores/ControladorAgregarDatos.h"
 #include "Controladores/ControladorAgregarProducto.h"
 #include "Controladores/ControladorAltaProducto.h"
 #include "Controladores/ControladorBajaProducto.h"
@@ -20,7 +21,10 @@ Fabrica* Fabrica::getInstancia() {
 //Destructor
 Fabrica::~Fabrica() {}
 
-//Métodos
+//Metodos
+IControladorAgregarDatos* Fabrica::getIControladorAgregarDatos() {
+    return new ControladorAgregarDatos();
+}
 IControladorAgregarProducto* Fabrica::getIControladorAgregarProducto() {
     return new ControladorAgregarProducto();
 }

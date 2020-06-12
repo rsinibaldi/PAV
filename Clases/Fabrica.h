@@ -7,6 +7,7 @@
 #include "Interfaces/IControladorFacturacion.h"
 #include "Interfaces/IControladorIniciarVenta.h"
 #include "Interfaces/IControladorQuitarProducto.h"
+#include "Interfaces/IControladorAgregarDatos.h"
 
 class Fabrica {
 private:
@@ -19,13 +20,14 @@ public:
     //Destructor
     ~Fabrica();
 
-    //Métodos
+    //Mï¿½todos
     IControladorAgregarProducto* getIControladorAgregarProducto();
     IControladorAltaProducto* getIControladorAltaProducto();
     IControladorBajaProducto* getIControladorBajaProducto();
     IControladorFacturacion* getIControladorFacturacion();
     IControladorIniciarVenta* getIControladorIniciarVenta();
     IControladorQuitarProducto* getIControladorQuitarProducto();
+    IControladorAgregarDatos* getIControladorAgregarDatos();
 };
 
 #endif //FABRICA

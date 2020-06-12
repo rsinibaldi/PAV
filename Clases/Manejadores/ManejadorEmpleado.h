@@ -3,7 +3,8 @@
 
 #include <list>
 #include <map>
-#include "../Objetos/Empleado.h"
+
+#include "../Objetos/Mozo.h"
 
 class ManejadorEmpleado {
 private:
@@ -17,7 +18,7 @@ public:
     //Destructor
     virtual ~ManejadorEmpleado();
 
-    //Métodos
+    //Mï¿½todos
     list<Empleado*> getEmpleados();
     Empleado* getEmpleado(string);
     void removerEmpleado(Empleado*);
