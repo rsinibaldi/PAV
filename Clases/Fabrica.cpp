@@ -1,11 +1,11 @@
 #include "Fabrica.h"
+#include "Controladores/ControladorAgregarDatos.h"
 #include "Controladores/ControladorAgregarProducto.h"
 #include "Controladores/ControladorAltaProducto.h"
 #include "Controladores/ControladorBajaProducto.h"
 #include "Controladores/ControladorFacturacion.h"
 #include "Controladores/ControladorIniciarVenta.h"
 #include "Controladores/ControladorQuitarProducto.h"
-#include "Controladores/ControladorAgregarDatos.h"
 
 //Constructor
 Fabrica::Fabrica() {}
@@ -21,7 +21,10 @@ Fabrica* Fabrica::getInstancia() {
 //Destructor
 Fabrica::~Fabrica() {}
 
-//M�todos
+//Metodos
+IControladorAgregarDatos* Fabrica::getIControladorAgregarDatos() {
+    return new ControladorAgregarDatos();
+}
 IControladorAgregarProducto* Fabrica::getIControladorAgregarProducto() {
     return new ControladorAgregarProducto();
 }
@@ -39,8 +42,4 @@ IControladorIniciarVenta* Fabrica::getIControladorIniciarVenta() {
 }
 IControladorQuitarProducto* Fabrica::getIControladorQuitarProducto() {
     return new ControladorQuitarProducto();
-}
-
-IControladorAgregarDatos* Fabrica::getIControladorAgregarDatos() {
-    return new ControladorAgregarDatos();
 }

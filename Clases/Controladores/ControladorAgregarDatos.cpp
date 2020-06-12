@@ -1,9 +1,9 @@
-#include "ControladorAgregarDatos.h"
-#include "../Manejadores/ManejadorEmpleado.h"
-#include "../Manejadores/ManejadorVenta.h"
-#include "../Manejadores/ManejadorProducto.h"
-#include "../Controladores/ControladorIniciarVenta.h"
 #include "../Controladores/ControladorAgregarProducto.h"
+#include "../Controladores/ControladorIniciarVenta.h"
+#include "../Manejadores/ManejadorEmpleado.h"
+#include "../Manejadores/ManejadorProducto.h"
+#include "../Manejadores/ManejadorVenta.h"
+#include "ControladorAgregarDatos.h"
 
 void ControladorAgregarDatos::cargarDatos(){
     //empleados
@@ -34,11 +34,4 @@ void ControladorAgregarDatos::cargarDatos(){
     mP->agregarProducto(p3);
     mP->agregarProducto(p4);
     mP->agregarProducto(p5);
-
-
-
-
-
-
-
 }

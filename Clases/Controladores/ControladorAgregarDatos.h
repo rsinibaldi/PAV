@@ -1,13 +1,11 @@
 #ifndef PAV_CONTROLADORAGREGARDATOS_H
 #define PAV_CONTROLADORAGREGARDATOS_H
 
-#include "../Clases/Interfaces/IControladorAgregarDatos.h"
-//aca va la carga de datos
+#include "../Interfaces/IControladorAgregarDatos.h"
 
-class ControladorAgregarDatos: public IControladorAgregarDatos{
+class ControladorAgregarDatos: public IControladorAgregarDatos {
 public:
     void cargarDatos();
 };
-
 
 #endif //PAV_CONTROLADORAGREGARDATOS_H

@@ -3,7 +3,8 @@
 
 #include <list>
 #include <map>
-#include "../Objetos/Producto.h"
+#include "../Objetos/Comun.h"
+#include "../Objetos/Menu.h"
 
 class ManejadorProducto {
 private:
