@@ -1,7 +1,9 @@
 #include "Comun.h"
 
 //Constructores
-Comun::Comun() {}
+Comun::Comun(string codigo, string descripcion, float precio):Producto(codigo, descripcion, precio) {}
+
+//Getters & Setters
 
 //Destructores
 Comun::~Comun() {}

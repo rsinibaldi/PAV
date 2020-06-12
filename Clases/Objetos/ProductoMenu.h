@@ -2,13 +2,9 @@
 #define PRODUCTOMENU
 
 #include <list>
-#include <string>
 #include "Comun.h"
-#include "Producto.h"
 
-using namespace std;
-
-class ProductoMenu{
+class ProductoMenu {
 private:
 	int cantidad;
 	Comun* comun;

@@ -9,7 +9,7 @@ private:
     string descMenu;
     string codComun;
     string descComun;
-    list<DtProductoCantidad> productosComun;
+    list<DtProductoCantidad*> productosComun;
     float precioComun;
 public:
     //Getters & Setters
@@ -21,8 +21,8 @@ public:
     void setCodComun(string);
     string getDescComun();
     void setDescComun(string);
-    list<DtProductoCantidad> getProductosComun();
-    void setProductosComun(list<DtProductoCantidad>);
+    list<DtProductoCantidad*> getProductosComun();
+    void setProductosComun(list<DtProductoCantidad*>);
     float getPrecioComun();
     void setPrecioComun(float);
 
@@ -35,7 +35,7 @@ public:
     void cancelarProductoComun();
     void confirmarProductoComun();
     void datosProductoMenu(string, string);
-    void agregarAlProductoMenu(DtProductoCantidad);
+    void agregarAlProductoMenu(DtProductoCantidad*);
     void cancelarProductoMenu();
     void confirmarProductoMenu();
 };

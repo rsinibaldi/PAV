@@ -32,7 +32,7 @@ void Producto::setPrecio(float precio) {
 Producto::~Producto() {}
 
 //Métodos
-DtProductoBase Producto::getDtProductoBase() {
-	DtProductoBase dtb = DtProductoBase(this->getCodigo(), this->getDescripcion());
+DtProductoBase* Producto::getDtProductoBase() {
+	DtProductoBase* dtb = new DtProductoBase(this->getCodigo(), this->getDescripcion());
 	return dtb;
 }

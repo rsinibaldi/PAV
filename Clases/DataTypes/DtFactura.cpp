@@ -2,7 +2,7 @@
 
 //Constructores
 DtFactura::DtFactura() {}
-DtFactura::DtFactura(string codVenta, DtFecha fechaEmision, list <DtProductoFactura*> productos, float subTotalVenta, float descuento, float montoTotalVenta, float montoTotalVentaConIva) {
+DtFactura::DtFactura(string codVenta, DtFechaHora fechaEmision, list<DtProductoFactura*> productos, float subTotalVenta, float descuento, float montoTotalVenta, float montoTotalVentaConIva) {
     this->codVenta = codVenta;
     this->fechaEmision = fechaEmision;
     this->productos = productos;
@@ -19,10 +19,10 @@ string DtFactura::getCodVenta() {
 void DtFactura::setCodVenta(string codVenta) {
     this->codVenta = codVenta;
 }
-DtFecha DtFactura::getFechaEmision() {
+DtFechaHora DtFactura::getFechaEmision() {
     return this->fechaEmision;
 }
-void DtFactura::setFechaEmision(DtFecha fechaEmision) {
+void DtFactura::setFechaEmision(DtFechaHora fechaEmision) {
     this->fechaEmision = fechaEmision;
 }
 list<DtProductoFactura*> DtFactura::getProductos() {

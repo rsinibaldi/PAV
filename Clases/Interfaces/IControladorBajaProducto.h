@@ -2,7 +2,6 @@
 #define ICONTROLADORBAJAPRODUCTO
 
 #include <list>
-#include <string>
 #include "../DataTypes/DtProductoBase.h"
 
 class IControladorBajaProducto {

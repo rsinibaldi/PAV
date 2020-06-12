@@ -1,3 +1,6 @@
+#include "../Manejadores/ManejadorProducto.h"
+#include "../Objetos/Comun.h"
+#include "../Objetos/Menu.h"
 #include "ControladorAltaProducto.h"
 
 //Getters & Setters
@@ -25,10 +28,10 @@ string ControladorAltaProducto::getDescComun() {
 void ControladorAltaProducto::setDescComun(string descComun) {
 	this->descComun = descComun;
 }
-list<DtProductoCantidad> ControladorAltaProducto::getProductosComun() {
+list<DtProductoCantidad*> ControladorAltaProducto::getProductosComun() {
 	return this->productosComun;
 }
-void ControladorAltaProducto::setProductosComun(list<DtProductoCantidad> productosComun) {
+void ControladorAltaProducto::setProductosComun(list<DtProductoCantidad*> productosComun) {
 	this->productosComun = productosComun;
 }
 float ControladorAltaProducto::getPrecioComun() {
@@ -42,15 +45,13 @@ void ControladorAltaProducto::setPrecioComun(float precioComun) {
 ControladorAltaProducto::~ControladorAltaProducto() {}
 
 //Métodos
-list<DtProductoBase*> ControladorAltaProducto::listarProductosComunes() { /*
-	ManejadorProducto mP = ManejadorProduto::getInstancia();
-	list<Producto> productos = mP->getProductos();*/
-	list<DtProductoBase*> dtproductos;/*
-	foreach c in productos{
-		//Hay que castear al Producto c a Comun
-		DtProductoBase dtpb = dynamic_cast<COMUN>(c->getDtProductoBase());
-		dtproductos.push_back(dtpb);
-	}*/
+list<DtProductoBase*> ControladorAltaProducto::listarProductosComunes() { //REVISAR
+	ManejadorProducto* mP = ManejadorProducto::getInstancia();
+	list<DtProductoBase*> dtproductos;
+	for (Producto* p : mP->getProductos()) {
+		Comun* c = dynamic_cast<Comun*>(p);
+		dtproductos.push_back(c->getDtProductoBase());
+	}
 	return dtproductos;
 }
 void ControladorAltaProducto::datosProductoComun(string cod, string desc , float precio) {
@@ -59,20 +60,27 @@ void ControladorAltaProducto::datosProductoComun(string cod, string desc , float
 	this->setPrecioComun(precio);
 }
 void ControladorAltaProducto::cancelarProductoComun() {
+	//REVISAR
 }
-void ControladorAltaProducto::confirmarProductoComun() { /*
+void ControladorAltaProducto::confirmarProductoComun() {
 	ManejadorProducto* mP = ManejadorProducto::getInstancia();
-	Comun* c = new Comun(this->codComun, this->descComun, this->precioComun)
-	mP->agregarProducto(c);*/
+	Comun* c = new Comun(this->getCodComun(), this->getDescComun(), this->getPrecioComun());
+	mP->agregarProducto(c);
 }
 void ControladorAltaProducto::datosProductoMenu(string cod, string desc) {
 	this->setCodMenu(cod);
 	this->setDescMenu(desc);
 }
-void ControladorAltaProducto::agregarAlProductoMenu(DtProductoCantidad pc) {
+void ControladorAltaProducto::agregarAlProductoMenu(DtProductoCantidad* pc) {
 	this->productosComun.push_back(pc);
 }
 void ControladorAltaProducto::cancelarProductoMenu() {
+	//REVISAR
 }
 void ControladorAltaProducto::confirmarProductoMenu() {
+	ManejadorProducto* mP = ManejadorProducto::getInstancia();
+	Menu* m = new Menu(this->getCodMenu(), this->getDescMenu(), 0, 0);
+	m->agregarComunes(this->getProductosComun());
+	m->calcularPrecio();
+	mP->agregarProducto(m);
 }

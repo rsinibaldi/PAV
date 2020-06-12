@@ -5,6 +5,10 @@
 
 class ControladorFacturacion : public IControladorFacturacion {
 public:
+    //Destructor
+    ~ControladorFacturacion();
+
+    //Métodos
     DtFacturaLocal facturar(int, float);
 };
 

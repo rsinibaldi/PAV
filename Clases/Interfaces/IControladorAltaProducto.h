@@ -1,8 +1,6 @@
 #ifndef ICONTROLADORALTAPRODUCTO
 #define ICONTROLADORALTAPRODUCTO
 
-#include <list>
-#include <string>
 #include "../DataTypes/DtProductoBase.h"
 #include "../DataTypes/DtProductoCantidad.h"
 
@@ -13,7 +11,7 @@ public:
     virtual void cancelarProductoComun() = 0;
     virtual void confirmarProductoComun() = 0;
     virtual void datosProductoMenu(string, string) = 0;
-    virtual void agregarAlProductoMenu(DtProductoCantidad) = 0;
+    virtual void agregarAlProductoMenu(DtProductoCantidad*) = 0;
     virtual void cancelarProductoMenu() = 0;
     virtual void confirmarProductoMenu() = 0;
 };

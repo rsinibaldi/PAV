@@ -9,7 +9,7 @@ private:
 public:
     //Constructores
     DtFacturaLocal();
-    DtFacturaLocal(string, DtFecha, list<DtProductoFactura*>, float, float, float, float, string);
+    DtFacturaLocal(string, DtFechaHora, list<DtProductoFactura*>, float, float, float, float, string);
 
     //Getters & Setters
     string getNombreMozo();

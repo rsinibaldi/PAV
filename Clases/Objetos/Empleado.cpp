@@ -14,10 +14,10 @@ string Empleado::getIdEmpleado() {
 void Empleado::setIdEmpleado(string idEmpleado) {
     this->idEmpleado = idEmpleado;
 }
-string Empleado::getNombreEmpleado() {
+string Empleado::getNombre() {
     return this->nombre;
 }
-void Empleado::setNombreEmpleado(string nombre) {
+void Empleado::setNombre(string nombre) {
     this->nombre = nombre;
 }
 
@@ -25,3 +25,5 @@ void Empleado::setNombreEmpleado(string nombre) {
 Empleado::~Empleado() {};
 
 //Métodos
+list<int> mesasAsignadasSinVenta() {}
+void asignarMesas(list<int>, VentaLocal*) {}

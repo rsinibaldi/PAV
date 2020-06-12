@@ -1,5 +1,5 @@
-main: Fabrica.o ControladorAgregarProducto.o ControladorAltaProducto.o ControladorBajaProducto.o ControladorFacturacion.o ControladorIniciarVenta.o ControladorQuitarProducto.o ManejadorEmpleado.o ManejadorMesa.o ManejadorProducto.o ManejadorVenta.o Empleado.o Comun.o Producto.o ProductoMenu.o VentaLocal.o DtFactura.o DtFacturaLocal.o DtFecha.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
-	g++ main.cpp -o obligatorio Fabrica.o ControladorAgregarProducto.o ControladorAltaProducto.o ControladorBajaProducto.o ControladorFacturacion.o ControladorIniciarVenta.o ControladorQuitarProducto.o ManejadorEmpleado.o ManejadorMesa.o ManejadorProducto.o ManejadorVenta.o Empleado.o Comun.o Producto.o ProductoMenu.o VentaLocal.o DtFactura.o DtFacturaLocal.o DtFecha.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
+main: Fabrica.o ControladorAgregarProducto.o ControladorAltaProducto.o ControladorBajaProducto.o ControladorFacturacion.o ControladorIniciarVenta.o ControladorQuitarProducto.o ManejadorEmpleado.o ManejadorMesa.o ManejadorProducto.o ManejadorVenta.o Empleado.o Comun.o Producto.o ProductoMenu.o VentaLocal.o DtFactura.o DtFacturaLocal.o DtFecha.o DtFechaHora.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
+	g++ main.cpp -o obligatorio Fabrica.o ControladorAgregarProducto.o ControladorAltaProducto.o ControladorBajaProducto.o ControladorFacturacion.o ControladorIniciarVenta.o ControladorQuitarProducto.o ManejadorEmpleado.o ManejadorMesa.o ManejadorProducto.o ManejadorVenta.o Empleado.o Comun.o Producto.o ProductoMenu.o VentaLocal.o DtFactura.o DtFacturaLocal.o DtFecha.o DtFechaHora.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
 #FABRICA
 Fabrica.o: Clases/Fabrica.cpp Clases/Fabrica.h
 	g++ -c Clases/Fabrica.cpp -o Fabrica.o
@@ -43,6 +43,8 @@ DtFacturaLocal.o: Clases/DataTypes/DtFacturaLocal.cpp Clases/DataTypes/DtFactura
 	g++ -c Clases/DataTypes/DtFacturaLocal.cpp -o DtFacturaLocal.o
 DtFecha.o: Clases/DataTypes/DtFecha.cpp Clases/DataTypes/DtFecha.h
 	g++ -c Clases/DataTypes/DtFecha.cpp -o DtFecha.o
+DtFechaHora.o: Clases/DataTypes/DtFechaHora.cpp Clases/DataTypes/DtFechaHora.h
+	g++ -c Clases/DataTypes/DtFechaHora.cpp -o DtFechaHora.o
 DtProducto.o: Clases/DataTypes/DtProducto.cpp Clases/DataTypes/DtProducto.h
 	g++ -c Clases/DataTypes/DtProducto.cpp -o DtProducto.o
 DtProductoBase.o: Clases/DataTypes/DtProductoBase.cpp Clases/DataTypes/DtProductoBase.h

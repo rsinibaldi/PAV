@@ -1,15 +1,13 @@
 #ifndef MANEJADORVENTA
 #define MANEJADORVENTA
 
-#include <list>
 #include <map>
-#include <string>
 #include "../Objetos/Venta.h"
 
 class ManejadorVenta {
 private:
     static ManejadorVenta* instancia;
-    map<string, Venta*> socios;
+    map<string, Venta*> ventas;
     ManejadorVenta();
 public:
     //Instancia

@@ -1,11 +1,7 @@
 #ifndef DTPRODUCTO
 #define DTPRODUCTO
 
-#include <iostream>
-#include <string>
 #include "DtProductoBase.h"
-
-using namespace std;
 
 class DtProducto: public DtProductoBase {
 private:
@@ -26,7 +22,6 @@ private:
     virtual ~DtProducto();
 
     //Métodos
-    friend ostream& operator <<(ostream&, const DtProducto&);
 };
 
 #endif //DTPRODUCTO

@@ -3,13 +3,12 @@
 
 #include <list>
 #include <map>
-#include <string>
 #include "../Objetos/Empleado.h"
 
 class ManejadorEmpleado {
 private:
     static ManejadorEmpleado* instancia;
-    map<string, Empleado*> socios;
+    map<string, Empleado*> empleados;
     ManejadorEmpleado();
 public:
     //Instancia
@@ -22,7 +21,7 @@ public:
     list<Empleado*> getEmpleados();
     Empleado* getEmpleado(string);
     void removerEmpleado(Empleado*);
-    bool agregarEmpleado(Empleado*);
+    void agregarEmpleado(Empleado*);
 };
 
 #endif //MANEJADOREMPLEADO

@@ -1,24 +1,33 @@
-#ifndef PAV_VENTALOCAL_H
-#define PAV_VENTALOCAL_H
+#ifndef VENTALOCAL
+#define VENTALOCAL
 
-
+#include "../DataTypes/DtProductoCantidad.h"
+//#include "Mozo.h"
 #include "Venta.h"
-#include "Clases/DataTypes/DtProducto.h"
-#include "Clases/DataTypes/DtProductoFactura.h"
-#include "Clases/DataTypes/DtProductoCantidad.h"
-#include <map>
-#include <list>
 
-class VentaLocal: public Venta {
+class VentaLocal : public Venta {
+private:
+    //Mozo mozo;  //REVISAR
 public:
+    //Constructores
     VentaLocal();
-    bool tieneProducto(string codigoProducto);
-    void agregarProducto(DtProductoCantidad pc);
-    void incrementar(DtProductoCantidad pc);
-    map<DtProducto*, int> listarProductos();
+    VentaLocal(string);
+
+    //Getters & Setters
+    /*Mozo getMozo();
+    void setMozo(Mozo);*/
+
+    //Destructores
+    ~VentaLocal();
+
+    //Métodos
+    bool tieneElProducto(string);
+    void agregarProducto(DtProductoCantidad);
+    void incrementar(DtProductoCantidad);
+    list<DtProducto*> listarProductos();
+    string getNombreMozo(); //REVISAR
+    float getSubTotalVenta();
     list<DtProductoFactura*> getDtProductoFactura();
-    string getNombreMozo(string idMozo);
-    float getSubtotalVenta();
 };
 
-#endif //PAV_VENTALOCAL_H
+#endif //VENTALOCAL

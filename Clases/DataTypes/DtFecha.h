@@ -17,8 +17,11 @@ public:
 
     //Getters & Setters
     int getDia();
+    void setDia(int);
     int getMes();
+    void setMes(int);
     int getAnio();
+    void setAnio(int);
 
     //Destructores
     ~DtFecha();

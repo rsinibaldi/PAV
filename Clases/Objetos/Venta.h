@@ -1,13 +1,13 @@
 #ifndef VENTA
 #define VENTA
 
-#include <list>
-#include <string.h>
+#include "../DataTypes/DtFactura.h"
 #include "VentaProducto.h"
 
 class Venta {
 private:
     string codigo;
+    DtFactura* factura;
     list<VentaProducto>* ventaProductos;
 public:
     //Constructores
@@ -17,8 +17,10 @@ public:
     //Getters & Setters
     string getCodigo();
     void setCodigoVenta(string);
-    list<VentaProducto>* getVentaProductos();
-    void setVentaProductos(list<VentaProducto>*);
+    DtFactura* getFactura();
+    void setFactura(DtFactura*);
+    list<VentaProducto*> getVentaProductos();
+    void setVentaProductos(list<VentaProducto*>);
 
     //Destructores
     ~Venta();

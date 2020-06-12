@@ -1,14 +1,10 @@
 #ifndef PRODUCTO
 #define PRODUCTO
 
-#include <iostream>
-#include <string>
 #include "../DataTypes/DtProductoBase.h"
 #include "../../enum/TipoProducto.h"
 
-using namespace std;
-
-class Producto{
+class Producto {
 private:
 	string codigo;
 	string descripcion;
@@ -30,7 +26,7 @@ public:
 	~Producto();
 
 	//Métodos
-	DtProductoBase getDtProductoBase();
+	DtProductoBase* getDtProductoBase();
 	virtual TipoProducto getTipoProducto() = 0;
 };
 

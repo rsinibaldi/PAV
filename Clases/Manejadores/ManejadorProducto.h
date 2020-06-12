@@ -3,13 +3,12 @@
 
 #include <list>
 #include <map>
-#include <string>
 #include "../Objetos/Producto.h"
 
 class ManejadorProducto {
 private:
     static ManejadorProducto* instancia;
-    map<string, Producto*> socios;
+    map<string, Producto*> productos;
     ManejadorProducto();
 public:
     //Instancia

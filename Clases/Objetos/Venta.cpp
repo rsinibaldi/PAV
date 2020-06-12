@@ -13,10 +13,16 @@ string Venta::getCodigo() {
 void Venta::setCodigoVenta(string codigo) {
     this->codigo = codigo;
 }
-list<VentaProducto>* Venta::getVentaProductos() {
+DtFactura* Venta::getFactura() {
+    return this->factura;
+}
+void Venta::setFactura(DtFactura* factura) {
+    this->factura = factura;
+}
+list<VentaProducto*> Venta::getVentaProductos() {
     return this->ventaProductos;
 }
-void Venta::setVentaProductos(list<VentaProducto>* ventaProductos) {
+void Venta::setVentaProductos(list<VentaProducto*> ventaProductos) {
     this->ventaProductos = ventaProductos;
 }
 
@@ -25,10 +31,9 @@ Venta::~Venta() {}
 
 //Métodos
 void Venta::eliminarProducto(string codigo) {
-    for each (VentaProducto vp in this->ventaProductos) {
-        string cod = vp->getCodigoProducto();
-        if (cod == codigo) {
-            this->ventaProductos.remove(vp);
+    for each (VentaProducto vp in this->getVentaProductos()) {
+        if (vp->getCodigoProducto() == codigo) {
+            this->getCodigoProducto().remove(vp);
             delete vp;
         }
     }

@@ -3,7 +3,11 @@
 //Constructores
 VentaProducto::VentaProducto() {}
 VentaProducto::VentaProducto(int cantidad) {
-	return this->cantidad;
+	this->cantidad = cantidad;
+}
+VentaProducto::VentaProducto(int cantidad, Producto* producto) {
+	this->cantidad = cantidad;
+	this->producto = producto;
 }
 
 //Getters & Setters
@@ -13,7 +17,7 @@ int VentaProducto::getCantidad() {
 void VentaProducto::setCantidad(int cantidad) {
 	this->cantidad = cantidad;
 }
-Producto *VentaProducto::getProducto() {
+Producto* VentaProducto::getProducto() {
 	return this->producto;
 }
 void VentaProducto::setProducto(Producto *producto) {
@@ -25,33 +29,33 @@ VentaProducto::~VentaProducto() {}
 
 //Métodos
 string VentaProducto::getCodigoProducto() {
-	return this->producto->getCodigo();
+	return this->getProducto()->getCodigo();
 }
 void VentaProducto::incrementarCantidad(int cantidad) {
-	this->cantidad = this->cantidad + cantidad;
+	this->setCantidad(this->getCantidad() + cantidad);
 }
 int VentaProducto::decrementarCantidad(int cantidad) {
-	this->cantidad = this->cantidad - cantidad;
-	return this->cantidad;
+	this->setCantidad(this->getCantidad() - cantidad);
+	return this->getCantidad();
 }
-DtProductoFactura VentaProducto::getDtProductoFactura() {
-	float precio = this->producto->getPrecio();
-	string desc = this->producto->getDescripcion();
+DtProductoFactura* VentaProducto::getDtProductoFactura() {
+	float precio = this->getProducto()->getPrecio();
+	string desc = this->getProducto()->getDescripcion();
 	int cant = this->getCantidad();
 
-	DtProductoFactura dtpf = DtProductoFactura(precio, desc, cant);
+	DtProductoFactura* dtpf = new DtProductoFactura(precio, desc, cant);
 	return dtpf;
 }
 float VentaProducto::getPrecioProductoEnVenta() {
-	float precio = this->producto->getPrecio();
-	return this->cantidad * precio;
+	float precio = this->getProducto()->getPrecio();
+	return this->getCantidad() * precio;
 }
-DtProducto VentaProducto::getDtProducto() {
-	float precio = this->producto->getPrecio();
-	string desc = this->producto->getDescripcion();
-	float cod = this->producto->getCodigo();
+DtProducto* VentaProducto::getDtProducto() {
+	float precio = this->getProducto()->getPrecio();
+	string desc = this->getProducto()->getDescripcion();
+	float cod = this->getProducto()->getCodigo();
 	int cant = this->getCantidad();
 
-	DtProducto dtp = DtProducto(cod, precio, desc, cant);
+	DtProducto* dtp = new DtProducto(cod, precio, desc, cant);
 	return dtp;
 }

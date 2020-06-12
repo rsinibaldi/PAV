@@ -1,40 +1,66 @@
+#include "../Manejadores/ManejadorProducto.h"
 #include "VentaLocal.h"
-#include <string.h>
-#include <iostream>
-#include "Venta.h"
-#include "Producto.h"
-#include "VentaProducto.h"
-#include "../Manejadores/ManejadorVenta.h"
 
+//Constructores
+VentaLocal::VentaLocal() {}
+VentaLocal::VentaLocal(string codigo):Venta(codigo) {}
 
-using namespace std;
-
-VentaLocal::VentaLocal(){}
-
-bool VentaLocal::tieneProducto(string codigoProducto){
-    int i=0;
-    bool tiene= false;
-    ManejadorVenta* mv= ManejadorVenta::getInstancia();
-    VentaProducto* ventaProd ;
-    Venta* venta;
-    string codV= ventaProd->getCodigoProducto();
-    while(!tiene && i< ventaProd->)
-
-
+//Getters & Setters
+/*Mozo VentaLocal::getMozo() {
+    return this->mozo;
 }
+void VentaLocal::setMozo(Mozo mozo) {
+    this->mozo = mozo;
+}*/
 
-void VentaLocal::agregarProducto(DtProductoCantidad pc){
+//Destructores
+VentaLocal::~VentaLocal() {}
 
+//Métodos
+bool VentaLocal::tieneElProducto(string codigoProducto) {
+    bool tiene = false;
+    for (VentaProducto* vp : this->getVentaProductos()) {
+        if (vp->getCodigoProducto() == codigoProducto) {
+            tiene = true;
+            return 0;
+        }
+    }
+    return tiene;
 }
-
-void VentaLocal::incrementar(DtProductoCantidad pc){
-
+void VentaLocal::agregarProducto(DtProductoCantidad pc) {
+    ManejadorProducto* mP = ManejadorProducto::getInstancia();
+    Producto* pro = mP->getProducto(pc.getCodigo());
+    VentaProducto* vp = new VentaProducto(pc.getCantidad(), pro);
+    this->getVentaProductos().push_back(vp);
 }
-
-map<DtProducto*, int> VentaLocal::listarProductos(){
-
+void VentaLocal::incrementar(DtProductoCantidad pc) {
+    for (VentaProducto* vp : this->getVentaProductos()) {
+        if (vp->getCodigoProducto() == pc.getCodigo())
+            vp->incrementarCantidad(pc.getCantidad());
+    }
 }
-
-list<DtProductoFactura*> VentaLocal::getDtProductoFactura(){
-
+list<DtProducto*> VentaLocal::listarProductos() {
+    list<DtProducto*> dtproductos;
+    for (VentaProducto* vp : this->getVentaProductos()) {
+        DtProducto* dtp = vp->getDtProducto();
+        dtproductos.push_back(dtp);
+    }
+    return dtproductos;
+}
+string VentaLocal::getNombreMozo() {
+    return ""; //this->getMozo()->getNombre();
+}
+float VentaLocal::getSubTotalVenta() {
+    float suma = 0;
+    for (VentaProducto* vp : this->getVentaProductos())
+        suma += vp->getPrecioProductoEnVenta();
+    return suma;
+}
+list<DtProductoFactura*> VentaLocal::getDtProductoFactura() {
+    list<DtProductoFactura*> dtproductosFact;
+    for (VentaProducto* vp : this->getVentaProductos()) {
+        DtProductoFactura* dtpf = vp->getDtProductoFactura();
+        dtproductosFact.push_back(dtpf);
+    }
+    return dtproductosFact;
 }

@@ -2,7 +2,7 @@
 
 //Constructores
 Menu::Menu() {}
-Menu::Menu(int cantidadComunes) {
+Menu::Menu(string codigo, string descripcion, float precio, int cantidadComunes):Producto(codigo, descripcion, precio) {
 	this->cantidadCantidad = cantidadComunes;
 }
 
@@ -13,10 +13,10 @@ int Menu::getCantidadComunes() {
 void Menu::setCantidadComunes(int cantidadComunes) {
 	this->cantidadComunes = cantidadComunes;
 }
-list<ProductoMenu>* Menu::getProductosMenu() {
+list<ProductoMenu*> Menu::getProductosMenu() {
 	return this->productosMenu;
 }
-void Menu::setProductosMenu(list<ProductoMenu>* productosMenu) {
+void Menu::setProductosMenu(list<ProductoMenu*> productosMenu) {
 	this->productosMenu = productosMenu;
 }
 
@@ -27,10 +27,10 @@ Menu::~Menu() {}
 TipoProducto Menu::getTipoProducto() {
 	return menu;
 }
-int Menu::eliminarComun(string codigo) { //Producto pro, string codigo
-	for each (ProductoMenu* pm in this->productosMenu) {
+int Menu::eliminarComun(string codigo) { //REVISAR Producto pro, string codigo
+	for each (ProductoMenu* pm in this->getProductosMenu()) {
 		if (pm->getCodigoComun() == codigo) {
-			this->productosMenu.remove(pm);
+			this->getProductosMenu().remove(pm);
 			delete pm;
 			this->decrementarCantidadComunes();
 		}
@@ -38,30 +38,30 @@ int Menu::eliminarComun(string codigo) { //Producto pro, string codigo
 	return getCantidadComunes();
 }
 void Menu::decrementarCantidadComunes() {
-	this->cantComunes--;
+	this->setCantidadComunes(this->getCantidadComunes() - 1);
 }
 void Menu::incrementarCantidadComunes() {
-	this->cantComunes++;
+	this->setCantidadComunes(this->getCantidadComunes() + 1);
 }
-void Menu::agregarComunes(list<DtProductoCantidad> productosComun) {
+void Menu::agregarComunes(list<DtProductoCantidad*> productosComun) {
 	ProductoMenu* pm;
 	for each (DtProductoCantidad* pc in productosComun)
 		pm = new ProductoMenu(pc.cantidad);
 	pm->asignarComun(pc.codigo);
 
-	this->productosMenu.push_back(pm);
+	this->getProductosMenu().push_back(pm);
 	this->incrementarCantidadComunes();
 }
 void Menu::aplicarDescuento() {
-	this->precio = this->precio * 0.90;
+	this->setPrecio(this->getPrecio() * 0.90);
 }
 void Menu::calcularPrecio() {
-	for each (ProductoMenu* pm in this->productosMenu) {
+	for each (ProductoMenu* pm in this->getProductosMenu()) {
 		float precioCom = pm->getPrecio();
 		this->incrementarPrecio(precioCom);
 	}
 	this->aplicarDescuento();
 }
 void Menu::incrementarPrecio(float precio) {
-	this->precio = this->precio + precio;
+	this->setPrecio(this->getPrecio() + precio);
 }

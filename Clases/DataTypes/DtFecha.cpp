@@ -2,21 +2,30 @@
 
 //Constructores
 DtFecha::DtFecha() {}
-DtFecha::DtFecha(int d, int m, int a) {
-	this->dia = d;
-	this->mes = m;
-	this->anio = a;
+DtFecha::DtFecha(int dia, int mes, int anio) {
+	this->dia = dia;
+	this->mes = mes;
+	this->anio = anio;
 }
 
 //Getters & Setters
 int DtFecha::getDia() {
 	return this->dia;
 }
+void DtFecha::setDia(int dia) {
+	this->dia = dia;
+}
 int DtFecha::getMes() {
 	return this->mes;
 }
+void DtFecha::setMes(int mes) {
+	this->mes = mes;
+}
 int DtFecha::getAnio() {
 	return this->anio;
+}
+void DtFecha::setAnio(int anio) {
+	this->anio = anio;
 }
 
 //Destructores

@@ -3,15 +3,14 @@
 
 #include <list>
 #include "../DataTypes/DtProducto.h"
-#include "../DataTypes/DtProductoCantidad.h"
 #include "VentaLocal.h"
 
 using namespace std;
 
-class Mesa{
+class Mesa {
 private:
     int numero;
-    VentaLocal *ventaLocal;
+    VentaLocal* ventaLocal;
 public:
     //Constructores
     Mesa();
@@ -20,7 +19,7 @@ public:
     //Getters & Setters
     int getNumero();
     void setNumero(int);
-    VentaLocal *getVentaLocal();
+    VentaLocal* getVentaLocal();
     void setVentaLocal(VentaLocal*);
 
     //Destructores
@@ -29,7 +28,7 @@ public:
     //Métodos
     bool tieneVenta();
     void agregarProducto(DtProductoCantidad);
-    list<DtProducto> listarProductos();
+    list<DtProducto*> listarProductos();
     void quitarProducto(DtProductoCantidad);
 };
 

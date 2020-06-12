@@ -13,10 +13,10 @@ string Mesa::getNumero() {
 void Mesa::setNumero(int numero) {
     this->numero = numero;
 }
-VentaLocal *Mesa::getVentaLocal() {
+VentaLocal* Mesa::getVentaLocal() {
     return this->ventaLocal;
 }
-void Mesa::setVentaLocal(VentaLocal *ventaLocal) {
+void Mesa::setVentaLocal(VentaLocal* ventaLocal) {
     this->ventaLocal = ventaLocal;
 }
 
@@ -29,15 +29,14 @@ bool Mesa::tieneVenta() {
     return vl == NULL;
 }
 void Mesa::agregarProducto(DtProductoCantidad pc) {
-    if (this->ventaLocal->tieneElProducto(pc.codigo))
-        this->ventaLocal->incrementar(pc);
+    if (this->setVentaLocal()->tieneElProducto(pc.getCodigo()))
+        this->setVentaLocal()->incrementar(pc);
     else
-        this->ventaLocal->agregarProducto(pc);
+        this->setVentaLocal()->agregarProducto(pc);
 }
-list<DtProducto> Mesa::listarProductos() {
-    list<DtProducto> dtproductos = this->ventaLocal->listarProductos();
-    return dtproductos;
+list<DtProducto*> Mesa::listarProductos() {
+    return this->getVentaLocal()->listarProductos();
 }
 void Mesa::quitarProducto(DtProductoCantidad pc) {
-    this->ventaLocal->quitarProducto(pc);
+    this->getVentaLocal()->eliminarProducto(pc.getCodigo()); //REVISAR
 }

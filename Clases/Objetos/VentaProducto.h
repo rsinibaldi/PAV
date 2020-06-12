@@ -1,27 +1,24 @@
 #ifndef VENTAPRODUCTO
 #define VENTAPRODUCTO
 
-#include <iostream>
-#include <string.h>
 #include "../DataTypes/DtProducto.h"
 #include "../DataTypes/DtProductoFactura.h"
 #include "Producto.h"
 
-using namespace std;
-
 class VentaProducto {
 private:
 	int cantidad;
-	Producto *producto;
+	Producto* producto;
 public:
 	//Constructores
 	VentaProducto();
 	VentaProducto(int);
+	VentaProducto(int, Producto*);
 
 	//Getters & Setters
 	int getCantidad();
 	void setCantidad(int);
-	Producto *getProducto();
+	Producto* getProducto();
 	void setProducto(Producto*);
 
 	//Destructores
@@ -31,9 +28,9 @@ public:
 	string getCodigoProducto();
 	void incrementarCantidad(int);
 	int decrementarCantidad(int);
-	DtProductoFactura getDtProductoFactura();
+	DtProductoFactura* getDtProductoFactura();
 	float getPrecioProductoEnVenta();
-	DtProducto getDtProducto();
+	DtProducto* getDtProducto();
 };
 
 #endif //VENTAPRODUCTO

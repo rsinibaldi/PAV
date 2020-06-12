@@ -3,10 +3,12 @@
 
 #include "Producto.h"
 
-class Comun: public Producto {
+class Comun : public Producto {
 public:
 	//Constructores
-	Comun();
+	Comun(string, string, float);
+
+	//Getters & Setters
 
 	//Destructores
 	~Comun();

@@ -2,16 +2,13 @@
 #define DTFACTURA
 
 #include <list>
-#include <string>
-#include "DtFecha.h"
+#include "DtFechaHora.h"
 #include "DtProductoFactura.h"
-
-using namespace std;
 
 class DtFactura {
 protected:
     string codVenta;
-    DtFecha fechaEmision;
+    DtFechaHora fechaEmision;
     list<DtProductoFactura*> productos;
     float subtotalVenta;
     float descuento;
@@ -20,13 +17,13 @@ protected:
 public:
     //Constructores
     DtFactura();
-    DtFactura(string, DtFecha, list<DtProductoFactura*>, float, float, float, float);
+    DtFactura(string, DtFechaHora, list<DtProductoFactura*>, float, float, float, float);
 
     //Getters & Setters
     string getCodVenta();
     void setCodVenta(string);
-    DtFecha getFechaEmision();
-    void setFechaEmision(DtFecha);
+    DtFechaHora getFechaEmision();
+    void setFechaEmision(DtFechaHora);
     list<DtProductoFactura*> getProductos();
     void setProductos(list<DtProductoFactura*>);
     float getSubtotalVenta();

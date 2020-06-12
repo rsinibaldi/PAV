@@ -1,14 +1,14 @@
-#include <stdio.h>
-#include <string.h>
 #include <iostream>
-#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <time.h>
-
-#include "Clases/Fabrica.h"
+#include <unistd.h>
 
 #include "Clases/DataTypes/DtFactura.h"
 #include "Clases/DataTypes/DtFacturaLocal.h"
 #include "Clases/DataTypes/DtFecha.h"
+#include "Clases/DataTypes/DtFechaHora.h"
 #include "Clases/DataTypes/DtProducto.h"
 #include "Clases/DataTypes/DtProductoBase.h"
 #include "Clases/DataTypes/DtProductoCantidad.h"
@@ -21,20 +21,19 @@
 #include "Clases/Interfaces/IControladorIniciarVenta.h"
 #include "Clases/Interfaces/IControladorQuitarProducto.h"
 
-#include "Clases/Objetos/Comun.h"
-#include "Clases/Objetos/Empleado.h"
-#include "Clases/Objetos/Menu.h"
-#include "Clases/Objetos/Mesa.h"
-#include "Clases/Objetos/Mozo.h"
-#include "Clases/Objetos/Producto.h"
-#include "Clases/Objetos/ProductoMenu.h"
-#include "Clases/Objetos/Venta.h"
-#include "Clases/Objetos/VentaLocal.h"
-#include "Clases/Objetos/VentaProducto.h"
+#include "Clases/Fabrica.h"
 
 #include "enum/TipoProducto.h"
 
 using namespace  std;
+
+Fabrica* fabrica;
+IControladorAgregarProducto* iConAgP;
+IControladorAltaProducto* iConAlP;
+IControladorBajaProducto* iConBjP;
+IControladorFacturacion* iConFac;
+IControladorIniciarVenta* iConInV;
+IControladorQuitarProducto* iConQtP;
 
 //OPERACION1 ALTA PRODUCTO
 void altaProducto();
@@ -171,6 +170,15 @@ void desplegarMenu() {
 
 //MAIN
 int main(){
+	fabrica = Fabrica::getInstancia();
+
+	iConAgP = fabrica->getIControladorAgregarProducto();
+	iConAlP = fabrica->getIControladorAltaProducto();
+	iConBjP = fabrica->getIControladorBajaProducto();
+	iConFac = fabrica->getIControladorFacturacion();
+	iConInV = fabrica->getIControladorIniciarVenta();
+	iConQtP = fabrica->getIControladorQuitarProducto();
+
 	desplegarMenu();
 
 	int opcion;

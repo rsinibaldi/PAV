@@ -2,6 +2,7 @@
 #define EMPLEADO
 
 #include <string>
+#include "VentaLocal.h"
 
 using namespace std;
 
@@ -17,13 +18,15 @@ public:
     //Getters & Setters
     string getIdEmpleado();
     void setIdEmpleado(string);
-    string getNombreEmpleado();
-    void setNombreEmpleado(string);
+    string getNombre();
+    void setNombre(string);
 
     //Destructores
     ~Empleado();
 
     //Métodos
+    virtual list<int> mesasAsignadasSinVenta() = 0;
+    virtual void asignarMesas(list<int>, VentaLocal*) = 0;
 };
 
 #endif //EMPLEADO

@@ -2,16 +2,16 @@
 #include "../Manejadores/ManejadorProducto.h"
 
 //Constructores
-ProductoMenu::ProductoMenu(){}
-ProductoMenu::ProductoMenu(int cantidad){
+ProductoMenu::ProductoMenu() {}
+ProductoMenu::ProductoMenu(int cantidad) {
 	this->cantidad = cantidad;
 }
 
 //Getters & Setters
-int ProductoMenu::getCantidad(){
+int ProductoMenu::getCantidad() {
 	return this->cantidad;
 }
-void ProductoMenu::setCantidad(int cantidad){
+void ProductoMenu::setCantidad(int cantidad) {
 	this->cantidad = cantidad;
 }
 Comun* ProductoMenu::getComun() {
@@ -22,18 +22,17 @@ void ProductoMenu::setComun(Comun* comun) {
 }
 
 //Destructores
-ProductoMenu::~ProductoMenu(){}
+ProductoMenu::~ProductoMenu() {}
 
 //Métodos
-string ProductoMenu::getCodigoComun(){
-	return this->comun->getCodigo();
+string ProductoMenu::getCodigoComun() {
+	return this->getComun()->getCodigo();
 }
-void ProductoMenu::asignarComun(string codigo){
+void ProductoMenu::asignarComun(string codigo) {
 	ManejadorProducto* mP = ManejadorProducto::getInstancia();
-	Producto* c = mP->getProducto(codigo);
-	Comun* com = dynamic_cast<Comun*>(c); //REVISAR
+	Comun* com = dynamic_cast<Comun*>(mP->getProducto(codigo));
 	this->setComun(com);
 }
-float ProductoMenu::getPrecio(){
-	return this->comun->getPrecio() * this->cantidad;
+float ProductoMenu::getPrecio() {
+	return this->getComun()->getPrecio() * this->getCantidad();
 }
