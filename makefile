@@ -1,9 +1,11 @@
-main: Fabrica.o ControladorAgregarProducto.o ControladorAltaProducto.o ControladorBajaProducto.o ControladorFacturacion.o ControladorIniciarVenta.o ControladorQuitarProducto.o ManejadorEmpleado.o ManejadorMesa.o ManejadorProducto.o ManejadorVenta.o Comun.o Empleado.o Menu.o Mesa.o Mozo.o Producto.o ProductoMenu.o Venta.o VentaLocal.o VentaProducto.o DtFactura.o DtFacturaLocal.o DtFecha.o DtFechaHora.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
-	g++ main.cpp -o obligatorio Fabrica.o ControladorAgregarProducto.o ControladorAltaProducto.o ControladorBajaProducto.o ControladorFacturacion.o ControladorIniciarVenta.o ControladorQuitarProducto.o ManejadorEmpleado.o ManejadorMesa.o ManejadorProducto.o ManejadorVenta.o Comun.o Empleado.o Menu.o Mesa.o Mozo.o Producto.o ProductoMenu.o Venta.o VentaLocal.o VentaProducto.o DtFactura.o DtFacturaLocal.o DtFecha.o DtFechaHora.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
+main:	Fabrica.o ControladorAgregarDatos.o ControladorAgregarProducto.o ControladorAltaProducto.o ControladorBajaProducto.o ControladorFacturacion.o ControladorIniciarVenta.o ControladorQuitarProducto.o ManejadorEmpleado.o ManejadorMesa.o ManejadorProducto.o ManejadorVenta.o Comun.o Empleado.o Menu.o Mesa.o Mozo.o Producto.o ProductoMenu.o Venta.o VentaLocal.o VentaProducto.o DtFactura.o DtFacturaLocal.o DtFecha.o DtFechaHora.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
+	g++ main.cpp -o obligatorio Fabrica.o ControladorAgregarDatos.o ControladorAgregarProducto.o ControladorAltaProducto.o ControladorBajaProducto.o ControladorFacturacion.o ControladorIniciarVenta.o ControladorQuitarProducto.o ManejadorEmpleado.o ManejadorMesa.o ManejadorProducto.o ManejadorVenta.o Comun.o Empleado.o Menu.o Mesa.o Mozo.o Producto.o ProductoMenu.o Venta.o VentaLocal.o VentaProducto.o DtFactura.o DtFacturaLocal.o DtFecha.o DtFechaHora.o DtProducto.o DtProductoBase.o DtProductoCantidad.o DtProductoFactura.o
 #FABRICA
 Fabrica.o: Clases/Fabrica.cpp Clases/Fabrica.h
 	g++ -c Clases/Fabrica.cpp -o Fabrica.o
 #CONTROLADORES
+ControladorAgregarDatos.o: Clases/Controladores/ControladorAgregarDatos.cpp Clases/Controladores/ControladorAgregarDatos.h
+	g++ -c Clases/Controladores/ControladorAgregarDatos.cpp -o ControladorAgregarDatos.o
 ControladorAgregarProducto.o: Clases/Controladores/ControladorAgregarProducto.cpp Clases/Controladores/ControladorAgregarProducto.h
 	g++ -c Clases/Controladores/ControladorAgregarProducto.cpp -o ControladorAgregarProducto.o
 ControladorAltaProducto.o: Clases/Controladores/ControladorAltaProducto.cpp Clases/Controladores/ControladorAltaProducto.h

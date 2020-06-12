@@ -2,7 +2,7 @@
 #define PAV_CONTROLADORAGREGARDATOS_H
 
 #include "../Clases/Interfaces/IControladorAgregarDatos.h"
-//aca va la carga de datos
+
 
 class ControladorAgregarDatos: public IControladorAgregarDatos{
 public:
