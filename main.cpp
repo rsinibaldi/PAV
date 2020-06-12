@@ -43,23 +43,23 @@ void iniciarVenta();
 void agregarProductoAVenta();
 //OPERACION4 QUITAR PRODUCTO A UNA VENTA
 void quitarProductoAVenta();
-//OPERACION5 FACTURACIÓN DE UNA VENTA
+//OPERACION5 FACTURACIï¿½N DE UNA VENTA
 void facturacionDeUnaVenta();
-//OPERACION6 ASIGNAR MOZOS A MESAS AUTOMÁTICAMENTE
+//OPERACION6 ASIGNAR MOZOS A MESAS AUTOMï¿½TICAMENTE
 void asignarMozosAMesas();
 //OPERACION7 BAJA PRODUCTO
 void bajaProducto();
-//OPERACION8 INFORMACIÓN PRODUCTO
+//OPERACION8 INFORMACIï¿½N PRODUCTO
 void informacionProducto();
 //OPERACION9 CARGAR DATOS DE PRUEBA
 void cargarDatosPrueba();
 
 //FUNCIONES AUXILIARES
 
-//MENÚ
+//MENï¿½
 void desplegarMenu();
 
-#pragma region Op1 - ALTA PRODUCTO
+
 void altaProducto() {
 	system("clear");
 
@@ -67,9 +67,8 @@ void altaProducto() {
 	cout << "==============A L T A   P R O D U C T O==============" << endl;
 	cout << "_____________________________________________________" << endl;
 }
-#pragma endregion
 
-#pragma region Op2 - INICIAR VENTA
+
 void iniciarVenta() {
 	system("clear");
 
@@ -77,9 +76,7 @@ void iniciarVenta() {
 	cout << "===============I N I C I A R   V E N T A=============" << endl;
 	cout << "_____________________________________________________" << endl;
 }
-#pragma endregion
 
-#pragma region Op3 - AGREGAR PRODUCTO A UNA VENTA
 void agregarProductoAVenta() {
 	system("clear");
 
@@ -87,9 +84,9 @@ void agregarProductoAVenta() {
 	cout << "===A G R E G A R   P R O D U C T O   A   V E N T A===" << endl;
 	cout << "_____________________________________________________" << endl;
 }
-#pragma endregion
 
-#pragma region Op4 - QUITAR PRODUCTO A UNA VENTA
+
+
 void quitarProductoAVenta() {
 	system("clear");
 
@@ -98,9 +95,8 @@ void quitarProductoAVenta() {
 	cout << "_____________________________________________________" << endl;
 
 }
-#pragma endregion
 
-#pragma region Op5 - FACTURACIÓN DE UNA VENTA
+
 void facturacionDeUnaVenta() {
 	system("clear");
 
@@ -108,9 +104,8 @@ void facturacionDeUnaVenta() {
 	cout << "===F A C T U R A C I O N   D E   U N A   V E N T A===" << endl;
 	cout << "_____________________________________________________" << endl;
 }
-#pragma endregion
 
-#pragma region Op6 - ASIGNAR MOZOS A MESAS AUTOMÁTICAMENTE
+
 void asignarMozosAMesas() {
 	system("clear");
 
@@ -118,9 +113,8 @@ void asignarMozosAMesas() {
 	cout << "======A S I G N A R   M O Z O S   A   M E S A S======" << endl;
 	cout << "_____________________________________________________" << endl;
 }
-#pragma endregion
 
-#pragma region Op7 - BAJA PRODUCTO
+
 void bajaProducto() {
 	system("clear");
 
@@ -128,9 +122,8 @@ void bajaProducto() {
 	cout << "==============B A J A   P R O D U C T O==============" << endl;
 	cout << "_____________________________________________________" << endl;
 }
-#pragma endregion
 
-#pragma region Op8 - INFORMACIÓN PRODUCTO
+
 void informacionProducto() {
 	system("clear");
 
@@ -138,16 +131,13 @@ void informacionProducto() {
 	cout << "=======I N F O R M A C I O N   P R O D U C T O=======" << endl;
 	cout << "_____________________________________________________" << endl;
 }
-#pragma endregion
 
-#pragma region Op9 - CARGAR DATOS DE PRUEBA
+
 void cargarDatosPrueba() {
 	system("clear");
 }
-#pragma endregion
 
-#pragma region FUNCIONES AUXILIARES
-#pragma endregion
+
 
 //MENU
 void desplegarMenu() {

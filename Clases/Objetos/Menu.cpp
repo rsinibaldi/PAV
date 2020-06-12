@@ -3,7 +3,7 @@
 //Constructores
 Menu::Menu() {}
 Menu::Menu(string codigo, string descripcion, float precio, int cantidadComunes):Producto(codigo, descripcion, precio) {
-	this->cantidadCantidad = cantidadComunes;
+	this->cantidadComunes = cantidadComunes;
 }
 
 //Getters & Setters
@@ -23,18 +23,18 @@ void Menu::setProductosMenu(list<ProductoMenu*> productosMenu) {
 //Destructores
 Menu::~Menu() {}
 
-//Métodos
+//Mï¿½todos
 TipoProducto Menu::getTipoProducto() {
 	return menu;
 }
 int Menu::eliminarComun(string codigo) { //REVISAR Producto pro, string codigo
-	for each (ProductoMenu* pm in this->getProductosMenu()) {
+	for (ProductoMenu* pm : this->getProductosMenu()) {
 		if (pm->getCodigoComun() == codigo) {
 			this->getProductosMenu().remove(pm);
 			delete pm;
 			this->decrementarCantidadComunes();
 		}
-	}
+	};
 	return getCantidadComunes();
 }
 void Menu::decrementarCantidadComunes() {
@@ -45,10 +45,10 @@ void Menu::incrementarCantidadComunes() {
 }
 void Menu::agregarComunes(list<DtProductoCantidad*> productosComun) {
 	ProductoMenu* pm;
-	for each (DtProductoCantidad* pc in productosComun)
-		pm = new ProductoMenu(pc.cantidad);
-	pm->asignarComun(pc.codigo);
-
+	DtProductoCantidad* pc;
+	for (DtProductoCantidad* pc : productosComun)
+		pm = new ProductoMenu(pc->getCantidad());
+	pm->asignarComun(pc->getCodigo());
 	this->getProductosMenu().push_back(pm);
 	this->incrementarCantidadComunes();
 }
@@ -56,7 +56,7 @@ void Menu::aplicarDescuento() {
 	this->setPrecio(this->getPrecio() * 0.90);
 }
 void Menu::calcularPrecio() {
-	for each (ProductoMenu* pm in this->getProductosMenu()) {
+	for (ProductoMenu* pm : this->getProductosMenu()) {
 		float precioCom = pm->getPrecio();
 		this->incrementarPrecio(precioCom);
 	}

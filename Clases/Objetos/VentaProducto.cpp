@@ -27,7 +27,7 @@ void VentaProducto::setProducto(Producto *producto) {
 //Destructores
 VentaProducto::~VentaProducto() {}
 
-//Métodos
+//Mï¿½todos
 string VentaProducto::getCodigoProducto() {
 	return this->getProducto()->getCodigo();
 }
@@ -43,7 +43,7 @@ DtProductoFactura* VentaProducto::getDtProductoFactura() {
 	string desc = this->getProducto()->getDescripcion();
 	int cant = this->getCantidad();
 
-	DtProductoFactura* dtpf = new DtProductoFactura(precio, desc, cant);
+	DtProductoFactura* dtpf = new DtProductoFactura(desc, precio, cant);
 	return dtpf;
 }
 float VentaProducto::getPrecioProductoEnVenta() {
@@ -51,11 +51,11 @@ float VentaProducto::getPrecioProductoEnVenta() {
 	return this->getCantidad() * precio;
 }
 DtProducto* VentaProducto::getDtProducto() {
-	float precio = this->getProducto()->getPrecio();
+	int precio = this->getProducto()->getPrecio();
 	string desc = this->getProducto()->getDescripcion();
-	float cod = this->getProducto()->getCodigo();
-	int cant = this->getCantidad();
+	string cod = this->getProducto()->getCodigo();
+	float cant = this->getCantidad();
 
-	DtProducto* dtp = new DtProducto(cod, precio, desc, cant);
+	DtProducto* dtp = new DtProducto(cod, desc, precio,cant);
 	return dtp;
 }

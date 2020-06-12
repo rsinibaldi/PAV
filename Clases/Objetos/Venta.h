@@ -8,7 +8,7 @@ class Venta {
 private:
     string codigo;
     DtFactura* factura;
-    list<VentaProducto>* ventaProductos;
+    list<VentaProducto*> ventaProductos;
 public:
     //Constructores
     Venta();
@@ -25,7 +25,7 @@ public:
     //Destructores
     ~Venta();
 
-    //Métodos
+    //Mï¿½todos
     void eliminarProducto(string);
 };
 

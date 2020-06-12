@@ -26,7 +26,7 @@ public:
     //Destructores
     ~DtProductoFactura();
 
-    //Métodos
+    //Mï¿½todos
 };
 
 #endif //DTPRODUCTOFACTURA

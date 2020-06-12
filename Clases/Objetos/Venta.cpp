@@ -29,11 +29,11 @@ void Venta::setVentaProductos(list<VentaProducto*> ventaProductos) {
 //Destructores
 Venta::~Venta() {}
 
-//Métodos
+//Mï¿½todos
 void Venta::eliminarProducto(string codigo) {
-    for each (VentaProducto vp in this->getVentaProductos()) {
+    for (VentaProducto* vp : this->getVentaProductos()) {
         if (vp->getCodigoProducto() == codigo) {
-            this->getCodigoProducto().remove(vp);
+            this->getVentaProductos().remove(vp);
             delete vp;
         }
     }

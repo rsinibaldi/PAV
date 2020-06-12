@@ -29,7 +29,7 @@ list<int> Mozo::mesasAsignadasSinVenta() {
 void Mozo::asignarMesas(list<int> mesas, VentaLocal* vl) {
 	ManejadorMesa* mM = ManejadorMesa::getInstancia();
 	for (int me : mesas) {
-		Mesa* m = mM->getMesas().find(me); //REVISAR
+		Mesa* m = mM->getMesa(me); //REVISAR
 		m->setVentaLocal(vl);
 	}
 }

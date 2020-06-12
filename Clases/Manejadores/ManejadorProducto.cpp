@@ -14,7 +14,7 @@ ManejadorProducto* ManejadorProducto::getInstancia() {
 //Destructor
 ManejadorProducto::~ManejadorProducto() {}
 
-//Métodos
+//Mï¿½todos
 list<Producto*> ManejadorProducto::getProductos() {
     list<Producto*> lProductos;
     for (map<string, Producto*>::iterator it = this->productos.begin(); it != this->productos.end(); ++it)

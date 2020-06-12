@@ -24,6 +24,6 @@ void Empleado::setNombre(string nombre) {
 //Destructores
 Empleado::~Empleado() {};
 
-//Métodos
-list<int> mesasAsignadasSinVenta() {}
+//Metodos
+list<int*> mesasAsignadasSinVenta() {}
 void asignarMesas(list<int>, VentaLocal*) {}

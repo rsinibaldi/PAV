@@ -7,7 +7,7 @@ Mesa::Mesa(int nroMesa) {
 }
 
 //Getters & Setters
-string Mesa::getNumero() {
+int Mesa::getNumero() {
     return this->numero;
 }
 void Mesa::setNumero(int numero) {
@@ -29,10 +29,10 @@ bool Mesa::tieneVenta() {
     return vl == NULL;
 }
 void Mesa::agregarProducto(DtProductoCantidad pc) {
-    if (this->setVentaLocal()->tieneElProducto(pc.getCodigo()))
-        this->setVentaLocal()->incrementar(pc);
+    if (this->getVentaLocal()->tieneElProducto(pc.getCodigo()))
+        this->getVentaLocal()->incrementar(pc);
     else
-        this->setVentaLocal()->agregarProducto(pc);
+        this->getVentaLocal()->agregarProducto(pc);
 }
 list<DtProducto*> Mesa::listarProductos() {
     return this->getVentaLocal()->listarProductos();
